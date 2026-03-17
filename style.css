@@ -724,6 +724,185 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===========================
+   Undersidor – sidtitel
+   =========================== */
+
+.page-header {
+  background: var(--navy);
+  padding: 5rem 0 4rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.page-header p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  max-width: 560px;
+}
+
+/* ===========================
+   Undersidor – innehåll
+   =========================== */
+
+.page-content {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.page-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.page-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-content p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+
+.content-section {
+  margin-bottom: 4rem;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Verktygslista */
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tool-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tool-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 2px 12px rgba(42, 157, 143, 0.1);
+}
+
+.tool-card a {
+  font-weight: 600;
+  color: var(--teal);
+  font-size: 0.95rem;
+}
+
+.tool-card a:hover { color: var(--navy); }
+
+.tool-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+}
+
+/* Länklista */
+
+.link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.link-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.link-list a {
+  color: var(--teal);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.link-list a:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.link-list .link-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Podcast-lista */
+
+.podcast-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.podcast-list li strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--navy);
+}
+
+.podcast-list li span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Info-box */
+
+.info-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-box p {
+  margin-bottom: 0;
+}
+
+/* Asterisk-förklaring */
+
+.footnote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===========================
    Responsive
    =========================== */
 
