@@ -396,6 +396,9 @@ a { color: inherit; text-decoration: none; }
 
 img.book-cover {
   width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
   border-radius: var(--radius);
   box-shadow: 0 4px 16px rgba(38, 70, 83, 0.15);
   transition: box-shadow 0.2s, transform 0.2s;
