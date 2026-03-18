@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Böcker om AI · Johan Falk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .books-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    .book-entry {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .book-entry img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(38, 70, 83, 0.18);
+    }
+
+    .book-entry-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .book-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .book-entry-text p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 0.9rem;
+    }
+
+    .book-entry-text p:last-of-type {
+      margin-bottom: 1.5rem;
+    }
+
+    .book-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .book-quote {
+      border-left: 3px solid var(--teal);
+      padding: 0.75rem 1.25rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 560px;
+    }
+
+    .book-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .book-entry {
+        grid-template-columns: 1fr;
+      }
+
+      .book-entry img {
+        max-width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Böcker om AI</h1>
+      <p>Jag har skrivit åtta böcker om AI – för nybörjare, lärare, unga och beslutsfattare. Här är de fem som är mest relevanta idag.</p>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="books-list">
+
+        <!-- AI för lärare -->
+        <div class="book-entry">
+          <img src="/images/ai-for-larare.jpg" alt="Omslag: AI för lärare">
+          <div class="book-entry-text">
+            <h2>AI för lärare</h2>
+            <p class="book-meta">Natur &amp; Kultur, oktober 2025</p>
+            <p>De flesta böcker om AI och skola handlar om hur lärare kan använda AI som verktyg. Den här boken handlar om något annat: hur du som pedagog kan hjälpa dina elever att förstå och hantera AI – och varför det är en av de viktigaste sakerna skolan kan göra just nu.</p>
+            <p>Boken innehåller över 40 "pusseldelar" av AI-kompetens anpassade för olika åldrar och ämnen, från förskola till vuxenutbildning, tillsammans med över 100 konkreta aktivitetsförslag.</p>
+            <blockquote class="book-quote">"Falks bok utmärker sig genom sin tydliga och systematiska struktur."</blockquote>
+            <div class="book-links">
+              <a href="https://www.nok.se/bocker/laromedel/ai-for-larare/" target="_blank" class="btn-primary">Köp boken</a>
+              <a href="https://www.prisjakt.nu/produkt.php?p=9778551" target="_blank" class="btn-secondary">Jämför priser →</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="book-divider">
+
+        <!-- AI för nybörjare 2.0 -->
+        <div class="book-entry">
+          <img src="/images/ai-for-nyborjare-2.jpeg" alt="Omslag: AI för nybörjare 2.0">
+          <div class="book-entry-text">
+            <h2>AI för nybörjare 2.0</h2>
+            <p class="book-meta">Natur &amp; Kultur, januari 2025 · Även på danska och norska</p>
+            <p>En helt omskriven andra utgåva av boken som sålde i över 10 000 exemplar. Skarpare analys, bättre struktur och ett helt år av AI-utveckling till. Boken är uppdelad i tre delar: komma igång med generativ AI, förstå var utvecklingen är på väg – och sju samhällsperspektiv som arbetsmarknad, demokrati och säkerhet.</p>
+            <p>Rankad 5:a bland över en miljon titlar på Prisjakt i maj 2025.</p>
+            <blockquote class="book-quote">"Denna typ av böcker brukar vara alltför grundläggande och banala... Vilken tur att jag gjorde det! Det här är en briljant bok."</blockquote>
+            <div class="book-links">
+              <a href="https://www.nok.se/bocker/popularvetenskap/ai-for-nyborjare-2-0/" target="_blank" class="btn-primary">Köp boken</a>
+              <a href="https://www.prisjakt.nu/produkt.php?p=9386532" target="_blank" class="btn-secondary">Jämför priser →</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="book-divider">
+
+        <!-- Vår artificiella framtid -->
+        <div class="book-entry">
+          <img src="/images/var-artificiella-framtid.jpg" alt="Omslag: Vår artificiella framtid – AI för medborgare">
+          <div class="book-entry-text">
+            <h2>Vår artificiella framtid – AI för medborgare</h2>
+            <p class="book-meta">Natur &amp; Kultur, september 2024 · Med Daniel Ståhl</p>
+            <p>Hur ser livet ut 2030 beroende på hur AI-utvecklingen går? Den här boken utforskar tre scenarier – och hur de skiljer sig beroende på hur fort tekniken utvecklas, hur fort den sprids och hur hårt den regleras. Berättelsen följer fem fiktiva personer i vardagen och ger ett konkret sätt att tänka om framtiden.</p>
+            <p>Skriven tillsammans med Daniel Ståhl, AI-strateg på Ericsson och lektor vid Linköpings universitet.</p>
+            <div class="book-links">
+              <a href="https://www.nok.se/bocker/popularvetenskap/var-artificiella-framtid/" target="_blank" class="btn-primary">Köp boken</a>
+              <a href="https://www.prisjakt.nu/produkt.php?p=9247890" target="_blank" class="btn-secondary">Jämför priser →</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="book-divider">
+
+        <!-- 10 frågor om AI -->
+        <div class="book-entry">
+          <img src="/images/tio-fragor-om-ai.jpeg" alt="Omslag: 10 frågor om AI">
+          <div class="book-entry-text">
+            <h2>10 frågor om AI</h2>
+            <p class="book-meta">Natur &amp; Kultur, februari 2025</p>
+            <p>En bok för unga som är tillräckligt gamla för att ha en egen telefon – och som börjar använda AI på riktigt. Enkelt språk om ett stundtals svårt men alltid viktigt ämne. Frågorna är de som faktiskt dyker upp: Kan AI tänka? Är AI farligt? Hur gör jag musik med AI?</p>
+            <p>Passar också utmärkt som samtalsunderlag i skolan eller hemma.</p>
+            <div class="book-links">
+              <a href="https://www.nok.se/bocker/barn-ungdom/10-fragor-om-ai/" target="_blank" class="btn-primary">Köp boken</a>
+              <a href="https://www.prisjakt.nu/produkt.php?p=9386533" target="_blank" class="btn-secondary">Jämför priser →</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="book-divider">
+
+        <!-- Om AI och unga -->
+        <div class="book-entry">
+          <img src="/images/om-ai-och-unga.png" alt="Omslag: Om AI och unga – en handbok för vuxna">
+          <div class="book-entry-text">
+            <h2>Om AI och unga – en handbok för vuxna</h2>
+            <p class="book-meta">Natur &amp; Kultur, februari 2025</p>
+            <p>För föräldrar, lärare och andra med ansvar för unga. På 60–70 pocketsidor får du det viktigaste om AI och unga – utan att det kräver mycket tid. Ett kapitel är skrivet direkt till barnet, så att du kan ge det vidare.</p>
+            <p>Bokens centrala tema är att ta lagom mycket risker: vi kan inte skärma av barn från allt som kan bli fel, men det är skillnad mellan att skrapa knät och att trilla från ett tak.</p>
+            <div class="book-links">
+              <a href="https://www.nok.se/bocker/popularvetenskap/om-ai-och-unga/" target="_blank" class="btn-primary">Köp boken</a>
+              <a href="https://www.prisjakt.nu/produkt.php?p=9386534" target="_blank" class="btn-secondary">Jämför priser →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Johan Falk · Falk AI · Org.nr 559507-3908</p>
+    </div>
+  </footer>
+
+</body>
+</html>
