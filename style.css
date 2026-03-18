@@ -300,6 +300,73 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===========================
+   Prisinformation (utfällbar)
+   =========================== */
+
+.pricing-details {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--cream);
+  max-width: 560px;
+}
+
+.pricing-details summary {
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--teal);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.pricing-details summary::-webkit-details-marker { display: none; }
+
+.pricing-details summary::before {
+  content: '›';
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.pricing-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.pricing-details summary:hover { color: var(--navy); }
+
+.pricing-content {
+  padding: 0 1.5rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-content ul {
+  list-style: none;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pricing-content li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pricing-content p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===========================
    About
    =========================== */
 
