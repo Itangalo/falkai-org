@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <li><a href="/media.html">Medieklipp</a></li>
       <li><a href="/verktygslada/">Verktyg</a></li>
       <li><a href="/lanktips/">Länktips</a></li>
+      <li><a href="/en.html">English</a></li>
       <li><a href="/#kontakt" class="btn-nav">Kontakt</a></li>
     </ul>
   `;
