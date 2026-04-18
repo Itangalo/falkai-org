@@ -562,12 +562,29 @@ img.book-cover:hover {
 .site-footer {
   background: #1a2e35;
   padding: 1.5rem 0;
-  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .site-footer p {
   font-size: 0.8rem;
   color: rgba(255,255,255,0.35);
+  margin: 0;
+}
+
+.site-footer a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: rgba(255,255,255,0.7);
 }
 
 /* ===========================
