@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV · Johan Falk · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cv-lang-switch {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .cv-lang-switch a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cv-lang-switch a:hover {
+      color: var(--turquoise);
+      border-color: var(--turquoise);
+    }
+    .cv-body {
+      padding: 4rem 0 5rem;
+      background: var(--cream);
+    }
+    .cv-col {
+      max-width: 780px;
+    }
+    .cv-h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin: 3rem 0 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .cv-h2:first-child { margin-top: 0; }
+    .cv-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .cv-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+    .cv-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+    .cv-list a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .cv-list a:hover { color: var(--navy); }
+    .cv-divider {
+      margin: 4rem 0;
+      border: none;
+      border-top: 2px solid var(--border);
+    }
+    .cv-lang-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .cv-references {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+    }
+    /* Bullet points inside timeline entries */
+    .timeline-content ul {
+      list-style: none;
+      margin-top: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .timeline-content ul li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .timeline-content ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+    .timeline-content ul a,
+    .timeline-content p a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .timeline-content ul a:hover,
+    .timeline-content p a:hover { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <p class="hero-label">Johan Falk · Falk AI</p>
+      <h1>CV</h1>
+      <p>Forskarutbildad vetenskapsjournalist, fysiker, lärare och AI-författare.</p>
+      <div class="cv-lang-switch">
+        <a href="#svenska">Svenska</a>
+        <a href="#english">English</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-body" id="svenska">
+    <div class="container cv-col">
+
+      <h2 class="cv-h2">Yrkeserfarenhet</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2024–</span>
+          <div class="timeline-content">
+            <strong>Grundare, Falk AI</strong>
+            <p>Strategisk analys av hur AI kan påverka samhället. Workshops, föreläsningar, utbildningar och böcker.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2015–2024</span>
+          <div class="timeline-content">
+            <strong>Utbildningsråd, Skolverket</strong>
+            <ul>
+              <li>Initierade och ledde Skolverkets grupp för AI och utbildning (vår 2023–sommar 2024): teamledning, samverkan med myndigheter, strategiskt arbete, utbildningar för skolor och regeringen, mediakontakter. (Se <a href="https://falkai.org/2024/06/13/vad-som-driver-mig/" target="_blank">vad som driver mig</a>.)</li>
+              <li>Ansvar för kurs- och ämnesplaner i matematik (2016–2023).</li>
+              <li>Ansvar för nationella prov i matematik (2015–2019).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2012–2015</span>
+          <div class="timeline-content">
+            <strong>Matematik- och fysiklärare</strong>
+            <p>Rudbecks gymnasium, Sollentuna.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2009–2011</span>
+          <div class="timeline-content">
+            <strong>Webbutvecklare med ansvar för utbildning, NodeOne</strong>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2006–2009</span>
+          <div class="timeline-content">
+            <strong>Teknikredaktör, Forskning &amp; Framsteg</strong>
+            <p>Bevakning av teknikforskning, reportage och notiser i samarbete med aktiva forskare.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2005–2007</span>
+          <div class="timeline-content">
+            <strong>Doktorand i fysikens didaktik, Uppsala universitet</strong>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2005</span>
+          <div class="timeline-content">
+            <strong>Vikarie, vetenskapsredaktionen, Dagens Nyheter</strong>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="cv-h2">Utbildning</h2>
+      <ul class="cv-list">
+        <li>Ämneslärarexamen (matematik och fysik), Linnéuniversitet, 2012</li>
+        <li>Licentiatexamen i fysikdidaktik, Uppsala universitet, 2007</li>
+        <li>Breddmagisterexamen i journalistik, Uppsala universitet, 2005</li>
+        <li>Magisterexamen i fysik, Uppsala universitet, 2004</li>
+      </ul>
+
+      <h2 class="cv-h2">Böcker om AI</h2>
+      <ul class="cv-list">
+        <li>AI för lärare (Natur &amp; Kultur, oktober 2025)</li>
+        <li><a href="https://www.easypeasypublishing.se/bokbutiken/om-ai-och-unga/" target="_blank">Om AI och unga – en handbok för vuxna</a> (Easy Peasy, februari 2025)</li>
+        <li><a href="https://www.easypeasypublishing.se/bokbutiken/tio-fragor-om-ai/" target="_blank">Tio frågor om AI</a> (Easy Peasy, februari 2025)</li>
+        <li><a href="https://nok.se/aifornyborjare" target="_blank">AI för nybörjare 2.0</a> (Natur &amp; Kultur, januari 2025) – nådde topp fem på Prisjakts lista över populära böcker</li>
+        <li><a href="https://www.nok.se/varartificiellaframtid" target="_blank">Vår artificiella framtid</a> (Natur &amp; Kultur, september 2024), skriven tillsammans med <a href="https://www.linkedin.com/in/daniel-b-stahl/" target="_blank">Daniel Ståhl</a></li>
+        <li><a href="https://www.prisjakt.nu/produkt.php?p=12834816" target="_blank">AI för nybörjare</a> (Natur &amp; Kultur, december 2023) – nådde topp tio på Prisjakts lista över populära böcker</li>
+        <li><a href="https://github.com/Itangalo/AI-Education" target="_blank">AI och skolan 2</a> (egenutgiven, juni 2023)</li>
+        <li><a href="https://github.com/Itangalo/AI-Education" target="_blank">AI och skolan</a> (egenutgiven, januari 2023)</li>
+      </ul>
+
+      <h2 class="cv-h2">Övrigt</h2>
+      <ul class="cv-list">
+        <li>Självutbildad inom AI sedan 2018 med fokus på policy, AI-risker och teknisk AI-säkerhet.</li>
+        <li>Medlem i SVT:s AI advisory board.</li>
+        <li>Bidrog till arbetet med Code of practice för EU:s AI-förordning.</li>
+        <li>Rådgivare för det svenska startup-bolaget <a href="https://www.abundly.ai/" target="_blank">Abundly</a>.</li>
+        <li>En av de regelbundna värdarna i podden <a href="https://open.spotify.com/show/2Z8MqCcQnZbmZ3hnhUjNHj?si=7163407063d2420d" target="_blank">Generativet</a>.</li>
+        <li>Fick <a href="https://www2.diu.se/guldapple/nyheter/johan-falk-expert-pa-ai-i-skolan-far-guldapplejuryns-sarskilda-pris/" target="_blank">Guldäpplejuryns särskilda pris</a> 2024 för arbetet med AI och utbildning.</li>
+        <li>Genomgången medieträning; god vana att föreläsa och framträda i riksmedia. Se <a href="media.html">sidan med föreläsningar och nyhetsinslag</a>.</li>
+        <li>Dokumenterad god förmåga att presentera och utbilda, även på engelska.</li>
+        <li>Medelgoda kunskaper i tyska.</li>
+      </ul>
+
+      <p class="cv-references">Referenser, betyg och intyg skickas på begäran.</p>
+
+      <hr class="cv-divider">
+
+      <span class="cv-lang-label" id="english">In English</span>
+
+      <h2 class="cv-h2">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2024–</span>
+          <div class="timeline-content">
+            <strong>Founder, Falk AI</strong>
+            <p>Strategic analysis of how AI affects society. Keynotes, workshops, education and books on AI.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2015–2024</span>
+          <div class="timeline-content">
+            <strong>Director of Education, Swedish National Agency for Education (Skolverket)</strong>
+            <ul>
+              <li>Initiated and led the Agency's AI and Education team (spring 2023–summer 2024): team leadership, inter-agency collaboration, strategic work, training for schools and government, media representation. (See <a href="https://falkai.substack.com/p/what-drives-me" target="_blank">what drives me</a>.)</li>
+              <li>Led development and revision of national mathematics curricula (2016–2023).</li>
+              <li>Responsible for national tests in mathematics (2015–2019).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2012–2015</span>
+          <div class="timeline-content">
+            <strong>Mathematics and Physics Teacher</strong>
+            <p>Rudbeck High School, Sollentuna.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2009–2011</span>
+          <div class="timeline-content">
+            <strong>Web Developer and Training Manager, NodeOne</strong>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2006–2009</span>
+          <div class="timeline-content">
+            <strong>Technology Editor, Forskning &amp; Framsteg</strong>
+            <p>Sweden's leading popular science magazine. Covered technology research; wrote news items and features in collaboration with active researchers.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2005–2007</span>
+          <div class="timeline-content">
+            <strong>Doctoral Student in Physics Education, Uppsala University</strong>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2005</span>
+          <div class="timeline-content">
+            <strong>Temporary Position, Science Desk, Dagens Nyheter</strong>
+            <p>One of two leading daily newspapers in Sweden.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="cv-h2">Education</h2>
+      <ul class="cv-list">
+        <li>Master's degree in teaching (mathematics and physics), Linnaeus University, 2012</li>
+        <li>Licentiate degree in physics education, Uppsala University, 2007</li>
+        <li>Master's degree in journalism, Uppsala University, 2005</li>
+        <li>Master's degree in physics, Uppsala University, 2004</li>
+      </ul>
+
+      <h2 class="cv-h2">Books on AI</h2>
+      <ul class="cv-list">
+        <li>AI för lärare (<em>AI for Teachers</em>) (Natur &amp; Kultur, October 2025)</li>
+        <li><a href="https://www.easypeasypublishing.se/bokbutiken/om-ai-och-unga/" target="_blank">Om AI och unga</a> (<em>AI and Young People – A Handbook for Adults</em>) (Easy Peasy, February 2025)</li>
+        <li><a href="https://www.easypeasypublishing.se/bokbutiken/tio-fragor-om-ai/" target="_blank">Tio frågor om AI</a> (<em>Ten Questions About AI</em>) (Easy Peasy, February 2025)</li>
+        <li><a href="https://nok.se/aifornyborjare" target="_blank">AI för nybörjare 2.0</a> (<em>AI for Beginners 2</em>) (Natur &amp; Kultur, January 2025) – top five on Sweden's biggest price comparison site</li>
+        <li><a href="https://www.nok.se/varartificiellaframtid" target="_blank">Vår artificiella framtid</a> (<em>Our Artificial Future</em>) (Natur &amp; Kultur, September 2024), co-authored with <a href="https://www.linkedin.com/in/daniel-b-stahl/" target="_blank">Daniel Ståhl</a></li>
+        <li><a href="https://www.prisjakt.nu/produkt.php?p=12834816" target="_blank">AI för nybörjare</a> (<em>AI for Beginners</em>) (Natur &amp; Kultur, December 2023) – top ten on Sweden's biggest price comparison site</li>
+        <li><a href="https://github.com/Itangalo/AI-Education" target="_blank">AI och skolan 2</a> (<em>AI and Education 2</em>) (Self-published, June 2023)</li>
+        <li><a href="https://github.com/Itangalo/AI-Education" target="_blank">AI och skolan</a> (<em>AI and Education</em>) (Self-published, January 2023)</li>
+      </ul>
+
+      <h2 class="cv-h2">Other Qualifications</h2>
+      <ul class="cv-list">
+        <li>Self-educated in AI since 2018, with focus on policy, AI risks, and technical AI safety.</li>
+        <li>Member of the AI advisory board for SVT (Swedish national television).</li>
+        <li>Contributed to the Code of practice for the EU AI Act.</li>
+        <li>Advisor for the Swedish start-up <a href="https://www.abundly.ai/" target="_blank">Abundly</a>.</li>
+        <li>One of the regular hosts for the podcast <a href="https://open.spotify.com/show/2Z8MqCcQnZbmZ3hnhUjNHj?si=7163407063d2420d" target="_blank">Generativet</a> (in Swedish).</li>
+        <li>Awarded the <a href="https://www2.diu.se/guldapple/nyheter/johan-falk-expert-pa-ai-i-skolan-far-guldapplejuryns-sarskilda-pris/" target="_blank">Special Prize of the Guldäpplet Jury</a> 2024 for work with AI and education.</li>
+        <li>Completed media training; <a href="media.html">extensive experience in lecturing, public speaking, and appearing in national media</a>.</li>
+        <li>Fluent in English, with experience in public speaking and making complex topics accessible to diverse audiences.</li>
+        <li>Intermediate proficiency in German.</li>
+      </ul>
+
+      <p class="cv-references">References, certificates, and testimonials available upon request.</p>
+
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>
