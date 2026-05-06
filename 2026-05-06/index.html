@@ -172,38 +172,66 @@
     <div class="exercise">
       <div class="exercise-header">
         <span class="exercise-number">1</span>
-        <h2 class="exercise-title">En första konversation</h2>
+        <h2 class="exercise-title">En första konversation (standard – alla prompttjänster + kopiera)</h2>
         <div class="service-links"><a href="https://chatgpt.com/?prompt=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
 <a href="https://claude.ai/new?q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-claude" target="_blank">Claude</a>
-<a href="https://www.google.com/search?udm=50&aep=11&q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Hej! Jag heter Anna och undervisar i svenska på gymnasiet.
+Hjälp mig komma på tre sätt att använda AI i undervisningen.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
       </div>
     </div>
 
     <div class="exercise">
       <div class="exercise-header">
         <span class="exercise-number">2</span>
-        <h2 class="exercise-title">Sök med AI!</h2>
-        <div class="service-links"><a href="https://www.perplexity.ai/search/new?q=Vad%20vet%20forskningen%20om%20l%C3%A4sutveckling%20hos%20ton%C3%A5ringar%3F" class="service-btn service-perplexity" target="_blank">Perplexity</a></div>
+        <h2 class="exercise-title">Sök med AI (Perplexity)</h2>
+        <div class="service-links"><a href="https://www.perplexity.ai/search/new?q=Vad%20vet%20forskningen%20om%20l%C3%A4sutveckling%20hos%20ton%C3%A5ringar%3F" class="service-btn service-perplexity" target="_blank">Perplexity</a>
+<button class="service-btn copy-btn" data-prompt="Vad vet forskningen om läsutveckling hos tonåringar?" onclick="copyPrompt(this)">Kopiera prompt</button></div>
       </div>
     </div>
 
     <div class="exercise">
       <div class="exercise-header">
         <span class="exercise-number">3</span>
-        <h2 class="exercise-title">Välj en av dessa</h2>
+        <h2 class="exercise-title">Utforska ett verktyg (NotebookLM – ingen prompt)</h2>
+        <div class="service-links"><a href="https://notebooklm.google.com" class="service-btn service-notebooklm" target="_blank">NotebookLM</a></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">4</span>
+        <h2 class="exercise-title">Jämför två AI-svar (Arena – ingen prompt, men kopiera finns)</h2>
+        <div class="service-links"><a href="https://arena.ai" class="service-btn service-arena" target="_blank">Arena</a>
+<button class="service-btn copy-btn" data-prompt="Förklara kvantdatorer för en gymnasieelev." onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">5</span>
+        <h2 class="exercise-title">Välj en av dessa (varianter med olika urval)</h2>
       </div>
       <div class="variants">
         <div class="variant">
           <span class="variant-name">Skapa diskussionsfrågor</span>
           <div class="service-links"><a href="https://chatgpt.com/?prompt=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
 <a href="https://claude.ai/new?q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-claude" target="_blank">Claude</a>
-<a href="https://www.google.com/search?udm=50&aep=11&q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Skapa fem diskussionsfrågor om AI i skolan,
+anpassade för gymnasieelever.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
         </div>
         <div class="variant">
           <span class="variant-name">Förbättra lektionsupplägg</span>
           <div class="service-links"><a href="https://chatgpt.com/?prompt=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
 <a href="https://claude.ai/new?q=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-claude" target="_blank">Claude</a>
-<a href="https://www.google.com/search?udm=50&aep=11&q=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+<button class="service-btn copy-btn" data-prompt="Här är mitt lektionsupplägg: [klistra in ditt upplägg]
+Ge konkreta förbättringsförslag med motiveringar.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
         </div>
       </div>
     </div>
