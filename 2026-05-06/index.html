@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI i klassrummet – Björkhagsskolan · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-05-06</p>
+      <h1>AI i klassrummet – Björkhagsskolan</h1>
+      <p class="session-desc">Välkommen! Klicka på länkarna för att öppna övningarna i en AI-tjänst.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">En första konversation</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Hej%21%20Jag%20heter%20Anna%20och%20undervisar%20i%20svenska%20p%C3%A5%20gymnasiet.%0AHj%C3%A4lp%20mig%20komma%20p%C3%A5%20tre%20s%C3%A4tt%20att%20anv%C3%A4nda%20AI%20i%20undervisningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">2</span>
+        <h2 class="exercise-title">Sök med AI!</h2>
+        <div class="service-links"><a href="https://www.perplexity.ai/search/new?q=Vad%20vet%20forskningen%20om%20l%C3%A4sutveckling%20hos%20ton%C3%A5ringar%3F" class="service-btn service-perplexity" target="_blank">Perplexity</a></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">3</span>
+        <h2 class="exercise-title">Välj en av dessa</h2>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">Skapa diskussionsfrågor</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Skapa%20fem%20diskussionsfr%C3%A5gor%20om%20AI%20i%20skolan%2C%0Aanpassade%20f%C3%B6r%20gymnasieelever.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Förbättra lektionsupplägg</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=H%C3%A4r%20%C3%A4r%20mitt%20lektionsuppl%C3%A4gg%3A%20%5Bklistra%20in%20ditt%20uppl%C3%A4gg%5D%0AGe%20konkreta%20f%C3%B6rb%C3%A4ttringsf%C3%B6rslag%20med%20motiveringar.%0A" class="service-btn service-gemini" target="_blank">Gemini</a></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR-kod till den här sidan">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Den här sidans adress</p>
+          <p class="url-text">https://falkai.org/2026-05-06/</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>
