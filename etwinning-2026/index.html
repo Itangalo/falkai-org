@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in Education – Nordic eTwinning Ambassadors 2026 · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources {
+      padding: 0 0 2.5rem;
+    }
+    .resources h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .resource-section {
+      margin-bottom: 2rem;
+    }
+    .resource-section h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-link {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--cream);
+      color: var(--navy);
+      border: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .resource-link:hover { background: var(--border); }
+    .resource-link .note {
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 0.4em;
+    }
+    .docs-btn {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: var(--navy);
+      color: var(--cream);
+      transition: opacity 0.15s;
+    }
+    .docs-btn:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-05-21</p>
+      <h1>AI in Education – Nordic eTwinning Ambassadors 2026</h1>
+      <p class="session-desc">Links and resources from Johan Falk's session. Click a button to open the prompt in an AI service.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">Mini-exercise: Ask a chatbot</h2>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">What should students know about AI?</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=I%20teach%20%5Bsubject%2Fstage%5D.%20What%20should%20the%20children%20I%20teach%20know%20about%20AI%3F%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=I%20teach%20%5Bsubject%2Fstage%5D.%20What%20should%20the%20children%20I%20teach%20know%20about%20AI%3F%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=I%20teach%20%5Bsubject%2Fstage%5D.%20What%20should%20the%20children%20I%20teach%20know%20about%20AI%3F%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=I%20teach%20%5Bsubject%2Fstage%5D.%20What%20should%20the%20children%20I%20teach%20know%20about%20AI%3F%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="I teach [subject/stage]. What should the children I teach know about AI?
+" title="I teach [subject/stage]. What should the children I teach know about AI?
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">How can AI contribute to learning?</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=How%20can%20AI%20actually%20contribute%20to%20students%27%20learning%3F%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=How%20can%20AI%20actually%20contribute%20to%20students%27%20learning%3F%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=How%20can%20AI%20actually%20contribute%20to%20students%27%20learning%3F%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=How%20can%20AI%20actually%20contribute%20to%20students%27%20learning%3F%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="How can AI actually contribute to students&#x27; learning?
+" title="How can AI actually contribute to students&#x27; learning?
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">How will AI affect education?</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=How%20will%20AI%20affect%20education%3F%20I%20mean%20both%20in%20two%20years%20and%20in%20ten%20years.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=How%20will%20AI%20affect%20education%3F%20I%20mean%20both%20in%20two%20years%20and%20in%20ten%20years.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=How%20will%20AI%20affect%20education%3F%20I%20mean%20both%20in%20two%20years%20and%20in%20ten%20years.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=How%20will%20AI%20affect%20education%3F%20I%20mean%20both%20in%20two%20years%20and%20in%20ten%20years.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="How will AI affect education? I mean both in two years and in ten years.
+" title="How will AI affect education? I mean both in two years and in ten years.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">A problem at work</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=I%20want%20your%20input%20on%20an%20actual%20problem%20I%20have%20at%20work.%20%28ask%20me%20about%20it%29%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=I%20want%20your%20input%20on%20an%20actual%20problem%20I%20have%20at%20work.%20%28ask%20me%20about%20it%29%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=I%20want%20your%20input%20on%20an%20actual%20problem%20I%20have%20at%20work.%20%28ask%20me%20about%20it%29%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=I%20want%20your%20input%20on%20an%20actual%20problem%20I%20have%20at%20work.%20%28ask%20me%20about%20it%29%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="I want your input on an actual problem I have at work. (ask me about it)
+" title="I want your input on an actual problem I have at work. (ask me about it)
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">2</span>
+        <h2 class="exercise-title">Workshop tasks (Options 1–5)</h2>
+        <div class="service-links"><a href="https://docs.google.com/document/d/1gQUN9n44acBaWbpJBbhKQ7DHnk8h_dKkdbfIo5UB0M0/edit?usp=sharing" class="docs-btn" target="_blank">Open task instructions (Google Docs)</a></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">3</span>
+        <h2 class="exercise-title">Option 1: Teaching about using AI for learning</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20a%20lesson%20or%20activity%20where%20students%20learn%20about%20using%20AI%20for%20learning.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20showing%20good%20and%20bad%20examples%20of%20AI%20use%20for%20learning%2C%20discussing%20how%20students%20learn%2C%20finding%20and%20trying%20AI%20services%20built%20for%20learning%2C%20training%20in%20prompting%20standard%20chatbots%2C%20guiding%20students%20one-on-one%20in%20remedial%20teaching%2C%20and%20discussing%20AI%20use%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20a%20lesson%20or%20activity%20where%20students%20learn%20about%20using%20AI%20for%20learning.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20showing%20good%20and%20bad%20examples%20of%20AI%20use%20for%20learning%2C%20discussing%20how%20students%20learn%2C%20finding%20and%20trying%20AI%20services%20built%20for%20learning%2C%20training%20in%20prompting%20standard%20chatbots%2C%20guiding%20students%20one-on-one%20in%20remedial%20teaching%2C%20and%20discussing%20AI%20use%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20a%20lesson%20or%20activity%20where%20students%20learn%20about%20using%20AI%20for%20learning.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20showing%20good%20and%20bad%20examples%20of%20AI%20use%20for%20learning%2C%20discussing%20how%20students%20learn%2C%20finding%20and%20trying%20AI%20services%20built%20for%20learning%2C%20training%20in%20prompting%20standard%20chatbots%2C%20guiding%20students%20one-on-one%20in%20remedial%20teaching%2C%20and%20discussing%20AI%20use%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20a%20lesson%20or%20activity%20where%20students%20learn%20about%20using%20AI%20for%20learning.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20showing%20good%20and%20bad%20examples%20of%20AI%20use%20for%20learning%2C%20discussing%20how%20students%20learn%2C%20finding%20and%20trying%20AI%20services%20built%20for%20learning%2C%20training%20in%20prompting%20standard%20chatbots%2C%20guiding%20students%20one-on-one%20in%20remedial%20teaching%2C%20and%20discussing%20AI%20use%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="We are two colleagues at an eTwinning workshop. We want to plan a lesson or activity where students learn about using AI for learning. We want to incorporate one or more of retrieval practice, spaced repetition, elaboration/self-explanation or interleaving. Ideas from the presentation incorporate showing good and bad examples of AI use for learning, discussing how students learn, finding and trying AI services built for learning, training in prompting standard chatbots, guiding students one-on-one in remedial teaching, and discussing AI use on parental meetings. Please help us brainstorm.
+" title="We are two colleagues at an eTwinning workshop. We want to plan a lesson or activity where students learn about using AI for learning. We want to incorporate one or more of retrieval practice, spaced repetition, elaboration/self-explanation or interleaving. Ideas from the presentation incorporate showing good and bad examples of AI use for learning, discussing how students learn, finding and trying AI services built for learning, training in prompting standard chatbots, guiding students one-on-one in remedial teaching, and discussing AI use on parental meetings. Please help us brainstorm.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">4</span>
+        <h2 class="exercise-title">Option 2: Teaching about risks with AI companions</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20risks%20with%20AI%20companions.%20Ideas%20from%20the%20presentation%20incorporate%20making%20sure%20the%20school%20has%20an%20action%20plan%20so%20anyone%20worried%20knows%20who%20to%20talk%20to%2C%20discussing%20AI%20companions%20with%20students%20in%20safe%20environments%2C%20educating%20about%20warning%20signs%2C%20educating%20about%20dark%20patterns%20used%20to%20manipulate%20users%2C%20and%20discussing%20the%20topic%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20risks%20with%20AI%20companions.%20Ideas%20from%20the%20presentation%20incorporate%20making%20sure%20the%20school%20has%20an%20action%20plan%20so%20anyone%20worried%20knows%20who%20to%20talk%20to%2C%20discussing%20AI%20companions%20with%20students%20in%20safe%20environments%2C%20educating%20about%20warning%20signs%2C%20educating%20about%20dark%20patterns%20used%20to%20manipulate%20users%2C%20and%20discussing%20the%20topic%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20risks%20with%20AI%20companions.%20Ideas%20from%20the%20presentation%20incorporate%20making%20sure%20the%20school%20has%20an%20action%20plan%20so%20anyone%20worried%20knows%20who%20to%20talk%20to%2C%20discussing%20AI%20companions%20with%20students%20in%20safe%20environments%2C%20educating%20about%20warning%20signs%2C%20educating%20about%20dark%20patterns%20used%20to%20manipulate%20users%2C%20and%20discussing%20the%20topic%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20risks%20with%20AI%20companions.%20Ideas%20from%20the%20presentation%20incorporate%20making%20sure%20the%20school%20has%20an%20action%20plan%20so%20anyone%20worried%20knows%20who%20to%20talk%20to%2C%20discussing%20AI%20companions%20with%20students%20in%20safe%20environments%2C%20educating%20about%20warning%20signs%2C%20educating%20about%20dark%20patterns%20used%20to%20manipulate%20users%2C%20and%20discussing%20the%20topic%20on%20parental%20meetings.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about risks with AI companions. Ideas from the presentation incorporate making sure the school has an action plan so anyone worried knows who to talk to, discussing AI companions with students in safe environments, educating about warning signs, educating about dark patterns used to manipulate users, and discussing the topic on parental meetings. Please help us brainstorm.
+" title="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about risks with AI companions. Ideas from the presentation incorporate making sure the school has an action plan so anyone worried knows who to talk to, discussing AI companions with students in safe environments, educating about warning signs, educating about dark patterns used to manipulate users, and discussing the topic on parental meetings. Please help us brainstorm.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">5</span>
+        <h2 class="exercise-title">Option 3: Teaching about critical thinking and AI awareness</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20awareness%20of%20deepfakes%20and%20AI%20capabilities%2C%20%22Guess%20which%20is%20fake%21%22%20exercises%2C%20analysing%20known%20cases%20of%20misinformation%20and%20why%20they%20worked%2C%20discussing%20what%20emotions%20trigger%20virality%2C%20practising%20methods%20for%20resisting%20the%20sharing%20reflex%2C%20teaching%20about%20cognitive%20biases%20used%20for%20manipulation%2C%20and%20teaching%20about%20opinion%20influencing%20from%20a%20societal%20and%20geopolitical%20perspective.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20awareness%20of%20deepfakes%20and%20AI%20capabilities%2C%20%22Guess%20which%20is%20fake%21%22%20exercises%2C%20analysing%20known%20cases%20of%20misinformation%20and%20why%20they%20worked%2C%20discussing%20what%20emotions%20trigger%20virality%2C%20practising%20methods%20for%20resisting%20the%20sharing%20reflex%2C%20teaching%20about%20cognitive%20biases%20used%20for%20manipulation%2C%20and%20teaching%20about%20opinion%20influencing%20from%20a%20societal%20and%20geopolitical%20perspective.%20Please%20help%20us%20brainstorm.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20awareness%20of%20deepfakes%20and%20AI%20capabilities%2C%20%22Guess%20which%20is%20fake%21%22%20exercises%2C%20analysing%20known%20cases%20of%20misinformation%20and%20why%20they%20worked%2C%20discussing%20what%20emotions%20trigger%20virality%2C%20practising%20methods%20for%20resisting%20the%20sharing%20reflex%2C%20teaching%20about%20cognitive%20biases%20used%20for%20manipulation%2C%20and%20teaching%20about%20opinion%20influencing%20from%20a%20societal%20and%20geopolitical%20perspective.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20students%20learn%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20awareness%20of%20deepfakes%20and%20AI%20capabilities%2C%20%22Guess%20which%20is%20fake%21%22%20exercises%2C%20analysing%20known%20cases%20of%20misinformation%20and%20why%20they%20worked%2C%20discussing%20what%20emotions%20trigger%20virality%2C%20practising%20methods%20for%20resisting%20the%20sharing%20reflex%2C%20teaching%20about%20cognitive%20biases%20used%20for%20manipulation%2C%20and%20teaching%20about%20opinion%20influencing%20from%20a%20societal%20and%20geopolitical%20perspective.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about critical thinking in a world with AI. Ideas from the presentation incorporate raising awareness of deepfakes and AI capabilities, &quot;Guess which is fake!&quot; exercises, analysing known cases of misinformation and why they worked, discussing what emotions trigger virality, practising methods for resisting the sharing reflex, teaching about cognitive biases used for manipulation, and teaching about opinion influencing from a societal and geopolitical perspective. Please help us brainstorm.
+" title="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about critical thinking in a world with AI. Ideas from the presentation incorporate raising awareness of deepfakes and AI capabilities, &quot;Guess which is fake!&quot; exercises, analysing known cases of misinformation and why they worked, discussing what emotions trigger virality, practising methods for resisting the sharing reflex, teaching about cognitive biases used for manipulation, and teaching about opinion influencing from a societal and geopolitical perspective. Please help us brainstorm.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">6</span>
+        <h2 class="exercise-title">Option 4: Plan for helping eTwinning colleagues</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20make%20a%20plan%20for%20helping%20eTwinning%20colleagues%20who%20are%20not%20at%20this%20meetup%20to%20teach%20the%20most%20important%20AI%20skills%20to%20their%20students.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20their%20AI%20awareness%20and%20competence%2C%20helping%20them%20see%20the%20wider%20picture%20of%20the%20most%20important%20AI%20skills%2C%20helping%20them%20understand%20and%20teach%20about%20how%20students%20should%20and%20shouldn%27t%20use%20AI%20as%20a%20tool%20for%20learning%2C%20helping%20them%20understand%20and%20teach%20about%20risks%20with%20AI%20companions%2C%20and%20helping%20them%20understand%20and%20teach%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20make%20a%20plan%20for%20helping%20eTwinning%20colleagues%20who%20are%20not%20at%20this%20meetup%20to%20teach%20the%20most%20important%20AI%20skills%20to%20their%20students.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20their%20AI%20awareness%20and%20competence%2C%20helping%20them%20see%20the%20wider%20picture%20of%20the%20most%20important%20AI%20skills%2C%20helping%20them%20understand%20and%20teach%20about%20how%20students%20should%20and%20shouldn%27t%20use%20AI%20as%20a%20tool%20for%20learning%2C%20helping%20them%20understand%20and%20teach%20about%20risks%20with%20AI%20companions%2C%20and%20helping%20them%20understand%20and%20teach%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Please%20help%20us%20brainstorm.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20make%20a%20plan%20for%20helping%20eTwinning%20colleagues%20who%20are%20not%20at%20this%20meetup%20to%20teach%20the%20most%20important%20AI%20skills%20to%20their%20students.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20their%20AI%20awareness%20and%20competence%2C%20helping%20them%20see%20the%20wider%20picture%20of%20the%20most%20important%20AI%20skills%2C%20helping%20them%20understand%20and%20teach%20about%20how%20students%20should%20and%20shouldn%27t%20use%20AI%20as%20a%20tool%20for%20learning%2C%20helping%20them%20understand%20and%20teach%20about%20risks%20with%20AI%20companions%2C%20and%20helping%20them%20understand%20and%20teach%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20make%20a%20plan%20for%20helping%20eTwinning%20colleagues%20who%20are%20not%20at%20this%20meetup%20to%20teach%20the%20most%20important%20AI%20skills%20to%20their%20students.%20Ideas%20from%20the%20presentation%20incorporate%20raising%20their%20AI%20awareness%20and%20competence%2C%20helping%20them%20see%20the%20wider%20picture%20of%20the%20most%20important%20AI%20skills%2C%20helping%20them%20understand%20and%20teach%20about%20how%20students%20should%20and%20shouldn%27t%20use%20AI%20as%20a%20tool%20for%20learning%2C%20helping%20them%20understand%20and%20teach%20about%20risks%20with%20AI%20companions%2C%20and%20helping%20them%20understand%20and%20teach%20about%20critical%20thinking%20in%20a%20world%20with%20AI.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="We are two colleagues at an eTwinning workshop. We want to make a plan for helping eTwinning colleagues who are not at this meetup to teach the most important AI skills to their students. Ideas from the presentation incorporate raising their AI awareness and competence, helping them see the wider picture of the most important AI skills, helping them understand and teach about how students should and shouldn&#x27;t use AI as a tool for learning, helping them understand and teach about risks with AI companions, and helping them understand and teach about critical thinking in a world with AI. Please help us brainstorm.
+" title="We are two colleagues at an eTwinning workshop. We want to make a plan for helping eTwinning colleagues who are not at this meetup to teach the most important AI skills to their students. Ideas from the presentation incorporate raising their AI awareness and competence, helping them see the wider picture of the most important AI skills, helping them understand and teach about how students should and shouldn&#x27;t use AI as a tool for learning, helping them understand and teach about risks with AI companions, and helping them understand and teach about critical thinking in a world with AI. Please help us brainstorm.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">7</span>
+        <h2 class="exercise-title">Option 5: Plan for using AI as a learning tool</h2>
+        <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20AI%20is%20used%20as%20a%20tool%20for%20learning%20basic%20skills%20%E2%80%93%20for%20example%20mathematics%2C%20reading%20or%20natural%20sciences.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20using%20AI%20to%20generate%20practice%20questions%20with%20immediate%20feedback%2C%20using%20AI%20to%20create%20spaced%20review%20sessions%2C%20using%20AI%20to%20prompt%20students%20to%20explain%20concepts%20in%20their%20own%20words%2C%20and%20using%20AI%20to%20mix%20different%20exercise%20types.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20AI%20is%20used%20as%20a%20tool%20for%20learning%20basic%20skills%20%E2%80%93%20for%20example%20mathematics%2C%20reading%20or%20natural%20sciences.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20using%20AI%20to%20generate%20practice%20questions%20with%20immediate%20feedback%2C%20using%20AI%20to%20create%20spaced%20review%20sessions%2C%20using%20AI%20to%20prompt%20students%20to%20explain%20concepts%20in%20their%20own%20words%2C%20and%20using%20AI%20to%20mix%20different%20exercise%20types.%20Please%20help%20us%20brainstorm.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20AI%20is%20used%20as%20a%20tool%20for%20learning%20basic%20skills%20%E2%80%93%20for%20example%20mathematics%2C%20reading%20or%20natural%20sciences.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20using%20AI%20to%20generate%20practice%20questions%20with%20immediate%20feedback%2C%20using%20AI%20to%20create%20spaced%20review%20sessions%2C%20using%20AI%20to%20prompt%20students%20to%20explain%20concepts%20in%20their%20own%20words%2C%20and%20using%20AI%20to%20mix%20different%20exercise%20types.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20two%20colleagues%20at%20an%20eTwinning%20workshop.%20We%20want%20to%20plan%20an%20activity%20where%20AI%20is%20used%20as%20a%20tool%20for%20learning%20basic%20skills%20%E2%80%93%20for%20example%20mathematics%2C%20reading%20or%20natural%20sciences.%20We%20want%20to%20incorporate%20one%20or%20more%20of%20retrieval%20practice%2C%20spaced%20repetition%2C%20elaboration%2Fself-explanation%20or%20interleaving.%20Ideas%20from%20the%20presentation%20incorporate%20using%20AI%20to%20generate%20practice%20questions%20with%20immediate%20feedback%2C%20using%20AI%20to%20create%20spaced%20review%20sessions%2C%20using%20AI%20to%20prompt%20students%20to%20explain%20concepts%20in%20their%20own%20words%2C%20and%20using%20AI%20to%20mix%20different%20exercise%20types.%20Please%20help%20us%20brainstorm.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="We are two colleagues at an eTwinning workshop. We want to plan an activity where AI is used as a tool for learning basic skills – for example mathematics, reading or natural sciences. We want to incorporate one or more of retrieval practice, spaced repetition, elaboration/self-explanation or interleaving. Ideas from the presentation incorporate using AI to generate practice questions with immediate feedback, using AI to create spaced review sessions, using AI to prompt students to explain concepts in their own words, and using AI to mix different exercise types. Please help us brainstorm.
+" title="We are two colleagues at an eTwinning workshop. We want to plan an activity where AI is used as a tool for learning basic skills – for example mathematics, reading or natural sciences. We want to incorporate one or more of retrieval practice, spaced repetition, elaboration/self-explanation or interleaving. Ideas from the presentation incorporate using AI to generate practice questions with immediate feedback, using AI to create spaced review sessions, using AI to prompt students to explain concepts in their own words, and using AI to mix different exercise types. Please help us brainstorm.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="resources">
+    <div class="container">
+
+      <div class="resource-section">
+        <h3>Tools worth exploring</h3>
+        <div class="resource-links">
+          <a href="https://perplexity.ai" class="resource-link" target="_blank">Perplexity <span class="note">AI-assisted search</span></a>
+          <a href="https://elicit.com" class="resource-link" target="_blank">Elicit <span class="note">AI search in published research</span></a>
+          <a href="https://notebooklm.google.com" class="resource-link" target="_blank">NotebookLM <span class="note">Flash cards, spoken summaries and more</span></a>
+          <a href="https://arena.ai" class="resource-link" target="_blank">Arena <span class="note">Compare two random LLMs</span></a>
+          <a href="https://arc.net/search" class="resource-link" target="_blank">Arc Search <span class="note">Handy web browser for phones</span></a>
+        </div>
+      </div>
+
+      <div class="resource-section">
+        <h3>Johan's book</h3>
+        <div class="resource-links">
+          <a href="https://nok.se/aiforlarare" class="resource-link" target="_blank">AI för lärare (Natur &amp; Kultur) <span class="note">In Swedish, but applies beyond Swedish curricula</span></a>
+          <a href="https://smakprov.nok.se/?isbn=9789127474703" class="resource-link" target="_blank">Preview</a>
+        </div>
+      </div>
+
+      <div class="resource-section">
+        <h3>Contact</h3>
+        <div class="resource-links">
+          <a href="mailto:johan@falkai.org" class="resource-link">johan@falkai.org</a>
+          <a href="https://falkai.org" class="resource-link" target="_blank">falkai.org</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR-kod till den här sidan">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Den här sidans adress</p>
+          <p class="url-text">falkai.org/etwinning-2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Kopierad!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
