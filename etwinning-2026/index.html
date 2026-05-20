@@ -139,6 +139,14 @@
       color: var(--navy);
       letter-spacing: -0.01em;
     }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
     .copy-btn {
       background: var(--cream);
       color: var(--text-muted);
@@ -150,6 +158,41 @@
     }
     .copy-btn:hover { background: var(--border); color: var(--text); }
     .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
   </style>
 </head>
 <body>
@@ -175,6 +218,7 @@
         <span class="exercise-number">1</span>
         <h2 class="exercise-title">Mini-exercise: Ask a chatbot</h2>
       </div>
+      <p class="exercise-desc">Ask follow-up questions or continue the conversation in a direction that is useful for you.</p>
       <div class="variants">
         <div class="variant">
           <span class="variant-name">What should students know about AI?</span>
@@ -223,12 +267,11 @@
       <div class="exercise-header">
         <span class="exercise-number">2</span>
         <h2 class="exercise-title">Workshop tasks (Options 1–5)</h2>
-        <div class="service-links"><a href="https://chatgpt.com/?prompt=" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
-<a href="https://duckduckgo.com/?q=&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
-<a href="https://claude.ai/new?q=" class="service-btn service-claude" target="_blank">Claude</a>
-<a href="https://www.google.com/search?udm=50&aep=11&q=" class="service-btn service-gemini" target="_blank">Gemini</a>
-<button class="service-btn copy-btn" data-prompt="" title="" onclick="copyPrompt(this)">Copy prompt</button></div>
+        <div class="service-links">
+          <a href="https://docs.google.com/document/d/1gQUN9n44acBaWbpJBbhKQ7DHnk8h_dKkdbfIo5UB0M0/edit?usp=sharing" class="service-btn service-link" target="_blank">Open task instructions (Google Docs)</a>
+        </div>
       </div>
+      <p class="exercise-desc">Full instructions for all workshop tasks.</p>
     </div>
 
     <div class="exercise">
@@ -243,6 +286,7 @@
 " title="We are two colleagues at an eTwinning workshop. We want to plan a lesson or activity where students learn about using AI for learning, probably leaning on one or more of the following: retrieval practice, spaced repetition, elaboration/self-explanation and interleaving. We have some ideas to start with: showing good and bad examples of AI use for learning, discussing how students learn, finding and trying AI services built for learning, training in prompting standard chatbots, guiding students one-on-one in remedial teaching, and discussing AI use on parental meetings. Please help us find more ideas, elaborate on the one we have, or make one of them more concrete.
 " onclick="copyPrompt(this)">Copy prompt</button></div>
       </div>
+      
     </div>
 
     <div class="exercise">
@@ -257,6 +301,7 @@
 " title="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about risks with AI companions. We have some ideas to start with: making sure the school has an action plan so anyone worried knows who to talk to, discussing AI companions with students in safe environments, educating about warning signs, educating about dark patterns used to manipulate users, and discussing the topic on parental meetings. Please help us find more ideas, elaborate on the one we have, or make one of them more concrete.
 " onclick="copyPrompt(this)">Copy prompt</button></div>
       </div>
+      
     </div>
 
     <div class="exercise">
@@ -271,6 +316,7 @@
 " title="We are two colleagues at an eTwinning workshop. We want to plan an activity where students learn about critical thinking in a world with AI. We have some ideas to start with: raising awareness of deepfakes and AI capabilities, &quot;Guess which is fake!&quot; exercises, analysing known cases of misinformation and why they worked, discussing what emotions trigger virality, practising methods for resisting the sharing reflex, teaching about cognitive biases used for manipulation, and teaching about opinion influencing from a societal and geopolitical perspective. Please help us find more ideas, elaborate on the one we have, or make one of them more concrete.
 " onclick="copyPrompt(this)">Copy prompt</button></div>
       </div>
+      
     </div>
 
     <div class="exercise">
@@ -285,6 +331,7 @@
 " title="We are two colleagues at an eTwinning workshop. We want to make a plan for helping eTwinning colleagues who are not at this meetup to teach the most important AI skills to their students. We have some ideas to start with: raising their AI awareness and competence, helping them see the wider picture of the most important AI skills, helping them understand and teach about how students should and shouldn&#x27;t use AI as a tool for learning, helping them understand and teach about risks with AI companions, and helping them understand and teach about critical thinking in a world with AI. Please help us find more ideas, elaborate on the one we have, or make one of them more concrete.
 " onclick="copyPrompt(this)">Copy prompt</button></div>
       </div>
+      
     </div>
 
     <div class="exercise">
@@ -299,6 +346,26 @@
 " title="We are two colleagues at an eTwinning workshop. We want to plan an activity where AI is used as a tool for learning basic skills – for example mathematics, reading or natural sciences. We probably want to lean into one or more more of the following: retrieval practice, spaced repetition, elaboration/self-explanation and interleaving. We have some ideas to start with: using AI to generate practice questions with immediate feedback, using AI to create spaced review sessions, using AI to prompt students to explain concepts in their own words, and using AI to mix different exercise types. Please help us find more ideas, elaborate on the one we have, or make one of them more concrete.
 " onclick="copyPrompt(this)">Copy prompt</button></div>
       </div>
+      
+    </div>
+    </div>
+  </section>
+
+  
+  <section class="resources-section">
+    <div class="container">
+      
+    <div class="resource-group">
+      <h3 class="resource-heading">Tools worth exploring</h3>
+      <ul class="resource-list"><li><a href="https://perplexity.ai" target="_blank">Perplexity</a><span class="resource-note">AI-assisted search</span></li><li><a href="https://elicit.com" target="_blank">Elicit</a><span class="resource-note">AI search in published research</span></li><li><a href="https://notebooklm.google.com" target="_blank">NotebookLM</a><span class="resource-note">Build flash cards, get spoken summaries and more</span></li><li><a href="https://arena.ai" target="_blank">Arena</a><span class="resource-note">Compare how two random LLMs answer</span></li><li><a href="https://arc.net/search" target="_blank">Arc Search</a><span class="resource-note">Handy web browser for AI-summaries on phones (iOS and Android)</span></li><li><a href="https://civai.org" target="_blank">CivAI</a><span class="resource-note">Pedagogical tools for showing AI fraud in action</span></li></ul>
+    </div>
+    <div class="resource-group">
+      <h3 class="resource-heading">Johan&#x27;s book</h3>
+      <ul class="resource-list"><li><a href="https://nok.se/aiforlarare" target="_blank">AI för lärare (Natur &amp; Kultur)</a><span class="resource-note">In Swedish, but the content applies beyond Swedish curricula</span></li><li><a href="https://smakprov.nok.se/?isbn=9789127474703" target="_blank">Preview</a></li></ul>
+    </div>
+    <div class="resource-group">
+      <h3 class="resource-heading">Contact</h3>
+      <ul class="resource-list"><li><a href="mailto:johan@falkai.org" target="_blank">johan@falkai.org</a></li><li><a href="https://falkai.org" target="_blank">falkai.org</a></li></ul>
     </div>
     </div>
   </section>
