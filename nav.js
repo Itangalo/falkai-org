@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!nav) return;
   nav.innerHTML = `
     <a href="/" class="logo">Falk AI</a>
+    <button class="nav-toggle" aria-label="Öppna menyn" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="/#tjanster">Tjänster</a></li>
       <li><a href="/om.html">Om mig</a></li>
@@ -14,4 +17,19 @@ document.addEventListener('DOMContentLoaded', function () {
       <li><a href="/#kontakt" class="btn-nav">Kontakt</a></li>
     </ul>
   `;
+
+  const toggle = nav.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    const open = nav.classList.toggle('nav--open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Stäng menyn' : 'Öppna menyn');
+  });
+
+  nav.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Öppna menyn');
+    });
+  });
 });
