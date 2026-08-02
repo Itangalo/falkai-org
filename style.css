@@ -1216,6 +1216,7 @@ img.book-cover:hover {
 .media-thumb--tv    { background: linear-gradient(135deg, #264653, #1a2e35); }
 .media-thumb--debatt { background: linear-gradient(135deg, #FF8811, #e07a0f); }
 .media-thumb--pris  { background: linear-gradient(135deg, #c8a800, #a07800); }
+.media-thumb--radio { background: linear-gradient(135deg, #3D5A80, #293c56); }
 
 .media-thumb span {
   font-weight: 700;
