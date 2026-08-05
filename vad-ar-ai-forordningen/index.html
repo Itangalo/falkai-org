@@ -32,7 +32,7 @@
     <div class="container">
 
       <section class="content-section article-body">
-        <p>EU:s AI-förordning (AI Act) antogs av EU-kommissionen i juni 2024 och trädde i kraft den 1 augusti samma år. Den gäller som lag i alla medlemsländer, men olika delar av förordningen har börjat gälla i omgångar – vilka datum som gäller för respektive kategori beskrivs nedan.</p>
+        <p>EU:s AI-förordning (AI Act) antogs sommaren 2024 och trädde i kraft den 1 augusti samma år. Den gäller som lag i alla medlemsländer, men olika delar av förordningen har börjat gälla i omgångar – vilka datum som gäller för respektive kategori beskrivs nedan.</p>
 
         <p>AI-förordningen reglerar AI-system som finns på EU:s marknad – till exempel <em>inte</em> AI som enbart används för forskning eller enbart för militära ändamål. De berörda AI-systemen delas in i ett antal kategorier, med olika krav för varje kategori.</p>
 
@@ -44,13 +44,13 @@
 
         <h3>AI-system med oacceptabel risk</h3>
 
-        <p>Detta är exempelvis AI som används för rutinmässig identifiering av människor eller AI som används för att manipulera människor. Dessa AI-system är förbjudna – förbudet har gällt sedan den 2 februari 2025. Sedan den 2 december 2026 gäller förbudet även AI som skapar övergreppsmaterial mot barn, eller sexualiserade bilder av verkliga personer utan samtycke.</p>
+        <p>Detta är exempelvis AI som används för rutinmässig identifiering av människor eller AI som används för att manipulera människor. Dessa AI-system är förbjudna – förbudet har gällt sedan den 2 februari 2025. Från den 2 december 2026 gäller förbudet även AI som skapar övergreppsmaterial mot barn, eller sexualiserade bilder av verkliga personer utan samtycke.</p>
 
         <h3>AI-system med hög risk</h3>
 
         <p>Detta är system som har stor inverkan på människors liv, så som utbildning, sjukvård, kritiska samhällsfunktioner och områden som regleras särskilt av annan lagstiftning. Sådana AI-system behöver uppfylla förhållandevis hårda krav på transparens, ha giltiga användningsområden tydligt beskrivna och följas upp regelbundet av den som tillhandahåller systemet.</p>
 
-        <p>Den största delen av AI-förordningen handlar om de här bestämmelserna. Kraven för de flesta högrisksystem (den så kallade Annex III-kategorin, som täcker in utbildning, sjukvård och liknande) gäller från den 2 december 2027. För högrisksystem som är inbyggda i redan reglerade produkter (som medicinteknik och fordon) gäller kraven från den 2 augusti 2028.</p>
+        <p>Den största delen av AI-förordningen handlar om de här bestämmelserna. Kraven för de flesta högrisksystem gäller från den 2 december 2027. För högrisksystem som är inbyggda i redan reglerade produkter (som medicinteknik och fordon) gäller kraven från den 2 augusti 2028.</p>
 
         <h3>AI-system med begränsad risk</h3>
 
@@ -66,21 +66,29 @@
 
         <p>Utöver AI-system finns också bestämmelser för "AI-modeller för allmänna ändamål", vilket är AI-modeller som kan användas för många olika saker. I praktiken betyder det stora språkmodeller och multimodala AI-modeller. Dessa behöver ha en sammanfattning av träningsdatan, som ska uppfylla direktivet för upphovsrätt, och de måste också ha teknisk dokumentation och instruktioner för användning.</p>
 
-        <p>Kraven har gällt sedan den 2 augusti 2025. För GPAI som redan fanns på marknaden när förordningen trädde i kraft är tidsfristen istället 3 år (sommaren 2027).</p>
+        <p>Kraven har gällt sedan den 2 augusti 2025. För GPAI som fanns på marknaden då finns en tidsfrist till sommaren 2027.</p>
 
         <h3>Öppna AI-modeller för allmänna ändamål</h3>
 
         <p><em>(Open source GPAI)</em></p>
 
-        <p>GPAI som klassas som open source (enligt AI-förordningens definition) anses uppfylla kraven på teknisk dokumentation och instruktioner för användning, men behöver fortfarande uppfylla de övriga kraven för GPAI.</p>
+        <p>GPAI som klassas som open source (enligt AI-förordningens definition) anses uppfylla kraven på teknisk dokumentation och instruktioner för användning, men behöver fortfarande uppfylla de övriga kraven för GPAI. Open source-modeller som innebär systemrisker (se nedan) omfattas inte av dessa lättnader.</p>
 
         <h3>AI-modeller för allmänna ändamål som innebär systemrisker</h3>
 
         <p><em>(GPAI with systemic risks)</em></p>
 
-        <p>Det här är GPAI med kapacitet att utgöra risker för människors hälsa, säkerhet eller grundläggande rättigheter, eller hot mot samhället eller EU-marknaden som helhet. Om en AI-modell tränats med mer än en viss mängd datorkraft (10^25 flops) klassas den automatiskt som GPAI som innebär systemrisker. I andra fall används utvärderingar som utformas av EU-kommissionens AI-kontor eller en panel av oberoende experter.</p>
+        <p>Det här är GPAI med kapacitet att utgöra risker för människors hälsa, säkerhet eller grundläggande rättigheter, eller hot mot samhället eller EU-marknaden som helhet. Om en AI-modell tränats med mer än en viss mängd datorkraft klassas den automatiskt som GPAI som innebär systemrisker. I andra fall används utvärderingar som utformas av EU-kommissionens AI-kontor eller en panel av oberoende experter. Gränsen för datorkraft är 10^25 flops ("floating point operations"), vilket betyder att alla de starkaste språkmodellerna omfattas.</p>
 
         <p>GPAI som innebär systemrisker behöver utvärderas på särskilda sätt, bland annat för missanvändning. Det finns också striktare krav på att detektera och rapportera incidenter, och högre krav på skydd mot cyberangrepp.</p>
+
+        <h2>Hur fungerar efterlevnaden?</h2>
+
+        <p>Det finns ingen myndighet som granskar och godkänner AI-system eller AI-modeller innan de får släppas – varken för högrisksystem eller för GPAI. För de flesta högrisksystem bygger efterlevnaden på leverantörens egen bedömning av överensstämmelse. I vissa fall krävs dock medverkan av ett anmält organ. För GPAI-modeller gäller på liknande sätt att leverantören själv tar fram den dokumentation som krävs och intygar att kraven är uppfyllda.</p>
+
+        <p>För GPAI-modeller finns en frivillig <a href="https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai" target="_blank">Code of Practice</a>, framtagen tillsammans med bland andra AI-labben. Leverantörer som skriver under den får EU-kommissionens tillsyn fokuserad på att de faktiskt följer koden. De som inte skriver under måste istället visa att de har ett egentaget ramverk som är minst lika robust – men även då sker det utan förhandsgranskning.</p>
+
+        <p>EU-kommissionens faktiska tillsyns- och sanktionsbefogenheter mot GPAI-leverantörer började gälla först den 2 augusti 2026, ett år efter att kraven i sig började gälla. Det innebär att kontroll och eventuella böter i praktiken sker i efterhand, om det visar sig att en leverantör inte lever upp till det den intygat.</p>
       </section>
 
     </div>
