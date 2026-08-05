@@ -912,6 +912,35 @@ img.book-cover:hover {
   max-width: 700px;
 }
 
+.article-body ul,
+.article-body ol {
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 0 1rem 1.25rem;
+}
+
+.article-body li {
+  margin-bottom: 0.4rem;
+}
+
+.article-body blockquote {
+  max-width: 700px;
+  margin: 0 0 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--teal);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.article-body figure {
+  max-width: 700px;
+  margin: 0 0 1.5rem;
+}
+
+.article-body figure img {
+  border-radius: var(--radius);
+}
+
 .content-section {
   margin-bottom: 4rem;
 }

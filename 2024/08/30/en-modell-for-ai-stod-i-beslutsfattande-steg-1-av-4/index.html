@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En modell för AI-stöd i beslutsfattande: steg 1 av 4 · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>En modell för AI-stöd i beslutsfattande: steg 1 av 4</h1>
+      <p>30 augusti 2024 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/08/dallc2b7e-2024-08-29-15.22.30-modern-abstract-geometric-style-with-a-professional-and-clean-aesthetic-arranged-like-a-flowchart.-the-design-focuses-on-sharp-precise-lines-and-a-.webp?w=1024" alt=""  /></figure>
+
+<p>AI har potential att ge stöd som gör att beslut går snabbare, blir mer konsekventa och bättre tar hänsyn till den tillgängliga informationen. Men det finns också risk för bias, beslut som inte går att förklara, och att brister i AI:n utnyttjas.</p>
+
+<p>Här är en modell för hur man kan använda chattbottar eller annan AI i beslutsfattande på ett sätt som minimerar risker – och är utformat för att uppfylla <a href="https://falkai.org/vad-ar-ai-forordningen/">EU:s AI-förordning</a>.</p>
+
+<p>Den här metoden utgår från att AI-stödet för beslut växlar upp i ett antal steg, där man utvärderar och dokumenterar varje steg innan man (eventuellt) går vidare.</p>
+
+<ol >
+<li>Härma befintliga beslut</li>
+
+<li>Ge beslutsförslag att jämföra med i efterhand</li>
+
+<li>Ge beslutsförslag att utvärdera</li>
+
+<li>Ge beslutsförslag att godkänna</li>
+</ol>
+
+<p>Beskrivningen nedan utgår från ett fiktivt exempel, där en chattbot/språkmodell ska användas som stöd för att bedöma elevuppsatser (som en del av betygsunderlag).</p>
+
+<p>I den här bloggposten beskrivs steg 1 närmare.</p>
+
+<h2 >Steg 1: Härma befintliga beslut</h2>
+
+<p>Kärnan i det första steget är försöka få en AI att efterlikna de beslut som redan fattats i tidigare ärenden – och att göra det utifrån ett antal kriterier eller skalor. I detta gömmer sig ett antal deluppgifter som i sig kan vara ganska stora. Utan särskild ordning:</p>
+
+<ul >
+<li>Samla och göra data enkelt läsbar.</li>
+
+<li>Välja AI-modell(er).</li>
+
+<li>Identifiera skalor eller kriterier som AI:n ska använda.</li>
+
+<li>Få AI:n att att ge beslutsförslag som liknar befintliga beslut.</li>
+</ul>
+
+<p>För att tydliggöra vad det här kan innebära kommer här två mer konkreta exempel.</p>
+
+<h2 >Exempel: Bedöma elevuppsatser</h2>
+
+<p>I det är exemplet är målet att få AI-stöd för att bedöma elevuppsatser i skolan, för att använda dem som betygsunderlag. Vi tänker oss att det är uppsatser från <a href="https://www.uu.se/nationella-prov/svenska-och-svenska-som-andrasprak/grundskolan/ak9/exempel" target="_blank" rel="noreferrer noopener">nationella prov i svenska, årskurs 9</a>.</p>
+
+<h3 >Samla och göra data enkelt läsbar</h3>
+
+<p>I det här arbetet samlar teamet in tidigare uppsatser från skolor de samarbetar med, och även lärares bedömningar av uppsatserna och beskrivning av uppgiften som eleverna fått. Materialet kommer in på olika sätt, och teamet bearbetar det så att det ska bli enkelt för både maskiner och människor att hitta och läsa.</p>
+
+<ul >
+<li>Uppsatser och lärares bedömningar konverteras till ett enhetligt format. I början var de i olika filformat, framför allt Word och pdf, men även ett par inskannade handskrivna sidor. De konverteras till <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noreferrer noopener">Markdown</a>, för att få ett format som är enkelt både för maskiner och människor att läsa. (Word-filer övervägdes, men valdes bort på grund av risk för problem med formateringar samt att bearbetning med dator blir långsammare.)</li>
+
+<li>I det nationella provet fanns tre olika skrivuppgifter att välja mellan för eleverna. Det insamlade materialet delas upp efter vilken uppgift eleven valt.</li>
+
+<li>Varje uppsats och dess bedömning läggs i var sin fil, och namnges för att enkelt kunna para ihop dem – till exempel <code>uppsats-001.md</code> och <code>bedömning-001.md</code>. Filerna läggs i en mapp, där alla uppsatser i mappen hör till samma uppgift. I mappen läggs också både uppgiften och bedömningsanvisningarna som hör till provet – även dessa konverterade till Markdown.</li>
+
+<li>I slutändan samlar man ihop 250 uppsatser och bedömningar på det här viset. Det finns fler att hämta, men 250 bedöms räcka för tillfället.</li>
+</ul>
+
+<p>Inför arbetet väcktes frågan om det finns juridiska hinder för att använda elevers uppsatser (och lärares bedömningar). Skyddas de av upphovsrätt? Är det tillåtet att använda uppsatser som samlats in i syfte att vara betygsunderlag för att utveckla AI-stödd bedömning? Finns information i uppsatserna som kan vara känslig?</p>
+
+<p>Bedömningen blir att uppsatserna <em>inte</em> täcks av upphovsrätt, eftersom elevers uppsatser i årskurs 9 normalt inte uppnår den verkshöjd som krävs för upphovsrätt. Att använda uppsatserna för andra ändamål än de samlats in för bedöms preliminärt möjligt, eftersom de är allmänna handlingar. Frågan flaggas dock för vidare uppföljning. När det gäller känslig information konstateras snabbt att det <em>kan</em> finnas känslig information. Det kommer därför behövas god kontroll över hur informationen hanteras. Med hjälp av en lokal AI-modell och en del manuellt arbete identifieras 100 uppsatser som <em>inte</em> innehåller någon känslig information, och därmed kan användas mer oförsiktigt under utforskande arbete.</p>
+
+<h3 >Välja AI-modeller</h3>
+
+<p>Teamet bestämmer sig för att använda två nedladdningsbara AI-modellerna som har högst ranking på <a href="https://lmarena.ai/" target="_blank" rel="noreferrer noopener">LMSYS Chatbot Arena Leaderboard</a>: Athene 70b och Mistral-Large-2407. (Llama 3.1 405b har högre ranking, men kräver för mycket datorkraft att använda.)</p>
+
+<p>Jämte dessa bestämmer sig teamet för att använda två slutna modeller under det utforskande arbetet, för att se om de ger tydligt bättre resultat än de nedladdningsbara modellerna. De väljer att använda GPT-4o och Claude 3.5 Sonnet. Om någon av de modellerna ska användas för att bedöma uppsatser med känslig information kommer det att krävas särskilda åtgärder, men förväntningen är att de inte ger mycket bättre resultat än modeller man kan ladda ner och köra på egna datorer.</p>
+
+<p>Teamet konstaterar att inga av de modeller de valt uppfyller <a href="https://falkai.org/vad-ar-ai-forordningen/">EU:s krav på "AI-modeller för allmänna ändamål"</a>, bland annat eftersom det inte är redovisat vilken data de tränats på. Om det inte ändras säger AI-förordningen att de därmed inte får användas från augusti 2027. Teamet räknar dock med att det kommer att dyka upp nya modeller som både är bättre och uppfyller EU:s AI-förordning innan dess.</p>
+
+<h3 >Identifiera skalor eller kriterier som AI:n ska använda</h3>
+
+<p>För de nationella proven i svenska årskurs 9 finns behändigt nog nedskrivna kriterier för bedömning av uppsatser. De görs utifrån 5 + 1 aspekter:</p>
+
+<ul >
+<li>Koppling till uppgiften</li>
+
+<li>Innehåll</li>
+
+<li>Struktur</li>
+
+<li>Språk och stil</li>
+
+<li>Skrivregler</li>
+
+<li>Helhetsbedömning</li>
+</ul>
+
+<p>Enligt bedömningsanvisningarna ska läraren bedöma varje aspekt med A, C, E eller F, utom helhetsbedömningen som använder hela skalan A–F. Det finns också nedskrivna kriterier för de olika stegen, till exempel "Ordvalet är enkelt. Meningsbyggnaden fungerar i huvudsak." (språk och stil, E).</p>
+
+<p>Teamet väljer att utgå från samma aspekter som provet, och kommer alltså att låta AI bedöma varje uppsats på sex olika sätt. Efter ett förslag från teamets expert på bedömning väljer de däremot att <em>inte</em> använda skalan A–F, utan i stället 0–100 som i ett senare skede konverteras till A–F. Den största fördelen med detta är att det inte blir lika stora hopp mellan varje steg, och att det därmed finns möjlighet att titta närmare på gränsfall och även justera var gränser för A–F ska ligga för att få en AI-bedömning som stämmer överens med lärares bedömningar.</p>
+
+<h3 >Få AI:n att ge beslutsförslag som liknar befintliga beslut</h3>
+
+<p>Till slut börjar jobbet med att försöka få AI:n att bedöma uppsatser och ge samma resultat som lärare gjort. Arbetet sker genom två dagar av halvstrukturerat utforskande, där hela teamet sitter samlat och arbetar intensivt med chattbottar.</p>
+
+<p>Arbetet består i att testa och förbättra olika sätt att prompta chattbottarna. I början sker det genom manuellt copy-paste-arbete, där uppgift, uppsats, bedömningskriterier och instruktion till chattbotten skrivs för hand. Det är ett förhållandevis långsamt sätt att arbeta, men det går ändå snabbt att hitta några principer för promptande som verkar bättre än andra.</p>
+
+<p>Parallellt med det arbetet jobbar en av teamets utvecklare med att sätta upp enkla verktyg för att masstesta prompter. Efter drygt en timme finns en första version av ett webbgränssnitt som resten av teamet kan använda. Där kan teamet på ett mer effektivt sätt testa vidare de prompter de finner mest lovande. Till en början är det ganska klumpigt gränssnitt, där teamet skriver i följande stil:</p>
+
+<pre ><code>Du är en erfaren lärare i svenska på högstadiet. Du har fått en uppsats som du ska bedöma på en skala 0–100. Du ska bara bedöma den efter de givna kriterierna, där E motsvarar 30, C motsvarar 60 och A motsvarar 90. Ge först ett kort resonemang om din bedömning, och sist en poäng mellan 0 och 100. Kom ihåg att bara beakta just den aspekten som tas upp i kriterierna.
+
+Uppgiften som eleven fått ser ut så här: &#091;uppgift]
+
+# Uppsatsen
+
+&#091;uppsats]
+
+# Bedömningskriterier
+
+&#091;kriterier]</code></pre>
+
+<p>I verktyget som utvecklaren byggt läses uppgift, uppsats och kriterier in automatiskt, och skickas till alla fyra språkmodellerna – en gång för varje uppsats som samlats in, och en för varje aspekt som ska bedömas. Som resultat kommer en tabell med sammanställda resultat, tillsammans med de bedömningar som lärare gjort.</p>
+
+<p>I det fortsatta arbetet upptäcker teamet att de kan få AI-bedömningarna att i snitt bli lika lärarnas bedömningar, men att det varierar ganska mycket för varje enskild uppsats. De upptäcker också att det finns ett visst brus i bedömningen som AI:n gör. De bestämmer därför att de vill göra fem AI-bedömningar på varje uppsats, och undersöka hur ofta lärarnas bedömning stämmer med <em>någon</em> av dessa AI-bedömningar.</p>
+
+<p>Det visar sig att dessa bredare AI-bedömningar till 96 procent överlappar lärarnas bedömningar. De övriga uppsatserna granskas av svensklärarna i teamet, som enas om att AI:n gjort en bättre bedömning i alla utom ett fall, och ändrar därför i lärarbedömningen för de uppsatserna. I det sista fallet är uppsatsen skickligt skriven men på en ovanlig form, vilket AI:n inte tagit hänsyn till.</p>
+
+<p>Efter ytterligare arbete har de fått fram en prompt som gör att alla de hundra uppsatserna utan känslig information får (breda) AI-bedömningar som överlappar med lärarnas bedömning. De arbetar vidare för att ta fram ett bättre kvantitativt mått för varje uppsats, och kommer fram till en modell enligt följande:</p>
+
+<ul >
+<li>Varje uppsats AI-bedöms tio gånger, med värden 0–100 på varje aspekt som bedöms. (I bakgrunden motsvarar E 30, C 60 och A 90.)</li>
+
+<li>Det högsta och lägsta värdet inom varje aspekt tas bort, och medelvärdet för de övriga bedömningarna blir den sammanlagda AI-bedömningen.</li>
+
+<li>Om lärarens bedömning <em>inte</em> är det betygsvärde som ligger närmast AI-bedömningen på någon aspekt flaggas det som en skillnad att följa upp.</li>
+</ul>
+
+<p>De använder det måttet för att jämföra de fyra AI-modellerna de använt, och konstaterar att de slutna modellerna presterar något bättre än de nedladdningsbara modellerna (ca 12 procent som flaggas jämfört med ca 9 procent). De väljer ändå att fortsätta med de nedladdningsbara modellerna, eftersom skillnaden är liten, de nedladdningsbara modellerna är billigare, och de tar också bort risken med att leverantören byter AI-modell på ett sätt som stör bedömningarna.</p>
+
+<p>Till slut använder de samma mått för att bedöma de 150 uppsatser som eventuellt innehåller känsliga uppgifter. Detta görs <em>endast</em> på de nedladdningsbara modellerna. Teamet konstaterar, något lättat, att andelen uppsatser som flaggas är i princip samma som för de 100 andra uppsatserna.</p>
+
+<p>Det sista arbete de gör är att (med hjälp av AI) dokumentera hur AI-bedömningen går till, och hur de kom fram till den metoden. Därefter kan de konstatera att de har AI-stöd som tycks vara tillförlitligt i knappt 90 procent av fallen, och är därmed redo för steg 2. En viktig fråga i steg 2 är om AI-stödet är lika tillförlitligt för varierande grupper av elever.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>

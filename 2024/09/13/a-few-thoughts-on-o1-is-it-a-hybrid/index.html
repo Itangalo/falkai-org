@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A few thoughts on o1: is it a hybrid? · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>A few thoughts on o1: is it a hybrid?</h1>
+      <p>13 september 2024 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/09/dallc2b7e-2024-09-13-22.34.31-modern-abstract-geometric-style-with-a-professional-and-clean-aesthetic.-the-design-focuses-on-sharp-precise-lines-and-a-limited-color-palette-with-.webp?w=1024" alt=""  /></figure>
+
+<p>It's been a bit more than a day since OpenAI released o1 (preview and mini). I have tested a bit, read quite a bit and watched a bit. I'm left with some questions. This short blog post summarizes my initial thoughts and questions.</p>
+
+<p><strong>Update 2024-09-16: o1 is <em>not</em> a hybrid. See link under "follow-ups" further down.</strong></p>
+
+<h2 >Agents and system 2</h2>
+
+<p>Ever since ChatGPT (or before), it has been more or less clear that LLMs basically perform <a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow" target="_blank" rel="noreferrer noopener">what Daniel Kahneman popularized as "system 1"</a> – they blurt out something based on gut instinct. This method is efficient for something that you are highly familiar with, but not so good for tasks where you need to plan or reason. For this you need "system 2".</p>
+
+<p>The need for system 2 is what brought about <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer noopener">AutoGPT</a>(April 2023), soon to be called "agents" and followed by many other similar projects. The AI agents basically do this (but most of them don't tick all these boxes):</p>
+
+<ol >
+<li>Take a complex task or a goal, and use an LLM to analyze it and break it down into subtasks.</li>
+
+<li>Take a subtask and select a suitable tool for completing it. (Tools could be web services, locally available software, creating and running custom code, web or database searches, calling another AI, or whatnot.)</li>
+
+<li>Evaluate the result of a subtask, and iterate when needed.</li>
+
+<li>Synthesize the subtask results into a final result, and deliver it.</li>
+</ol>
+
+<p>This workflow is managed by quite clever software, but the heavy lifting is done by LLMs (at least when it comes to creating a plan and executing it).</p>
+
+<p>Creating AI models that are better at planning and reasoning has been a goal for AI companies for some time now. The "usual" AI models have gotten better at this. A year ago you would have to prompt GPT-4 to think something through step by step before answering, but nowadays it often replies with a step-by-step approach even if you don't ask for it.</p>
+
+<h2 >Is o1 a model + software hybrid?</h2>
+
+<p>And then o1 was released, described as a model "designed to spend more time thinking before [it] respond[s]" and being able to ". They can "reason through complex tasks and solve harder problems than previous models".</p>
+
+<p>To me, the behaviour of o1 is very similar to the AI agents that have been around for some time. The highly varying amount of time it spends "thinking" feels more like it's creating a plan and executing it by multiple calls to an LLM, than a single LLM output.</p>
+
+<p>On top of this, <a href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noreferrer noopener">OpenAI writes that o1 has hidden chains of thoughts</a>, which makes me believe even more that what we see o1 produce isn't really the result of an AI model (like standard chatbots do), but a hybrid with an LLM called by agent scaffolding software.</p>
+
+<p><code>We believe that a hidden chain of thought presents a unique opportunity for monitoring models. Assuming it is faithful and legible, the hidden chain of thought allows us to "read the mind" of the model<strong>&nbsp;</strong>and understand its thought process. For example, in the future we may wish to monitor the chain of thought for signs of manipulating the user. However, for this to work the model must have freedom to express its thoughts in unaltered form, so we cannot train any policy compliance or user preferences onto the chain of thought. We also do not want to make an unaligned chain of thought directly visible to users.</code></p>
+
+<p><code>Therefore, after weighing multiple factors including user experience, competitive advantage, and the option to pursue the chain of thought monitoring, we have decided not to show the raw chains of thought to users. We acknowledge this decision has disadvantages. We strive to partially make up for it by teaching the model to reproduce any useful ideas from the chain of thought in the answer. For the o1 model series we show a model-generated summary of the chain of thought.</code></p>
+
+<p>The underlying model is obviously better than previous models at creating plans and executing parts of plans, but the leap presented by o1 seems to me be a combination of new model and improved ways of creating agentic software. This makes o1 less revolutionary, in my view. (But still both interesting and impressive, I should add.)</p>
+
+<h2 >What's in a name?</h2>
+
+<p>From bits I've picked up, I gather that o1 is what has previously been called Strawberry (and also Q-star/Q*). It is <em>not</em> Orion. But I'm not sure, and I would love it if OpenAI could be more clear on this instead of fueling rumours.</p>
+
+<p>Also, I perceive that o1 is the GPT-5 people have been waiting for. But it's not called GPT-5, since OpenAI is "<a href="https://openai.com/index/introducing-openai-o1-preview/" target="_blank" rel="noreferrer noopener">resetting the counter back to 1 and naming this series OpenAI o1</a>" due to significant advancements in reasoning capacity.</p>
+
+<p>This change of name makes me wonder: Is o1 not a generative pretrained transformer? More specifically: Is it not a pure transformer, but also uses other architectures? I also wonder if "o" stands for Orion.</p>
+
+<p></p>
+
+<p>I'd love to hear your thoughts. Please share in a comment.</p>
+
+<h2 >Follow-ups</h2>
+
+<p>2024-09-15: David Shapiro has <a href="https://youtu.be/tMWMuJF-JFo?si=MPYPfURz50UIk_1X" target="_blank" rel="noreferrer noopener">a video where he talks about this, and more</a>. (Thanks to <a href="https://www.linkedin.com/in/gunnar-ehn-417b4517/" target="_blank" rel="noreferrer noopener">Gunnar Ehn</a> for pointing me to the video!)</p>
+
+<p>2024-09-16: <strong>No, o1 is a model, not a system.</strong> <a href="https://pca.st/1ghzo1fb?t=5920.0" target="_blank" rel="noreferrer noopener">Some 20 minutes from the end in this episode from Latent Space</a>, there are questions and answers with some OpenAI people. They state clearly that o1 is a model, not a system. (And a model that can do really long reasoning.)</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>

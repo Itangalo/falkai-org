@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highlighting AI Performance with a New Scale · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Highlighting AI Performance with a New Scale</h1>
+      <p>24 december 2024 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<p>When discussing how well an AI model performs on benchmarks, it's common to talk about percentages or percentage points. However, these figures often obscure how significant the difference between two results really is, especially near the boundaries of 0% and 100%. In this post, I want to introduce an alternative: using a scale based on normal distribution, often referred to as a <strong>probit scale</strong>.</p>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/12/normalfordelning-1.webp?w=1024" alt=""  /></figure>
+
+<h2 >The Problem with Percentages and Percentage Points</h2>
+
+<p>Imagine comparing two models on a benchmark:</p>
+
+<ul >
+<li>Model A achieves 10 percent accuracy.</li>
+
+<li>Model B achieves 20 percent accuracy.</li>
+</ul>
+
+<p>At first glance, this seems like a doubling of performance (“an increase from 10 to 20 percent”). However, percentage increases are difficult to generalize on the 0–1 (or 0–100%) scale, as it’s impossible, for instance, to double 60% to 120%.</p>
+
+<p>Another way to describe this is an increase of 10 percentage points. While technically correct, this is not very informative. Moving from 0.10 to 0.20 is a much more significant improvement than from 0.45 to 0.55.</p>
+
+<h2 >Probit: A Better Ruler for the Whole Scale</h2>
+
+<p>With a so-called <strong>probit transformation</strong>, we can translate results on the 0–1 scale to an infinite scale that accounts for the fact that differences near 0 and 1 matter more than those near the middle (e.g., 0.5).</p>
+
+<p>From a technical perspective, the probit transformation is based on a normal distribution, and basically answers the question "how far do I need to go on the normal distribution to cover X percent?".</p>
+
+<p>Let’s see how this works with the examples above:</p>
+
+<ul >
+<li>10 percent (0.10) corresponds to a probit score of approximately <strong>–1.28</strong> (which means that you'll cover 10 percent of a normal distribution if you stop 1.28 standard deviations before the mid point).</li>
+
+<li>20% (0.30) corresponds to a probit score of approximately <strong>-0.84</strong> (meaning that you'll cover 20 percent if you stop 0.84 standard deviations before the mid point).</li>
+</ul>
+
+<p>The difference between the models is then 0.44 on the probit scale, illustrating the improvement in a more intuitive way.</p>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/12/image-7.png?w=1024" alt=""  /><figcaption >You'll cover 10 percent of a normal distribution if you stop around 1.28 standard deviations before the middle.</figcaption></figure>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/12/image-8.png?w=1024" alt=""  /><figcaption >You'll cover 20 percent of a normal distribution if you stop around 0.84 standard deviations before the middle.</figcaption></figure>
+
+<h2 >Why Does This Matter?</h2>
+
+<p>The probit scale has two major advantages over percentages and percentage points:</p>
+
+<ol >
+<li><strong>Fairer Comparisons:</strong> A shift from 10% to 20% (0.77 probit points) is more significant than a shift from 50% to 60% (0.25 probit points).</li>
+
+<li><strong>Easier Cross-Benchmark Comparisons:</strong> The probit scale makes it easier to compare across different benchmarks. "Model X improved records on benchmark A with 0.8 probit points, but only 0.15 probit points on benchmark B."</li>
+</ol>
+
+<p>The graph below illustrates how percentages map to probit scores, showing how the scale stretches differences near the extremes while compressing those near the center.</p>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/12/image-4.png?w=1024" alt=""  /><figcaption >The idea of the probit scale is that a step on the x-axis of this graph is experienced as equally significant, no matter where on the scale you are.</figcaption></figure>
+
+<h2 >Examples: o3 Benchmark Results</h2>
+
+<p>Here are some reported o3 benchmarks described as probit scores, along with previous benchmark records.</p>
+
+<figure ><table ><tbody><tr><td><strong>Result</strong></td><td><strong>Percetage (accuracy)</strong></td><td><strong>Probit Score</strong></td></tr><tr><td>ARC record before o3</td><td>55%</td><td>0.13</td></tr><tr><td>o3 ARC result (high compute)</td><td>87.5%</td><td>1.15 (1.02 ahead)</td></tr><tr><td>o3 ARC result (not so high compute)</td><td>75.7%</td><td>0.70 (0.57 ahead)</td></tr><tr><td>o1 ARC result</td><td>21.2%</td><td>–0.80 (0.93 after) </td></tr></tbody></table></figure>
+
+<p></p>
+
+<figure ><table ><tbody><tr><td><strong>Result</strong></td><td><strong>Percentage (accuracy)</strong></td><td><strong>Probit Score</strong></td></tr><tr><td>FrontierMath record before o3</td><td>2%*</td><td>–2.05</td></tr><tr><td>o3</td><td>25%</td><td>–0.67 (1.38 ahead)</td></tr></tbody></table></figure>
+
+<p></p>
+
+<figure ><table ><tbody><tr><td><strong>Result</strong></td><td><strong>Percentage (accuracy)</strong></td><td><strong>Probit Score</strong></td></tr><tr><td>o1 on GPQA Diamond</td><td>78%</td><td>0.77</td></tr><tr><td>o3 on GPQA Diamond</td><td>88%</td><td>1.17 (0.40 ahead)</td></tr></tbody></table></figure>
+
+<h2 >Conclusion</h2>
+
+<p>Using the probit scale to present AI results is a powerful tool that makes it easier to understand the true magnitude of differences between models. By transforming the results, we can avoid common pitfalls with percentages and percentage points and create a fairer, more intuitive metric.</p>
+
+<p>What do you think about this way of presenting AI results? Share your thoughts in the comments below!</p>
+
+<h2 >A technical note or two</h2>
+
+<ul >
+<li>The probit scale (or actually the "probit transformation") is very similar to the logit transformation. Logit curves might be more familiar to some people working with ML. I suggest the probit scale here, because I think a normal distribution is easier to motivate (and understand), but a logit scale would work just as well.</li>
+
+<li>The idea of transforming values on a scale 0–1 to a scale plus/minus infinity using probit or logit isn't new, and is for example used in educational test theory and psychology. Doing the same for AI benchmarks isn't a revolutionary idea – it's just applying something that works well in other fields in a new context.</li>
+
+<li>Note that this transformation is only relevant when measuring benchmark results on a scale 0–1 (or 0–100 percent). The Elo rating system used by LMSys, for example, can't be transformed this way.</li>
+
+<li>*This kind of transformations are sensitive to noise in the very high/low ranges. The difference between 0.1 and 0.5 percent might seem negligible, but is 0.51 on the probit scale – roughly the same as the difference between 50 and 70 percent. This is a feature, not a bug, but means that noise in the very high/low regions will be amplified. (For example, the "2%" result on the FrontierMath benchmark, in the table above, is pretty rough. It matters whether the actual value is 1.8% or 2.2%.)</li>
+</ul>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>

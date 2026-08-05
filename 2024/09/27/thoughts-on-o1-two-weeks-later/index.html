@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thoughts on o1, Two Weeks Later · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Thoughts on o1, Two Weeks Later</h1>
+      <p>27 september 2024 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/09/o1-2.webp?w=1024" alt=""  /></figure>
+
+<p>In short:</p>
+
+<ul >
+<li>I am confident that o1 is a significant step forward in capacity for AI models, and that we need to give it new types of tasks to see this.</li>
+
+<li>I am still speculating over how o1 actually works, on a higher level. I wish OpenAI could be more, well, open about this.</li>
+</ul>
+
+<h2 >A new type of model requires new types of tasks</h2>
+
+<p>It took me quite some time to conclude that o1 actually is a significant improvement over the GPT-4 class models (including Claude 3.5 Sonnet). This is, I think, because when I give o1 the same type of tasks and questions that I give to GPT-4 and Claude 3.5, I get similar quality of replies.</p>
+
+<p>What I needed to do was give o1 new types of tasks and questions.</p>
+
+<p>I've spent more than 18 months trying to understand how AI development will affect schools in the next 5–10 years. During this work I have repeatedly asked chatbots and AI agents (such as <a href="https://agentgpt.reworkd.ai/" target="_blank" rel="noreferrer noopener">AgentGPT</a>) this question, mostly as a way to demonstrate that (a) it is a too difficult question for chatbots and (b) that simple agents can break down the question and get somewhat better results.</p>
+
+<p>The answer from o1 was good. Not overwhelming, and certainly not replacing 1.5 years of my work, but o1’s answers would have considerably accelerated my team's work. And the answer is a clear step above what I've seen from previous AI tools. It also gave a strong response to my follow-up question on what is required to help schools adjust to potential large and rapid changes.</p>
+
+<p>I shouldn't be surprised about this. OpenAI has said that o1 is better at reasoning and solving complex problems, and I've seen example use cases clearly pointing towards this. But it took two weeks to sink in.</p>
+
+<p>I think we have an interesting journey in front of us, where we learn more about what o1 class models can do. As with GPT-3.5 and GPT-4, I expect that we will find tricks, strengths and unexpected capabilities in o1. On top of this, what we have now is o1-preview and its condensed mini version – OpenAI is still working on the full version of the model, with things like function calling, code interpreter, web browsing and multimodality.</p>
+
+<h2 >An hypothesis on o1 behind the scenes</h2>
+
+<p>OpenAI is frustratingly opaque on the mechanics of o1, and they are actively hiding parts of its output (as well as removing the ability to set the system prompt in the API).</p>
+
+<p>After some thinking, reading, listening and more thinking, I now believe that the o1 system works something like this. On a large scale.</p>
+
+<ul >
+<li>There's the actual o1 model, which has been trained to output long chains of thought, and take its own output into consideration when reasoning. This includes breaking down complex tasks into subtasks, evaluating subtask results, back tracking some thought chains that weren't successful, and more. Probably more of a tree of thought than chain of thought.</li>
+
+<li>It wouldn't surprise me if o1 isn't a pure transformer model, but uses a mixture of transformers and selective states architecture. The selective states architecture seems to be competitive for long context windows, which would be useful o1 – and for large trees of thoughts it is ok to drop the dead ends, which this architecture would do.</li>
+
+<li>I suspect that the actual o1 model has some setting (like temperature) that tells how prone it should be to break down a task into subtasks. I also guess that there could be another model sitting on top of o1, analyzing the incoming task and guessing a good "complexity value", which in turn tells o1 how eager it should be to create subtasks. This would allow spending much less time on answering simple questions. (It's also possible that this complexity value is set by o1 itself.)</li>
+
+<li>I'm quite certain that a separate model takes the tree of thoughts from o1 and displays a filtered summary of the results to the user, as the reasoning steps in the ChatGPT interface. My ChatGPT interface is in Swedish, and regardless of the language I use in the prompt I get these reasoning steps presented in poorly translated Swedish. This tells me that a model no better than GPT-3.5 is used to convert raw o1 thoughts to filtered and sanitized summaries. (Also, OpenAI has more or less said that a separate model processes the output stream – check out <a href="https://pca.st/1ghzo1fb?t=5920.0" target="_blank" rel="noreferrer noopener">the end of this Latent Space episode</a>.)</li>
+</ul>
+
+<p>It feels a bit silly to speculate on how o1 works in this way, but I also feel that understanding the underlying mechanisms helps me know how to use the model effectively.</p>
+
+<p>If you have anything to add (or subtract), please share in a comment.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>

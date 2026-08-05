@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I huvudet på Claude 3 · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>I huvudet på Claude 3</h1>
+      <p>9 juni 2024 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<p>Att förstå hur AI-modeller kommer fram till olika beslut är en viktig del i att skapa AI som vi kan lita på – och därmed dra nytta av på riktigt. I slutet av maj presenterade Anthropic, ett av de ledande AI-bolagen, <a href="https://www.anthropic.com/news/mapping-mind-language-model">forskning som visar delar av hur en stor språkmodell fungerar inuti</a>.</p>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/06/dallc2b7e-2024-06-09-13.34.29-a-large-dark-labyrinth-in-a-minimalist-geometric-style.-the-labyrinth-is-designed-with-clean-sharp-lines-and-uses-a-limited-color-palette-primarily-.webp?w=1024" alt=""  /></figure>
+
+<h2 >Ingen kan förutsäga hur språkmodeller svarar</h2>
+
+<p>Principerna för hur stora språkmodeller fungerar är förhållandevis enkla, men de är så stora att ingen människa kan överblicka dem eller förutsäga hur de beter sig i nya situationer. Det är anledningen att det sitter massor med människor och utforskar vad man kan göra med chattbottar och språkmodeller, och publicerar rapporter över resultaten – ett beteende som vi knappast ser när det gäller mer traditionella programvaror som ordbehandlare, bildredigeringsprogram och musikspelare.</p>
+
+<p>Att vi inte kan förutsäga hur språkmodeller beter sig i nya sammanhang har lett till en rad spännande upptäckter, där man till exempel upptäckte att GPT-4 kan en del kemi på forskarnivå en bra bit <em>efter</em> att modellen publicerades. Men det leder också till problem, eftersom det är omöjligt att veta varför en del oönskat beteende dyker upp, eller hur vi kan hindra det.</p>
+
+<h2 >Det finns mänskliga begrepp inuti modellerna</h2>
+
+<p>Ett sätt att bli klokare på hur språkmodellerna fungerar är att försöka förstå vad de artificiella neuronerna inuti modellen står för – man har nämligen upptäckt att de neuroner som ligger i de mittersta lagren av språkmodellernas nätverk ofta symboliserar begrepp som vi människor kan förstå. Vissa begrepp, ord eller sammanhang får enskilda neuroner, eller grupper av neuroner, att lysa upp.</p>
+
+<p>Ett fascinerande exempel, där Eiffeltornet flyttades till Rom, kan göra det tydligare. I <a href="https://arxiv.org/pdf/2202.05262">en studie</a> <a href="https://openreview.net/forum?id=mMECu_poAs">(redan från 2021</a>) analyserade några AI-forskare GPT-2, och lyckades hitta neuroner som motsvarade Paris, Rom och Eiffeltornet. Inte oväntat fanns det starka kopplingar mellan Eiffeltornet och Paris, men inte starka kopplingar från Eiffeltornet till Rom. Forskarna testade att ändra på det, och stärkte kopplingen till Rom samtidigt som kopplingen till Paris försvagades, och ställde sedan frågor till GPT-2.</p>
+
+<p>Vad hände? GPT-2 började säga saker som att Eiffeltornet är en symbol för Rom, att den ligger mitt emot Peterskyrkan. Förstås helt felaktigt, men med en förhållandevis konsekvent felaktig världsbild.</p>
+
+<h2 >Från GPT-2 till Claude 3 Sonnet</h2>
+
+<p>Att hitta vilka neuroner som motsvarar givna begrepp (eller omvänt) kräver en del jobb. Därför fick OpenAI en del uppmärksamhet i maj 2023 när de publicerade en kartläggning av <em>alla</em> neuroner för GPT-2. (<a href="https://openaipublic.blob.core.windows.net/neuron-explainer/neuron-viewer/index.html" target="_blank" rel="noreferrer noopener">Du kan testa själv!</a> Men var beredd på att de flesta neuroner inte är tydligt associerade med begrepp.)</p>
+
+<p>Och nu i maj, ungefär ett år senare, presenterar Anthropic resultat som berättar hur miljontals begrepp är associerade med neuroner i deras språkmodell Claude 3 Sonnet. Det är inte en total kartläggning, men en viktig bedrift eftersom Claude 3 till skillnad från GPT-2 är en språkmodell som används flitigt av många människor. Den är också mycket större, med uppskattningsvis 20 gånger fler neuroner än GPT-2 (men tillhör inte de allra största av dagens språkmodeller).</p>
+
+<p>Resultatet är intressant på många sätt, inte minst för att det går att studera hur Claude 3 anser att olika begrepp är besläktade. Nedan syns begrepp som enligt Claude 3 ligger nära "immunologi".</p>
+
+<figure class="size-large"><img src="https://falkai.org/wp-content/uploads/2024/06/image.png?w=1024" alt=""  /><figcaption >Vilka begrepp ligger nära "immunologi" enligt Claude 3 Sonnet? Bild från <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html">https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html</a></figcaption></figure>
+
+<h2 >Det går att påverka Claudes beteende</h2>
+
+<p>Med kunskap om hur olika begrepp ligger utspridda i Claudes neurala nätverk kunde forskare på Anthropic också testa vad som händer om de aktiverar valda neuroner. Det kan jämföras med att på konstgjord väg stimulera valda nervceller i en människas hjärna, vilket kan leda till att patienten ser färger, känner oro, eller börjar röra fingrarna på vänster hand.</p>
+
+<p>I ett försök aktiverade AI-forskarna neuroner som motsvarar "Golden Gate Bridge" och frågade sedan Claude om dess fysiska form. Vanligtvis svarar Claude att den inte har någon fysisk form, men nu svarade den i stället "Jag är Golden Gate Bridge". I ett annat försök aktiverades neuronerna som motsvarar "bedrägeri-mail", varpå Claude tappade sina spärrar för att hjälpa till att skriva mail för att lura mottagare på pengar.</p>
+
+<h2 >Vad är nyttan?</h2>
+
+<p>Att förstå delar av de labyrinter som stora språkmodeller är viktiga steg för att bättre kunna lita på de resultat de ger. <strong>När EU:s AI-förordning börjar gälla kommer det att finnas höga krav på AI som exempelvis används som stöd vid rekryteringar. Det räcker inte att förklara bakgrunden till ett beslut med att AI:n gav kandidat A 9,7 poäng och kandidat B 9,5 poäng.</strong> Om AI:n blir lite mindre av en svart låda kan det bli möjligt för oss att se att det egentligen var egenskaperna "vit", "medelålders" och "man" som gav kandidat A ett försprång – eller för den delen "stresstålig".</p>
+
+<p>En annan möjlighet är att läsa av när särskilda begrepp är aktiverade hos AI:n, för att varna för eller spärra beskrivningar av våld, bedrägerier eller manipulativt beteende.</p>
+
+<p>Kartläggning av begrepp gör det tyvärr också möjligt att gå förbi spärrar som AI:n normalt har – vilket syntes i försöken med mail för att lura av folk pengar. I fallet med Claude 3 är det bara Anthropic som kan redigera modellen: Användare kan skicka anrop till den, men själva modellen hålls bakom lås och bom hos Anthropic. En del andra modeller (inte minst <a href="https://llama.meta.com/llama3/">Llama 3 från Meta</a>) går däremot att ladda hem, vilket gör det möjligt att genomföra den digitala motsvarigheten till hjärnkirurgi.</p>
+
+<p>Ett annat viktigt resultat från Anthropics studie är att de visat att det går att använda kända metoder ("dictionary learning") för att kartlägga betydligt större språkmodeller än tidigare.</p>
+
+<p>Kanske kan förståelse av begrepp inuti språkmodeller leda till metoder för att fullständigt kapa bort skadligt eller önskat beteende hos modellerna, utan enkla möjligheter att gå runt spärrarna. Framtiden får utvisa.</p>
+
+<p></p>
+
+<p>Uppdatering: Några dagar efter att Anthropic släppte sin forskningsrapport kom OpenAI med <a href="https://arxiv.org/abs/2406.04093v1">en forskningsartikel i samma genre</a>.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>

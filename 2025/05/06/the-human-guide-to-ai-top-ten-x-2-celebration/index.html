@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Human Guide to AI: Top Ten × 2 Celebration · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+        <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>The Human Guide to AI: Top Ten × 2 Celebration</h1>
+      <p>6 maj 2025 &middot; Ursprungligen publicerat på Falk AI:s tidigare webbplats.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <article class="content-section article-body">
+<figure class="size-large"><img src="https://falkaiorg.wordpress.com/wp-content/uploads/2025/05/abstrakt-5.webp?w=1024" alt=""  /></figure>
+
+<p>Today my book "AI för nybörjare 2.0" reached <a href="https://www.prisjakt.nu/produkt.php?p=14421769">10th place on Sweden's most popular site for price comparisons</a>, competing with almost 1.2 million other books. (Edit: A few days later it reached 5th place!) Version 1 of the book reached 7th place on the same list, and since 2.0 was rewritten from scratch it wasn't at all obvious that it would be as popular. I'm flattered and honored by being trusted to tell so many what AI is, and what it means for our society.</p>
+
+<p>I'm celebrating the double success by writing a blog post summarizing the most important aspects of the book, complemented by a few new things that have happened since 2.0 was finished.</p>
+
+<p>(The book is being translated to Danish and Norwegian. The project title for an English version is "The Human Guide to AI: Today's Reality and Tomorrow's Possibilities". Let me know if you're interested in publishing it.)</p>
+
+<figure class="size-large"><a href="https://www.prisjakt.nu/produkt.php?p=14421769" target="_blank" rel=" noreferrer noopener"><img src="https://falkaiorg.wordpress.com/wp-content/uploads/2025/05/image.png?w=1024" alt=""  /></a></figure>
+
+<h2  id="part-i-this-ai-thing">Part I: This AI thing</h2>
+
+<h3  id="ais-are-machines-behaving-as-if-they-can-think">AIs Are Machines Behaving as if They Can Think</h3>
+
+<p>Artificial intelligence as a term has been around for 75 years, give or take. But it is only in the recent five years or so that machines match the expectations set by science fiction. Previous AI systems have been single-purpose machines: chess computers, interpreters of hand-written text, and whatnot. The large language models (LLMs) of recent years behave&nbsp;<em>as if they can think</em>. This is because they can use language in a convincing way, and we use language to communicate our thoughts.</p>
+
+<p>Machines that behave as if they can think are multi-purpose machines. Chatbots can perform a lot of different tasks, and when connected to web services, software on your computer or even large-scale machines, they can do many different things.</p>
+
+<h3  id="you-must-use-ai-to-understand-it">You Must Use AI to Understand It</h3>
+
+<p>"Machines that think" is an alien concept. Without experiencing it yourself, it is difficult to take it in. And easy to dismiss. Also, AI is advancing at an incredible rate, which makes it easy to dismiss the technology based on what you experienced using the free version of ChatGPT 18 months ago.</p>
+
+<p>The best AI models today can give meaningful input at quite complex problems. If you haven't used a chatbot lately, try out "o3-mini" over at&nbsp;<a href="https://duck.ai/">duck.ai</a>&nbsp;(my new favourite free chatbot) or "r1" at&nbsp;<a href="https://labs.perplexity.ai/">Perplexity Labs</a>. Neither require a login. Start by asking about the meaning of life or something else you've been thinking about, and make sure to give them challenging things to ponder.</p>
+
+<p>One note, though: LLMs are not search engines or encyclopaedias. Their main strengths lies in their conversational and reasoning abilities, not as a source of facts.</p>
+
+<h3  id="llms-are-guessing-machines">LLMs Are Guessing Machines</h3>
+
+<p>At the core of the recent AI advancements lies&nbsp;<a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html"><em>the bitter lesson</em></a>. It is the conclusion that computation power becomes cheaper and better every year, and methods that scale with more computing power will overtake clever solutions hand-crafted by humans.</p>
+
+<p>Large language models, powering chatbots and more, utilize the bitter lesson in an ingenious way. LLMs produce texts by selecting (parts of) words, one at a time, that they think fit after all the text provided so far. To create – "train" – an LLM, you need vast amounts of text. You take a bunch of sentences, and cut them off at some place. The LLM is then to guess how each sentence continue, which it at first is really bad at. However, there are systematic ways of tuning the LLM to make it guess&nbsp;<em>a little less wrong</em>, which you do, and then repeat the process with a bunch of new sentences.</p>
+
+<p>After billions, no&nbsp;<em>trillions</em>&nbsp;of such iterations, you get something similar to a modern LLM. It has then extracted more rules about written language than any human can write down in terms of "if statements" or other formal algorithms. The LLM can translate texts, describe tourist attractions in Paris, and much more.</p>
+
+<p>The price of all this, apart from all the computer chips used, is that we don't understand how the AIs work. This, as we will see, is a pretty hefty price.</p>
+
+<h3  id="thinkers-or-stochastic-parrots">Thinkers or&nbsp;<a href="https://en.wikipedia.org/wiki/Stochastic_parrot">Stochastic Parrots</a>?</h3>
+
+<p>The question comes very naturally: Can AI actually think? Some would say&nbsp;<em>of course not – they're merely spitting out words that match statistical patterns</em>, like stochastic parrots. Other say that if it quacks like a duck and walks like a duck, why wouldn't we call it a duck?</p>
+
+<p>The LLMs, and their more modern versions who can also handle other types of media, consist of billions of numbers – called "parameters" by tech people. They represent connections between artificial brain cells in the AI models. When LLMs produce text, it is basically done by converting the input to a row of numbers, and then use these as a starting point when multiplying and adding these parameters according to certain rules. (The fancy term is "matrix multiplication", for anyone who has studied linear algebra – or watched the movie The Matrix.) There is way too much information to decode these numbers, but by applying clever techniques it is still possible to decode small parts of the things going on inside these black boxes.</p>
+
+<p>Results show that the AI models contain artificial brain cells, or clusters of cells, that represent concepts that we recognize: Paris, Rome, The Eiffel Tower, The Golden Gate Bridge,&nbsp;<a href="https://www.anthropic.com/research/mapping-mind-language-model">inner conflict</a>&nbsp;and more. Experiments also show that LLMs behave in a semi-consistent way if these concepts are artificially activated or supressed, or if connections between them are altered. Instead of generating gibberish, they consistently talk about the Golden Gate Bridge, or believe that the Eiffel Tower is in Rome.</p>
+
+<p>Results like these make it difficult to view LLMs as mere chatterboxes. They have some kind of representation of a world, and that representation is used to create their output. On the other hand, there are also plenty of examples of chatbots acting inconsistently and doing all kinds of really stupid mistakes.</p>
+
+<h2  id="part-ii-where-is-ai-going">Part II: Where Is AI Going?</h2>
+
+<p>AI is advancing at an incredible speed. The single most important question when it comes to understanding how AI will affect us, is how much longer this speed can be maintained.</p>
+
+<h3  id="ten-times-better-every-year">Ten Times Better Every Year</h3>
+
+<p>Simplifying a bit, the progress in LLMs from roughly 2018 until the summer of 2024 has consisted of one thing: Using more data and more computing power to create bigger models. The recipe didn't have to be altered, you just had to add more of the same to the soup and let it stew for longer, and it would get better. This is known as&nbsp;<em>the scaling hypothesis</em>. OpenAI made a huge bet that scaling up the size of the language models would work, and it paid out.</p>
+
+<p>For a number of years, the AI labs have poured resources into creating bigger and better models. In total, that represents a tenfold progress every year, measured in their capacity to train AI models. This rate of progress is staggering: GPT-3 took at least a month to create in 2020, and in spring 2024 the best supercomputer could do the same thing in 4–5 minutes.</p>
+
+<p>We can make surprisingly accurate predictions for how much better LLMs become at selecting the "right" word when we spend more resources on training the model. But it has turned out nearly impossible to predict what that means in terms of what they actually can do. Will it be better at math? Make less factual errors? Be better at writing prose?</p>
+
+<p>There is no useful scale for machine intelligence, and "five percent more intelligent" or "ten units more intelligent" simply doesn't mean anything. Even the big AI labs don't know what to expect from new models, and new capabilities are frequently discovered after publishing them.</p>
+
+<h3  id="reasoning-models">Reasoning Models</h3>
+
+<p>As it turned out, the old-style scaling hypothesis broke somewhere around the summer of 2024. The most recent AI models created in the old-fashioned way (most notably GPT-4.5 and Llama 4), were disappointing. Bigger and heavier, but not that much better.</p>
+
+<p>A few months later, though, a new way to advance AI was presented:&nbsp;<em>reasoning models</em>. These are LLMs that are trained to analyze and reason about tasks they were given, before delivering a final result. When the method was made public (by the Chinese company DeepSeek), it became clear that it was surprisingly easy to create reasoning models. On top of that it was discovered that all but the smallest non-reasoning LLMs had latent reasoning capabilities, that could be elicited with small means.</p>
+
+<p>Reasoning models are already better than all but a select few humans when it comes to competition coding, they crack some math problems that take mathematicians hours to work through, and they outperform PhDs in chemistry, physics and biology on difficult questions within their own field of expertise. At the time of writing (May 2025), the AI labs are still picking a lot of the low-hanging fruit to improve reasoning models, and we don't know when it will slow down.</p>
+
+<p>An important aspect of reasoning models is that they also are better at creating and improving plans. This gives a big boost to so-called AI agents, that perform bigger or more complex tasks – either by pure reasoning, or by using various types of digital tools and services connected to the AI.</p>
+
+<h3  id="bottlenecks-for-building-ai">Bottlenecks for Building AI</h3>
+
+<p>To understand where AI is heading, it is necessary to understand the resources and assets necessary to build better AI models. They are often summarized as "data, compute and algorithms", but there are some reasons to add two or three more components to the list.</p>
+
+<ul >
+<li><strong>Data.</strong>&nbsp;High-quality data to train AI models on is a valuable resource, but is probably not a limiting factor. The term "synthetic data" refers to training data created by AI.</li>
+
+<li><strong>Algorithms and top talent.</strong>&nbsp;Using better algorithms (methods) for training or running AI can save a lot of computing power, which translates both into less money spent and quicker results. The big AI labs are fighting to get the top talent – sometimes buying entire companies to get it.</li>
+
+<li><strong>Computational power</strong>&nbsp;or just "compute". This is at the moment the most limiting factor, which largely is explained by the mind-bogglingly complex process of designing and manifacturing computer chips. The best chips have a precision of only a few nanometers, and the production is completely dominated by the US company Nvidia (designing the chips) and the Taiwanese company TSMC (manifacturing them).</li>
+
+<li><strong>Energy.</strong>&nbsp;If investments in AI follow the current trends, energy for powering data centers will soon be a limiting factor. The big AI labs have started investing in nuclear power, hoping to secure power to their next data centers.</li>
+
+<li><strong>Money.</strong>&nbsp;To continue the current trend, it is not enough to maintain the current investments. They need to more than double each year.</li>
+</ul>
+
+<h3  id="whos-in-charge">Who's in Charge?</h3>
+
+<p>Advanced AI has huge implications for economy and also national security. This creates a fierce competition, both between companies and countries.</p>
+
+<p>When it comes to countries, the US has the leading position with China close behind. To maintain the lead, the US has put a number of export restrictions in place, most notably on computer chips that can be used to train AI. Among the countries and regions trailing the two leaders are Canada, UK, EU (particularly France) and UAE. </p>
+
+<p>When it comes to companies, the leaders in creating AI models are OpenAI, Google, Anthropic and DeepSeek. xAI is a contender, in particular considering how quickly they are moving. Other noteworthy companies are Meta, Tencent, Baidu, Alibaba, Huawei, and maybe Microsoft and Amazon. (Not Apple, sorry.)</p>
+
+<p>Since advanced computer chips is such a strict bottleneck for creating and running AI models, the companies Nvidia (US), TSMC (Taiwan) and ASML (the Netherlands) are also important players.</p>
+
+<h2  id="part-iii-ai-and-society">Part III: AI and Society</h2>
+
+<p><em>(These sections have been summarized by Claude, with minor manual tweaks.)</em></p>
+
+<h3  id="information-and-democracy">Information and Democracy</h3>
+
+<p>AI has affected the information landscape through deepfakes and automated content generation. These technologies enable both targeted disinformation and mass-produced content that could flood the internet. While technical solutions like digital signatures for media content probably would be a big help, we currently rely primarily on individual source awareness and critical thinking to navigate this landscape.</p>
+
+<p>AI can also be used for both surveillance and enhancing democratic processes. In countries like Taiwan, AI has been implemented to facilitate public discussions about legislative proposals, bringing citizens with moderate differences together rather than fostering echo chambers. This demonstrates how AI's impact on democracy largely depends on what values we program it to maximize - engagement metrics that increase polarization or values that strengthen democratic conversation.</p>
+
+<h3  id="labor-market">Labor Market</h3>
+
+<p>Office jobs are being affected by AI more significantly than physical work, although almost all professions are experiencing some impact. The key question isn't just which jobs will disappear, but how quickly AI adoption occurs in workplaces. Studies suggest that between 25–50 percent of white-collar workers already use AI tools like chatbots, representing remarkably fast adoption.</p>
+
+<p>As AI takes over tasks, new ones emerge, leading to professions being reshaped rather than simply eliminated. For industries with labor shortages, AI automation can be beneficial rather than threatening. Programming already shows how professions may evolve: from early experimentation with AI tools, to mature integration of AI into workflows, potentially culminating in AI becoming near-superhuman at core tasks and changing the entire paradigm of the profession.</p>
+
+<h3  id="school-and-education">School and Education</h3>
+
+<p>Education has been significantly affected by AI, initially through concerns about cheating but increasingly through exploration of AI as a teaching tool. AI tutors represent a potentially revolutionary development - AI assistants that follow students through their education, learning about each student's knowledge level and preferences.</p>
+
+<p>The education system may need fundamental restructuring as AI development continues. Age-based classes could become obsolete if personalized learning through AI becomes widespread. Teachers' roles might shift from imparting subject knowledge to stimulating curiosity and focusing on social skills, values, and emotional learning. The pace of necessary change creates tension with the slow processes typically involved in updating curricula and educational systems.</p>
+
+<h3  id="health-and-research">Health and Research</h3>
+
+<p>AI has shown remarkable promise in healthcare, with studies demonstrating that AI can outperform human doctors in certain diagnostic situations, particularly when used in combination with medical professionals. In medical research, AI tools like AlphaFold (which earned the 2024 Nobel Prize in Chemistry) have revolutionized understanding of protein structures, enabling breakthroughs in understanding diseases and developing treatments.</p>
+
+<p>Beyond medicine, AI accelerates research across numerous fields from materials science to astrophysics. Systems capable of automating parts of the research process through literature review, experiment design, and data analysis are being developed. However, AI research tools themselves are advancing particularly quickly, creating a feedback loop where AI accelerates AI development - in 2024, Google reported that a quarter of new code at the company was being written by AI.</p>
+
+<h3  id="security-risks-and-warfare">Security Risks and Warfare</h3>
+
+<p>AI creates new security vulnerabilities through automated cyberattacks, enabling both discovery and exploitation of security flaws at much lower cost than human experts would require. Most LLMs have guardrails supposedly preventing them from being used for illegal activities, but the guardrails can be bypassed and, for models that can be downloaded, removed completely.</p>
+
+<p>In warfare, AI has already been deployed in autonomous weapons that can independently select and attack targets. While such systems could theoretically reduce civilian casualties through precision, they also create risks of unaccountable violence and concentration of power. Beyond the battlefield, AI systems enable mass surveillance and monitoring of citizens, creating tools for social control that go beyond anything previously possible.</p>
+
+<h3  id="culture-and-human-identity">Culture and Human Identity</h3>
+
+<p>The concentration of AI development among a handful of companies creates risk of cultural uniformity as the same few AI systems increasingly mediate our interactions with information. AI friendship apps like character.ai are becoming popular, especially among young people, creating both opportunities for reducing loneliness and risks of emotional manipulation, social isolation, and opinion influence.</p>
+
+<p>AI development challenges our view of ourselves as the only thinking entities on Earth. If machines surpass human cognitive abilities in most domains, humanity may need to redefine its relationship with work and purpose. The question of whether future AI systems should be considered individuals with rights becomes increasingly relevant, even if today's systems lack consciousness in the human sense.</p>
+
+<h3  id="control-over-the-future">Control Over the Future</h3>
+
+<p>Modern AI systems are largely black boxes whose decisions can only explained to a small degree, limiting their use for important decisions. As AI becomes integrated into infrastructure and decision-making, we risk atrophying our own competence and slowly losing control over our future, becoming increasingly dependent on systems we don't understand.</p>
+
+<p>Research on AI safety focuses on making AI systems more transparent, reliable, and aligned with human values. However, ensuring that superintelligent AI systems would act in humanity's best interests poses profound technical and philosophical challenges. Goal specification is particularly difficult - almost any goal taken to its extreme or interpreted literally could lead to unintended consequences. For every dollar spent on AI safety research, between 250 and 1000 dollars are spent on advancing AI capabilities. The racing dynamics between companies and nations makes it particularly difficult to focus on safety if it means slowing down the advancing of new capabilities.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+</body>
+</html>
