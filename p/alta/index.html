@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vad barn och elever behöver veta om AI – Älta rektorsområde · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-08-14</p>
+      <h1>Vad barn och elever behöver veta om AI – Älta rektorsområde</h1>
+      <p class="session-desc">Klicka på det påstående som passar dig bäst, så öppnas prompten färdigskriven. Vill du hellre använda ett annat verktyg: klicka på Kopiera prompt och klistra in själv.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">Uppvärmningsövning</h2>
+      </div>
+      <p class="exercise-desc">Välj det påstående som passar dig bäst. En chattbott kommer att ställa lite frågor till dig, för att hjälpa till att reflektera lite kring vad AI betyder för skolan.</p>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">Jag har testat lite, men kan inte så mycket</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20har%20provat%20AI%20n%C3%A5gon%20g%C3%A5ng%20och%20tror%20att%20det%20nog%20kan%20vara%20anv%C3%A4ndbart%2C%20men%20jag%20kan%20inte%20s%C3%A4rskilt%20mycket%20och%20har%20ingen%20klar%20bild%20av%20vad%20det%20betyder%20f%C3%B6r%20mitt%20jobb.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20ger%20mig%20n%C3%A5got%20att%20t%C3%A4nka%20p%C3%A5%20%E2%80%93%20inte%20en%20f%C3%B6rklaring%20av%20tekniken%2C%20utan%20n%C3%A5got%20som%20g%C3%B6r%20fr%C3%A5gan%20angel%C3%A4gen.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20jag%20senast%20anv%C3%A4nde%20AI%20till%2C%20hur%20stor%20del%20av%20mitt%20arbete%20jag%20tror%20att%20AI%20kan%20hj%C3%A4lpa%20till%20med%20om%20ett%20%C3%A5r%2C%20vad%20som%20mest%20hindrar%20mig%20fr%C3%A5n%20att%20komma%20ig%C3%A5ng%2C%20och%20vad%20jag%20tror%20att%20mina%20elever%20m%C3%B6ter%20av%20AI%20utanf%C3%B6r%20skolan%20som%20jag%20inte%20k%C3%A4nner%20till.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20har%20provat%20AI%20n%C3%A5gon%20g%C3%A5ng%20och%20tror%20att%20det%20nog%20kan%20vara%20anv%C3%A4ndbart%2C%20men%20jag%20kan%20inte%20s%C3%A4rskilt%20mycket%20och%20har%20ingen%20klar%20bild%20av%20vad%20det%20betyder%20f%C3%B6r%20mitt%20jobb.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20ger%20mig%20n%C3%A5got%20att%20t%C3%A4nka%20p%C3%A5%20%E2%80%93%20inte%20en%20f%C3%B6rklaring%20av%20tekniken%2C%20utan%20n%C3%A5got%20som%20g%C3%B6r%20fr%C3%A5gan%20angel%C3%A4gen.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20jag%20senast%20anv%C3%A4nde%20AI%20till%2C%20hur%20stor%20del%20av%20mitt%20arbete%20jag%20tror%20att%20AI%20kan%20hj%C3%A4lpa%20till%20med%20om%20ett%20%C3%A5r%2C%20vad%20som%20mest%20hindrar%20mig%20fr%C3%A5n%20att%20komma%20ig%C3%A5ng%2C%20och%20vad%20jag%20tror%20att%20mina%20elever%20m%C3%B6ter%20av%20AI%20utanf%C3%B6r%20skolan%20som%20jag%20inte%20k%C3%A4nner%20till.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20har%20provat%20AI%20n%C3%A5gon%20g%C3%A5ng%20och%20tror%20att%20det%20nog%20kan%20vara%20anv%C3%A4ndbart%2C%20men%20jag%20kan%20inte%20s%C3%A4rskilt%20mycket%20och%20har%20ingen%20klar%20bild%20av%20vad%20det%20betyder%20f%C3%B6r%20mitt%20jobb.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20ger%20mig%20n%C3%A5got%20att%20t%C3%A4nka%20p%C3%A5%20%E2%80%93%20inte%20en%20f%C3%B6rklaring%20av%20tekniken%2C%20utan%20n%C3%A5got%20som%20g%C3%B6r%20fr%C3%A5gan%20angel%C3%A4gen.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20jag%20senast%20anv%C3%A4nde%20AI%20till%2C%20hur%20stor%20del%20av%20mitt%20arbete%20jag%20tror%20att%20AI%20kan%20hj%C3%A4lpa%20till%20med%20om%20ett%20%C3%A5r%2C%20vad%20som%20mest%20hindrar%20mig%20fr%C3%A5n%20att%20komma%20ig%C3%A5ng%2C%20och%20vad%20jag%20tror%20att%20mina%20elever%20m%C3%B6ter%20av%20AI%20utanf%C3%B6r%20skolan%20som%20jag%20inte%20k%C3%A4nner%20till.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20har%20provat%20AI%20n%C3%A5gon%20g%C3%A5ng%20och%20tror%20att%20det%20nog%20kan%20vara%20anv%C3%A4ndbart%2C%20men%20jag%20kan%20inte%20s%C3%A4rskilt%20mycket%20och%20har%20ingen%20klar%20bild%20av%20vad%20det%20betyder%20f%C3%B6r%20mitt%20jobb.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20ger%20mig%20n%C3%A5got%20att%20t%C3%A4nka%20p%C3%A5%20%E2%80%93%20inte%20en%20f%C3%B6rklaring%20av%20tekniken%2C%20utan%20n%C3%A5got%20som%20g%C3%B6r%20fr%C3%A5gan%20angel%C3%A4gen.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20jag%20senast%20anv%C3%A4nde%20AI%20till%2C%20hur%20stor%20del%20av%20mitt%20arbete%20jag%20tror%20att%20AI%20kan%20hj%C3%A4lpa%20till%20med%20om%20ett%20%C3%A5r%2C%20vad%20som%20mest%20hindrar%20mig%20fr%C3%A5n%20att%20komma%20ig%C3%A5ng%2C%20och%20vad%20jag%20tror%20att%20mina%20elever%20m%C3%B6ter%20av%20AI%20utanf%C3%B6r%20skolan%20som%20jag%20inte%20k%C3%A4nner%20till.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag har provat AI någon gång och tror att det nog kan vara användbart, men jag kan inte särskilt mycket och har ingen klar bild av vad det betyder för mitt jobb. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som ger mig något att tänka på – inte en förklaring av tekniken, utan något som gör frågan angelägen. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad jag senast använde AI till, hur stor del av mitt arbete jag tror att AI kan hjälpa till med om ett år, vad som mest hindrar mig från att komma igång, och vad jag tror att mina elever möter av AI utanför skolan som jag inte känner till. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" title="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag har provat AI någon gång och tror att det nog kan vara användbart, men jag kan inte särskilt mycket och har ingen klar bild av vad det betyder för mitt jobb. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som ger mig något att tänka på – inte en förklaring av tekniken, utan något som gör frågan angelägen. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad jag senast använde AI till, hur stor del av mitt arbete jag tror att AI kan hjälpa till med om ett år, vad som mest hindrar mig från att komma igång, och vad jag tror att mina elever möter av AI utanför skolan som jag inte känner till. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Jag är tveksam till det här med AI</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20%C3%A4r%20skeptisk%20till%20AI%20och%20egentligen%20inte%20s%C3%A4rskilt%20intresserad%20%E2%80%93%20jag%20ser%20mer%20problem%20%C3%A4n%20m%C3%B6jligheter%2C%20och%20jag%20%C3%A4r%20tr%C3%B6tt%20p%C3%A5%20att%20det%20pratas%20s%C3%A5%20mycket%20om%20det.%20Ta%20det%20p%C3%A5%20allvar.%20Din%20uppgift%20%C3%A4r%20att%20hj%C3%A4lpa%20mig%20formulera%20vad%20jag%20faktiskt%20tycker%20och%20varf%C3%B6r%2C%20inte%20att%20%C3%B6vertala%20mig%20eller%20v%C3%A4ga%20upp%20med%20f%C3%B6rdelar.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20tar%20min%20inv%C3%A4ndning%20p%C3%A5%20allvar.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20st%C3%B6r%20mig%20mest%20%E2%80%93%20ge%20mig%20en%20kort%20lista%20att%20v%C3%A4lja%20ur%20%E2%80%93%20hur%20mycket%20min%20inst%C3%A4llning%20har%20f%C3%B6r%C3%A4ndrats%20det%20senaste%20%C3%A5ret%2C%20vad%20som%20skulle%20beh%C3%B6va%20vara%20annorlunda%20f%C3%B6r%20att%20min%20viktigaste%20inv%C3%A4ndning%20skulle%20falla%2C%20och%20vad%20jag%20tror%20att%20barn%20och%20elever%20beh%C3%B6ver%20kunna%20om%20AI%20oavsett%20vad%20jag%20sj%C3%A4lv%20tycker%20om%20tekniken.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20%C3%A4r%20skeptisk%20till%20AI%20och%20egentligen%20inte%20s%C3%A4rskilt%20intresserad%20%E2%80%93%20jag%20ser%20mer%20problem%20%C3%A4n%20m%C3%B6jligheter%2C%20och%20jag%20%C3%A4r%20tr%C3%B6tt%20p%C3%A5%20att%20det%20pratas%20s%C3%A5%20mycket%20om%20det.%20Ta%20det%20p%C3%A5%20allvar.%20Din%20uppgift%20%C3%A4r%20att%20hj%C3%A4lpa%20mig%20formulera%20vad%20jag%20faktiskt%20tycker%20och%20varf%C3%B6r%2C%20inte%20att%20%C3%B6vertala%20mig%20eller%20v%C3%A4ga%20upp%20med%20f%C3%B6rdelar.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20tar%20min%20inv%C3%A4ndning%20p%C3%A5%20allvar.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20st%C3%B6r%20mig%20mest%20%E2%80%93%20ge%20mig%20en%20kort%20lista%20att%20v%C3%A4lja%20ur%20%E2%80%93%20hur%20mycket%20min%20inst%C3%A4llning%20har%20f%C3%B6r%C3%A4ndrats%20det%20senaste%20%C3%A5ret%2C%20vad%20som%20skulle%20beh%C3%B6va%20vara%20annorlunda%20f%C3%B6r%20att%20min%20viktigaste%20inv%C3%A4ndning%20skulle%20falla%2C%20och%20vad%20jag%20tror%20att%20barn%20och%20elever%20beh%C3%B6ver%20kunna%20om%20AI%20oavsett%20vad%20jag%20sj%C3%A4lv%20tycker%20om%20tekniken.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20%C3%A4r%20skeptisk%20till%20AI%20och%20egentligen%20inte%20s%C3%A4rskilt%20intresserad%20%E2%80%93%20jag%20ser%20mer%20problem%20%C3%A4n%20m%C3%B6jligheter%2C%20och%20jag%20%C3%A4r%20tr%C3%B6tt%20p%C3%A5%20att%20det%20pratas%20s%C3%A5%20mycket%20om%20det.%20Ta%20det%20p%C3%A5%20allvar.%20Din%20uppgift%20%C3%A4r%20att%20hj%C3%A4lpa%20mig%20formulera%20vad%20jag%20faktiskt%20tycker%20och%20varf%C3%B6r%2C%20inte%20att%20%C3%B6vertala%20mig%20eller%20v%C3%A4ga%20upp%20med%20f%C3%B6rdelar.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20tar%20min%20inv%C3%A4ndning%20p%C3%A5%20allvar.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20st%C3%B6r%20mig%20mest%20%E2%80%93%20ge%20mig%20en%20kort%20lista%20att%20v%C3%A4lja%20ur%20%E2%80%93%20hur%20mycket%20min%20inst%C3%A4llning%20har%20f%C3%B6r%C3%A4ndrats%20det%20senaste%20%C3%A5ret%2C%20vad%20som%20skulle%20beh%C3%B6va%20vara%20annorlunda%20f%C3%B6r%20att%20min%20viktigaste%20inv%C3%A4ndning%20skulle%20falla%2C%20och%20vad%20jag%20tror%20att%20barn%20och%20elever%20beh%C3%B6ver%20kunna%20om%20AI%20oavsett%20vad%20jag%20sj%C3%A4lv%20tycker%20om%20tekniken.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20%C3%A4r%20skeptisk%20till%20AI%20och%20egentligen%20inte%20s%C3%A4rskilt%20intresserad%20%E2%80%93%20jag%20ser%20mer%20problem%20%C3%A4n%20m%C3%B6jligheter%2C%20och%20jag%20%C3%A4r%20tr%C3%B6tt%20p%C3%A5%20att%20det%20pratas%20s%C3%A5%20mycket%20om%20det.%20Ta%20det%20p%C3%A5%20allvar.%20Din%20uppgift%20%C3%A4r%20att%20hj%C3%A4lpa%20mig%20formulera%20vad%20jag%20faktiskt%20tycker%20och%20varf%C3%B6r%2C%20inte%20att%20%C3%B6vertala%20mig%20eller%20v%C3%A4ga%20upp%20med%20f%C3%B6rdelar.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20tar%20min%20inv%C3%A4ndning%20p%C3%A5%20allvar.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20st%C3%B6r%20mig%20mest%20%E2%80%93%20ge%20mig%20en%20kort%20lista%20att%20v%C3%A4lja%20ur%20%E2%80%93%20hur%20mycket%20min%20inst%C3%A4llning%20har%20f%C3%B6r%C3%A4ndrats%20det%20senaste%20%C3%A5ret%2C%20vad%20som%20skulle%20beh%C3%B6va%20vara%20annorlunda%20f%C3%B6r%20att%20min%20viktigaste%20inv%C3%A4ndning%20skulle%20falla%2C%20och%20vad%20jag%20tror%20att%20barn%20och%20elever%20beh%C3%B6ver%20kunna%20om%20AI%20oavsett%20vad%20jag%20sj%C3%A4lv%20tycker%20om%20tekniken.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag är skeptisk till AI och egentligen inte särskilt intresserad – jag ser mer problem än möjligheter, och jag är trött på att det pratas så mycket om det. Ta det på allvar. Din uppgift är att hjälpa mig formulera vad jag faktiskt tycker och varför, inte att övertala mig eller väga upp med fördelar. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som tar min invändning på allvar. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad som stör mig mest – ge mig en kort lista att välja ur – hur mycket min inställning har förändrats det senaste året, vad som skulle behöva vara annorlunda för att min viktigaste invändning skulle falla, och vad jag tror att barn och elever behöver kunna om AI oavsett vad jag själv tycker om tekniken. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" title="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag är skeptisk till AI och egentligen inte särskilt intresserad – jag ser mer problem än möjligheter, och jag är trött på att det pratas så mycket om det. Ta det på allvar. Din uppgift är att hjälpa mig formulera vad jag faktiskt tycker och varför, inte att övertala mig eller väga upp med fördelar. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som tar min invändning på allvar. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad som stör mig mest – ge mig en kort lista att välja ur – hur mycket min inställning har förändrats det senaste året, vad som skulle behöva vara annorlunda för att min viktigaste invändning skulle falla, och vad jag tror att barn och elever behöver kunna om AI oavsett vad jag själv tycker om tekniken. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">AI intresserar mig</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20tycker%20att%20AI%20%C3%A4r%20b%C3%A5de%20roligt%20och%20viktigt%2C%20och%20jag%20f%C3%B6ljer%20utvecklingen%20en%20del%20p%C3%A5%20egen%20hand.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20skjuter%20in%20ett%20perspektiv%20jag%20kanske%20inte%20t%C3%A4nkt%20p%C3%A5.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20har%20imponerat%20eller%20oroat%20mig%20mest%20det%20senaste%20halv%C3%A5ret%2C%20hur%20v%C3%A4l%20f%C3%B6rberedd%20jag%20tycker%20att%20min%20skola%20%C3%A4r%2C%20vad%20jag%20skulle%20l%C3%A4gga%20en%20hel%20fortbildningsdag%20p%C3%A5%20om%20jag%20fick%20best%C3%A4mma%2C%20och%20vad%20jag%20tror%20att%20mina%20kollegor%20missar.%20Utmana%20mig%20lite%3A%20om%20jag%20svarar%20svepande%2C%20be%20mig%20bli%20konkret%20innan%20du%20g%C3%A5r%20vidare.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20tycker%20att%20AI%20%C3%A4r%20b%C3%A5de%20roligt%20och%20viktigt%2C%20och%20jag%20f%C3%B6ljer%20utvecklingen%20en%20del%20p%C3%A5%20egen%20hand.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20skjuter%20in%20ett%20perspektiv%20jag%20kanske%20inte%20t%C3%A4nkt%20p%C3%A5.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20har%20imponerat%20eller%20oroat%20mig%20mest%20det%20senaste%20halv%C3%A5ret%2C%20hur%20v%C3%A4l%20f%C3%B6rberedd%20jag%20tycker%20att%20min%20skola%20%C3%A4r%2C%20vad%20jag%20skulle%20l%C3%A4gga%20en%20hel%20fortbildningsdag%20p%C3%A5%20om%20jag%20fick%20best%C3%A4mma%2C%20och%20vad%20jag%20tror%20att%20mina%20kollegor%20missar.%20Utmana%20mig%20lite%3A%20om%20jag%20svarar%20svepande%2C%20be%20mig%20bli%20konkret%20innan%20du%20g%C3%A5r%20vidare.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20tycker%20att%20AI%20%C3%A4r%20b%C3%A5de%20roligt%20och%20viktigt%2C%20och%20jag%20f%C3%B6ljer%20utvecklingen%20en%20del%20p%C3%A5%20egen%20hand.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20skjuter%20in%20ett%20perspektiv%20jag%20kanske%20inte%20t%C3%A4nkt%20p%C3%A5.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20har%20imponerat%20eller%20oroat%20mig%20mest%20det%20senaste%20halv%C3%A5ret%2C%20hur%20v%C3%A4l%20f%C3%B6rberedd%20jag%20tycker%20att%20min%20skola%20%C3%A4r%2C%20vad%20jag%20skulle%20l%C3%A4gga%20en%20hel%20fortbildningsdag%20p%C3%A5%20om%20jag%20fick%20best%C3%A4mma%2C%20och%20vad%20jag%20tror%20att%20mina%20kollegor%20missar.%20Utmana%20mig%20lite%3A%20om%20jag%20svarar%20svepande%2C%20be%20mig%20bli%20konkret%20innan%20du%20g%C3%A5r%20vidare.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Du%20ska%20hj%C3%A4lpa%20mig%20v%C3%A4rma%20upp%20inf%C3%B6r%20en%20f%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola.%20Jag%20arbetar%20i%20grundskolan.%20Jag%20tycker%20att%20AI%20%C3%A4r%20b%C3%A5de%20roligt%20och%20viktigt%2C%20och%20jag%20f%C3%B6ljer%20utvecklingen%20en%20del%20p%C3%A5%20egen%20hand.%20St%C3%A4ll%20fyra%20fr%C3%A5gor%20till%20mig%2C%20en%20i%20taget%2C%20och%20v%C3%A4nta%20p%C3%A5%20mitt%20svar%20innan%20du%20g%C3%A5r%20vidare.%20Fr%C3%A5ga%20som%20en%20del%20av%20den%20f%C3%B6rsta%20fr%C3%A5gan%20vilka%20%C3%A5ldrar%20jag%20arbetar%20med%2C%20s%C3%A5%20att%20resten%20blir%20relevant.%20F%C3%B6re%20varje%20fr%C3%A5ga%20skriver%20du%20tv%C3%A5%20eller%20tre%20meningar%20som%20knyter%20an%20till%20det%20jag%20just%20svarade%20och%20som%20skjuter%20in%20ett%20perspektiv%20jag%20kanske%20inte%20t%C3%A4nkt%20p%C3%A5.%20Varje%20fr%C3%A5ga%20ska%20g%C3%A5%20att%20besvara%20med%20n%C3%A5gra%20f%C3%A5%20ord%2C%20med%20ett%20val%20ur%20en%20kort%20lista%2C%20eller%20med%20ett%20l%C3%A4ge%20p%C3%A5%20en%20skala%20fr%C3%A5n%201%20till%205.%20Fr%C3%A5ga%20bland%20annat%20vad%20som%20har%20imponerat%20eller%20oroat%20mig%20mest%20det%20senaste%20halv%C3%A5ret%2C%20hur%20v%C3%A4l%20f%C3%B6rberedd%20jag%20tycker%20att%20min%20skola%20%C3%A4r%2C%20vad%20jag%20skulle%20l%C3%A4gga%20en%20hel%20fortbildningsdag%20p%C3%A5%20om%20jag%20fick%20best%C3%A4mma%2C%20och%20vad%20jag%20tror%20att%20mina%20kollegor%20missar.%20Utmana%20mig%20lite%3A%20om%20jag%20svarar%20svepande%2C%20be%20mig%20bli%20konkret%20innan%20du%20g%C3%A5r%20vidare.%20Hela%20%C3%B6vningen%20ska%20ta%20tre%20till%20fyra%20minuter%2C%20s%C3%A5%20h%C3%A5ll%20dig%20kort%20och%20f%C3%B6rel%C3%A4s%20inte.%20Avsluta%20efter%20fj%C3%A4rde%20fr%C3%A5gan%20med%20tre%20eller%20fyra%20meningar%20om%20vad%20jag%20verkar%20tycka%2C%20och%20en%20fr%C3%A5ga%20att%20b%C3%A4ra%20med%20mig%20in%20i%20f%C3%B6rel%C3%A4sningen.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag tycker att AI är både roligt och viktigt, och jag följer utvecklingen en del på egen hand. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som skjuter in ett perspektiv jag kanske inte tänkt på. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad som har imponerat eller oroat mig mest det senaste halvåret, hur väl förberedd jag tycker att min skola är, vad jag skulle lägga en hel fortbildningsdag på om jag fick bestämma, och vad jag tror att mina kollegor missar. Utmana mig lite: om jag svarar svepande, be mig bli konkret innan du går vidare. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" title="Du ska hjälpa mig värma upp inför en föreläsning om AI och skola. Jag arbetar i grundskolan. Jag tycker att AI är både roligt och viktigt, och jag följer utvecklingen en del på egen hand. Ställ fyra frågor till mig, en i taget, och vänta på mitt svar innan du går vidare. Fråga som en del av den första frågan vilka åldrar jag arbetar med, så att resten blir relevant. Före varje fråga skriver du två eller tre meningar som knyter an till det jag just svarade och som skjuter in ett perspektiv jag kanske inte tänkt på. Varje fråga ska gå att besvara med några få ord, med ett val ur en kort lista, eller med ett läge på en skala från 1 till 5. Fråga bland annat vad som har imponerat eller oroat mig mest det senaste halvåret, hur väl förberedd jag tycker att min skola är, vad jag skulle lägga en hel fortbildningsdag på om jag fick bestämma, och vad jag tror att mina kollegor missar. Utmana mig lite: om jag svarar svepande, be mig bli konkret innan du går vidare. Hela övningen ska ta tre till fyra minuter, så håll dig kort och föreläs inte. Avsluta efter fjärde frågan med tre eller fyra meningar om vad jag verkar tycka, och en fråga att bära med mig in i föreläsningen.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR-kod till den här sidan">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Den här sidans adress</p>
+          <p class="url-text">falkai.org/p/alta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Kopierad!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

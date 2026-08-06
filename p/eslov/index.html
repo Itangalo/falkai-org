@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI för högstadiet – Norrevångsskolan, Eslöv · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-08-14</p>
+      <h1>AI för högstadiet – Norrevångsskolan, Eslöv</h1>
+      <p class="session-desc">Klicka på ett område så öppnas prompten färdigskriven. Vill du hellre använda ett annat verktyg: klicka på Kopiera prompt och klistra in själv.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">Utforska ett sätt att spara fem minuter om dagen med AI</h2>
+      </div>
+      <p class="exercise-desc">Välj ett område och ta hjälp av chattbotten för att komma igång (eller komma vidare). Arbeta gärna tillsammans med en kollega eller två.</p>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">För dig som är ny med AI</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%2C%20och%20vi%20har%20inte%20anv%C3%A4nt%20AI%20s%C3%A4rskilt%20mycket.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20prova%20f%C3%B6r%20f%C3%B6rsta%20g%C3%A5ngen.%20B%C3%B6rja%20med%20att%20presentera%20tre%20saker%20vi%20kan%20v%C3%A4lja%20mellan%2C%20en%20mening%20var%2C%20och%20s%C3%A4g%20att%20vi%20ocks%C3%A5%20f%C3%A5r%20f%C3%B6resl%C3%A5%20n%C3%A5got%20helt%20annat%20om%20vi%20hellre%20vill.%20De%20tre%20%C3%A4r%3A%20%281%29%20guida%20oss%20genom%20att%20skapa%20nya%20varianter%20av%20en%20aktivitet%20eller%20uppgift%20vi%20redan%20har%2C%20anpassade%20f%C3%B6r%20ett%20nytt%20tillf%C3%A4lle%20eller%20f%C3%B6r%20specifika%20elever%3B%20%282%29%20hj%C3%A4lp%20oss%20utv%C3%A4rdera%20ett%20lektionsuppl%C3%A4gg%20vi%20har%20och%20f%C3%B6resl%C3%A5%20f%C3%B6rb%C3%A4ttringar%20%E2%80%93%20fr%C3%A5ga%20d%C3%A5%20vad%20vi%20anser%20vara%20extra%20viktigt%20att%20uppn%C3%A5%20i%20v%C3%A5r%20undervisning%3B%20%283%29%20guida%20oss%20i%20hur%20vi%20anv%C3%A4nder%20AI%20f%C3%B6r%20att%20skapa%20ett%20utkast%20till%20ett%20utskick%20till%20v%C3%A5rdnadshavare%2C%20utifr%C3%A5n%20stolpar%20eller%20l%C3%B6sa%20anteckningar.%20N%C3%A4r%20vi%20har%20valt%3A%20ta%20ett%20steg%20i%20taget%20och%20v%C3%A4nta%20p%C3%A5%20v%C3%A5rt%20svar%20mellan%20stegen.%20S%C3%A4g%20konkret%20vad%20vi%20ska%20g%C3%B6ra%20eller%20klistra%20in%2C%20h%C3%A5ll%20dig%20till%20n%C3%A5gra%20meningar%20%C3%A5t%20g%C3%A5ngen%2C%20och%20utg%C3%A5%20inte%20fr%C3%A5n%20att%20vi%20kan%20n%C3%A5gra%20begrepp.%20F%C3%B6rklara%20inte%20tekniken%20bakom%20om%20vi%20inte%20fr%C3%A5gar.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%2C%20och%20vi%20har%20inte%20anv%C3%A4nt%20AI%20s%C3%A4rskilt%20mycket.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20prova%20f%C3%B6r%20f%C3%B6rsta%20g%C3%A5ngen.%20B%C3%B6rja%20med%20att%20presentera%20tre%20saker%20vi%20kan%20v%C3%A4lja%20mellan%2C%20en%20mening%20var%2C%20och%20s%C3%A4g%20att%20vi%20ocks%C3%A5%20f%C3%A5r%20f%C3%B6resl%C3%A5%20n%C3%A5got%20helt%20annat%20om%20vi%20hellre%20vill.%20De%20tre%20%C3%A4r%3A%20%281%29%20guida%20oss%20genom%20att%20skapa%20nya%20varianter%20av%20en%20aktivitet%20eller%20uppgift%20vi%20redan%20har%2C%20anpassade%20f%C3%B6r%20ett%20nytt%20tillf%C3%A4lle%20eller%20f%C3%B6r%20specifika%20elever%3B%20%282%29%20hj%C3%A4lp%20oss%20utv%C3%A4rdera%20ett%20lektionsuppl%C3%A4gg%20vi%20har%20och%20f%C3%B6resl%C3%A5%20f%C3%B6rb%C3%A4ttringar%20%E2%80%93%20fr%C3%A5ga%20d%C3%A5%20vad%20vi%20anser%20vara%20extra%20viktigt%20att%20uppn%C3%A5%20i%20v%C3%A5r%20undervisning%3B%20%283%29%20guida%20oss%20i%20hur%20vi%20anv%C3%A4nder%20AI%20f%C3%B6r%20att%20skapa%20ett%20utkast%20till%20ett%20utskick%20till%20v%C3%A5rdnadshavare%2C%20utifr%C3%A5n%20stolpar%20eller%20l%C3%B6sa%20anteckningar.%20N%C3%A4r%20vi%20har%20valt%3A%20ta%20ett%20steg%20i%20taget%20och%20v%C3%A4nta%20p%C3%A5%20v%C3%A5rt%20svar%20mellan%20stegen.%20S%C3%A4g%20konkret%20vad%20vi%20ska%20g%C3%B6ra%20eller%20klistra%20in%2C%20h%C3%A5ll%20dig%20till%20n%C3%A5gra%20meningar%20%C3%A5t%20g%C3%A5ngen%2C%20och%20utg%C3%A5%20inte%20fr%C3%A5n%20att%20vi%20kan%20n%C3%A5gra%20begrepp.%20F%C3%B6rklara%20inte%20tekniken%20bakom%20om%20vi%20inte%20fr%C3%A5gar.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%2C%20och%20vi%20har%20inte%20anv%C3%A4nt%20AI%20s%C3%A4rskilt%20mycket.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20prova%20f%C3%B6r%20f%C3%B6rsta%20g%C3%A5ngen.%20B%C3%B6rja%20med%20att%20presentera%20tre%20saker%20vi%20kan%20v%C3%A4lja%20mellan%2C%20en%20mening%20var%2C%20och%20s%C3%A4g%20att%20vi%20ocks%C3%A5%20f%C3%A5r%20f%C3%B6resl%C3%A5%20n%C3%A5got%20helt%20annat%20om%20vi%20hellre%20vill.%20De%20tre%20%C3%A4r%3A%20%281%29%20guida%20oss%20genom%20att%20skapa%20nya%20varianter%20av%20en%20aktivitet%20eller%20uppgift%20vi%20redan%20har%2C%20anpassade%20f%C3%B6r%20ett%20nytt%20tillf%C3%A4lle%20eller%20f%C3%B6r%20specifika%20elever%3B%20%282%29%20hj%C3%A4lp%20oss%20utv%C3%A4rdera%20ett%20lektionsuppl%C3%A4gg%20vi%20har%20och%20f%C3%B6resl%C3%A5%20f%C3%B6rb%C3%A4ttringar%20%E2%80%93%20fr%C3%A5ga%20d%C3%A5%20vad%20vi%20anser%20vara%20extra%20viktigt%20att%20uppn%C3%A5%20i%20v%C3%A5r%20undervisning%3B%20%283%29%20guida%20oss%20i%20hur%20vi%20anv%C3%A4nder%20AI%20f%C3%B6r%20att%20skapa%20ett%20utkast%20till%20ett%20utskick%20till%20v%C3%A5rdnadshavare%2C%20utifr%C3%A5n%20stolpar%20eller%20l%C3%B6sa%20anteckningar.%20N%C3%A4r%20vi%20har%20valt%3A%20ta%20ett%20steg%20i%20taget%20och%20v%C3%A4nta%20p%C3%A5%20v%C3%A5rt%20svar%20mellan%20stegen.%20S%C3%A4g%20konkret%20vad%20vi%20ska%20g%C3%B6ra%20eller%20klistra%20in%2C%20h%C3%A5ll%20dig%20till%20n%C3%A5gra%20meningar%20%C3%A5t%20g%C3%A5ngen%2C%20och%20utg%C3%A5%20inte%20fr%C3%A5n%20att%20vi%20kan%20n%C3%A5gra%20begrepp.%20F%C3%B6rklara%20inte%20tekniken%20bakom%20om%20vi%20inte%20fr%C3%A5gar.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%2C%20och%20vi%20har%20inte%20anv%C3%A4nt%20AI%20s%C3%A4rskilt%20mycket.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20prova%20f%C3%B6r%20f%C3%B6rsta%20g%C3%A5ngen.%20B%C3%B6rja%20med%20att%20presentera%20tre%20saker%20vi%20kan%20v%C3%A4lja%20mellan%2C%20en%20mening%20var%2C%20och%20s%C3%A4g%20att%20vi%20ocks%C3%A5%20f%C3%A5r%20f%C3%B6resl%C3%A5%20n%C3%A5got%20helt%20annat%20om%20vi%20hellre%20vill.%20De%20tre%20%C3%A4r%3A%20%281%29%20guida%20oss%20genom%20att%20skapa%20nya%20varianter%20av%20en%20aktivitet%20eller%20uppgift%20vi%20redan%20har%2C%20anpassade%20f%C3%B6r%20ett%20nytt%20tillf%C3%A4lle%20eller%20f%C3%B6r%20specifika%20elever%3B%20%282%29%20hj%C3%A4lp%20oss%20utv%C3%A4rdera%20ett%20lektionsuppl%C3%A4gg%20vi%20har%20och%20f%C3%B6resl%C3%A5%20f%C3%B6rb%C3%A4ttringar%20%E2%80%93%20fr%C3%A5ga%20d%C3%A5%20vad%20vi%20anser%20vara%20extra%20viktigt%20att%20uppn%C3%A5%20i%20v%C3%A5r%20undervisning%3B%20%283%29%20guida%20oss%20i%20hur%20vi%20anv%C3%A4nder%20AI%20f%C3%B6r%20att%20skapa%20ett%20utkast%20till%20ett%20utskick%20till%20v%C3%A5rdnadshavare%2C%20utifr%C3%A5n%20stolpar%20eller%20l%C3%B6sa%20anteckningar.%20N%C3%A4r%20vi%20har%20valt%3A%20ta%20ett%20steg%20i%20taget%20och%20v%C3%A4nta%20p%C3%A5%20v%C3%A5rt%20svar%20mellan%20stegen.%20S%C3%A4g%20konkret%20vad%20vi%20ska%20g%C3%B6ra%20eller%20klistra%20in%2C%20h%C3%A5ll%20dig%20till%20n%C3%A5gra%20meningar%20%C3%A5t%20g%C3%A5ngen%2C%20och%20utg%C3%A5%20inte%20fr%C3%A5n%20att%20vi%20kan%20n%C3%A5gra%20begrepp.%20F%C3%B6rklara%20inte%20tekniken%20bakom%20om%20vi%20inte%20fr%C3%A5gar.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Vi är en eller ett par lärare på en högstadieskola, och vi har inte använt AI särskilt mycket. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att prova för första gången. Börja med att presentera tre saker vi kan välja mellan, en mening var, och säg att vi också får föreslå något helt annat om vi hellre vill. De tre är: (1) guida oss genom att skapa nya varianter av en aktivitet eller uppgift vi redan har, anpassade för ett nytt tillfälle eller för specifika elever; (2) hjälp oss utvärdera ett lektionsupplägg vi har och föreslå förbättringar – fråga då vad vi anser vara extra viktigt att uppnå i vår undervisning; (3) guida oss i hur vi använder AI för att skapa ett utkast till ett utskick till vårdnadshavare, utifrån stolpar eller lösa anteckningar. När vi har valt: ta ett steg i taget och vänta på vårt svar mellan stegen. Säg konkret vad vi ska göra eller klistra in, håll dig till några meningar åt gången, och utgå inte från att vi kan några begrepp. Förklara inte tekniken bakom om vi inte frågar. Påminn oss om att inte skriva in namn eller känsliga uppgifter om elever.
+" title="Vi är en eller ett par lärare på en högstadieskola, och vi har inte använt AI särskilt mycket. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att prova för första gången. Börja med att presentera tre saker vi kan välja mellan, en mening var, och säg att vi också får föreslå något helt annat om vi hellre vill. De tre är: (1) guida oss genom att skapa nya varianter av en aktivitet eller uppgift vi redan har, anpassade för ett nytt tillfälle eller för specifika elever; (2) hjälp oss utvärdera ett lektionsupplägg vi har och föreslå förbättringar – fråga då vad vi anser vara extra viktigt att uppnå i vår undervisning; (3) guida oss i hur vi använder AI för att skapa ett utkast till ett utskick till vårdnadshavare, utifrån stolpar eller lösa anteckningar. När vi har valt: ta ett steg i taget och vänta på vårt svar mellan stegen. Säg konkret vad vi ska göra eller klistra in, håll dig till några meningar åt gången, och utgå inte från att vi kan några begrepp. Förklara inte tekniken bakom om vi inte frågar. Påminn oss om att inte skriva in namn eller känsliga uppgifter om elever.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Bearbeta texter</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20bearbeta%20text.%20Det%20kan%20exempelvis%20handla%20om%20att%20korta%20ner%20eller%20skriva%20om%20ett%20meddelande%20till%20v%C3%A5rdnadshavare%2C%20att%20formulera%20om%20en%20text%20f%C3%B6r%20en%20elev%20som%20beh%C3%B6ver%20den%20enklare%2C%20att%20f%C3%A5%20respons%20p%C3%A5%20en%20text%20innan%20vi%20skickar%20den%2C%20%C3%B6vers%C3%A4tta%20texter%2C%20eller%20att%20g%C3%A5%20igenom%20ett%20utkast%20f%C3%B6r%20att%20hitta%20det%20som%20%C3%A4r%20otydligt.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20bearbeta%20text.%20Det%20kan%20exempelvis%20handla%20om%20att%20korta%20ner%20eller%20skriva%20om%20ett%20meddelande%20till%20v%C3%A5rdnadshavare%2C%20att%20formulera%20om%20en%20text%20f%C3%B6r%20en%20elev%20som%20beh%C3%B6ver%20den%20enklare%2C%20att%20f%C3%A5%20respons%20p%C3%A5%20en%20text%20innan%20vi%20skickar%20den%2C%20%C3%B6vers%C3%A4tta%20texter%2C%20eller%20att%20g%C3%A5%20igenom%20ett%20utkast%20f%C3%B6r%20att%20hitta%20det%20som%20%C3%A4r%20otydligt.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20bearbeta%20text.%20Det%20kan%20exempelvis%20handla%20om%20att%20korta%20ner%20eller%20skriva%20om%20ett%20meddelande%20till%20v%C3%A5rdnadshavare%2C%20att%20formulera%20om%20en%20text%20f%C3%B6r%20en%20elev%20som%20beh%C3%B6ver%20den%20enklare%2C%20att%20f%C3%A5%20respons%20p%C3%A5%20en%20text%20innan%20vi%20skickar%20den%2C%20%C3%B6vers%C3%A4tta%20texter%2C%20eller%20att%20g%C3%A5%20igenom%20ett%20utkast%20f%C3%B6r%20att%20hitta%20det%20som%20%C3%A4r%20otydligt.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20bearbeta%20text.%20Det%20kan%20exempelvis%20handla%20om%20att%20korta%20ner%20eller%20skriva%20om%20ett%20meddelande%20till%20v%C3%A5rdnadshavare%2C%20att%20formulera%20om%20en%20text%20f%C3%B6r%20en%20elev%20som%20beh%C3%B6ver%20den%20enklare%2C%20att%20f%C3%A5%20respons%20p%C3%A5%20en%20text%20innan%20vi%20skickar%20den%2C%20%C3%B6vers%C3%A4tta%20texter%2C%20eller%20att%20g%C3%A5%20igenom%20ett%20utkast%20f%C3%B6r%20att%20hitta%20det%20som%20%C3%A4r%20otydligt.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20inte%20skriva%20in%20namn%20eller%20k%C3%A4nsliga%20uppgifter%20om%20elever.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att bearbeta text. Det kan exempelvis handla om att korta ner eller skriva om ett meddelande till vårdnadshavare, att formulera om en text för en elev som behöver den enklare, att få respons på en text innan vi skickar den, översätta texter, eller att gå igenom ett utkast för att hitta det som är otydligt. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Påminn oss om att inte skriva in namn eller känsliga uppgifter om elever.
+" title="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att bearbeta text. Det kan exempelvis handla om att korta ner eller skriva om ett meddelande till vårdnadshavare, att formulera om en text för en elev som behöver den enklare, att få respons på en text innan vi skickar den, översätta texter, eller att gå igenom ett utkast för att hitta det som är otydligt. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Påminn oss om att inte skriva in namn eller känsliga uppgifter om elever.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Hantera information</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20hantera%20information.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20en%20l%C3%A5ng%20styrdokumentstext%20eller%20ett%20policydokument%20sammanfattat%20och%20s%C3%B6kbart%2C%20att%20snabbt%20hitta%20vad%20som%20g%C3%A4ller%20i%20en%20fr%C3%A5ga%20och%20f%C3%A5%20veta%20var%20det%20st%C3%A5r%2C%20att%20sortera%20anteckningar%20fr%C3%A5n%20ett%20m%C3%B6te%20till%20beslut%20och%20att-g%C3%B6ra-punkter%2C%20eller%20att%20j%C3%A4mf%C3%B6ra%20tv%C3%A5%20versioner%20av%20ett%20dokument.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20kontrollera%20det%20AI%3An%20p%C3%A5st%C3%A5r%2C%20och%20om%20att%20inte%20skriva%20in%20k%C3%A4nsliga%20uppgifter.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20hantera%20information.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20en%20l%C3%A5ng%20styrdokumentstext%20eller%20ett%20policydokument%20sammanfattat%20och%20s%C3%B6kbart%2C%20att%20snabbt%20hitta%20vad%20som%20g%C3%A4ller%20i%20en%20fr%C3%A5ga%20och%20f%C3%A5%20veta%20var%20det%20st%C3%A5r%2C%20att%20sortera%20anteckningar%20fr%C3%A5n%20ett%20m%C3%B6te%20till%20beslut%20och%20att-g%C3%B6ra-punkter%2C%20eller%20att%20j%C3%A4mf%C3%B6ra%20tv%C3%A5%20versioner%20av%20ett%20dokument.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20kontrollera%20det%20AI%3An%20p%C3%A5st%C3%A5r%2C%20och%20om%20att%20inte%20skriva%20in%20k%C3%A4nsliga%20uppgifter.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20hantera%20information.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20en%20l%C3%A5ng%20styrdokumentstext%20eller%20ett%20policydokument%20sammanfattat%20och%20s%C3%B6kbart%2C%20att%20snabbt%20hitta%20vad%20som%20g%C3%A4ller%20i%20en%20fr%C3%A5ga%20och%20f%C3%A5%20veta%20var%20det%20st%C3%A5r%2C%20att%20sortera%20anteckningar%20fr%C3%A5n%20ett%20m%C3%B6te%20till%20beslut%20och%20att-g%C3%B6ra-punkter%2C%20eller%20att%20j%C3%A4mf%C3%B6ra%20tv%C3%A5%20versioner%20av%20ett%20dokument.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20kontrollera%20det%20AI%3An%20p%C3%A5st%C3%A5r%2C%20och%20om%20att%20inte%20skriva%20in%20k%C3%A4nsliga%20uppgifter.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20hantera%20information.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20en%20l%C3%A5ng%20styrdokumentstext%20eller%20ett%20policydokument%20sammanfattat%20och%20s%C3%B6kbart%2C%20att%20snabbt%20hitta%20vad%20som%20g%C3%A4ller%20i%20en%20fr%C3%A5ga%20och%20f%C3%A5%20veta%20var%20det%20st%C3%A5r%2C%20att%20sortera%20anteckningar%20fr%C3%A5n%20ett%20m%C3%B6te%20till%20beslut%20och%20att-g%C3%B6ra-punkter%2C%20eller%20att%20j%C3%A4mf%C3%B6ra%20tv%C3%A5%20versioner%20av%20ett%20dokument.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20P%C3%A5minn%20oss%20om%20att%20kontrollera%20det%20AI%3An%20p%C3%A5st%C3%A5r%2C%20och%20om%20att%20inte%20skriva%20in%20k%C3%A4nsliga%20uppgifter.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att hantera information. Det kan exempelvis handla om att få en lång styrdokumentstext eller ett policydokument sammanfattat och sökbart, att snabbt hitta vad som gäller i en fråga och få veta var det står, att sortera anteckningar från ett möte till beslut och att-göra-punkter, eller att jämföra två versioner av ett dokument. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Påminn oss om att kontrollera det AI:n påstår, och om att inte skriva in känsliga uppgifter.
+" title="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att hantera information. Det kan exempelvis handla om att få en lång styrdokumentstext eller ett policydokument sammanfattat och sökbart, att snabbt hitta vad som gäller i en fråga och få veta var det står, att sortera anteckningar från ett möte till beslut och att-göra-punkter, eller att jämföra två versioner av ett dokument. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Påminn oss om att kontrollera det AI:n påstår, och om att inte skriva in känsliga uppgifter.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Skapa och förbättra idéer</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20komma%20p%C3%A5%20och%20f%C3%B6rb%C3%A4ttra%20id%C3%A9er.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20tjugo%20uppslag%20till%20en%20lektion%20n%C3%A4r%20vi%20sj%C3%A4lva%20har%20tre%2C%20att%20l%C3%A5ta%20AI%20ifr%C3%A5gas%C3%A4tta%20ett%20uppl%C3%A4gg%20vi%20redan%20har%2C%20att%20hitta%20en%20f%C3%B6rklaring%20eller%20en%20analogi%20som%20fungerar%20f%C3%B6r%20en%20elev%20som%20inte%20h%C3%A4nger%20med%2C%20eller%20att%20skissa%20en%20aktivitet%20till%20en%20temadag.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20komma%20p%C3%A5%20och%20f%C3%B6rb%C3%A4ttra%20id%C3%A9er.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20tjugo%20uppslag%20till%20en%20lektion%20n%C3%A4r%20vi%20sj%C3%A4lva%20har%20tre%2C%20att%20l%C3%A5ta%20AI%20ifr%C3%A5gas%C3%A4tta%20ett%20uppl%C3%A4gg%20vi%20redan%20har%2C%20att%20hitta%20en%20f%C3%B6rklaring%20eller%20en%20analogi%20som%20fungerar%20f%C3%B6r%20en%20elev%20som%20inte%20h%C3%A4nger%20med%2C%20eller%20att%20skissa%20en%20aktivitet%20till%20en%20temadag.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20komma%20p%C3%A5%20och%20f%C3%B6rb%C3%A4ttra%20id%C3%A9er.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20tjugo%20uppslag%20till%20en%20lektion%20n%C3%A4r%20vi%20sj%C3%A4lva%20har%20tre%2C%20att%20l%C3%A5ta%20AI%20ifr%C3%A5gas%C3%A4tta%20ett%20uppl%C3%A4gg%20vi%20redan%20har%2C%20att%20hitta%20en%20f%C3%B6rklaring%20eller%20en%20analogi%20som%20fungerar%20f%C3%B6r%20en%20elev%20som%20inte%20h%C3%A4nger%20med%2C%20eller%20att%20skissa%20en%20aktivitet%20till%20en%20temadag.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20%E2%80%93%20fr%C3%A5ga%20oss%20om%20v%C3%A5ra%20roller%20och%20%C3%A4mnen.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20hitta%20ett%20s%C3%A4tt%20att%20spara%20minst%20fem%20minuter%20om%20dagen%20med%20hj%C3%A4lp%20av%20AI%2C%20i%20delar%20av%20arbetet%20som%20handlar%20om%20att%20komma%20p%C3%A5%20och%20f%C3%B6rb%C3%A4ttra%20id%C3%A9er.%20Det%20kan%20exempelvis%20handla%20om%20att%20f%C3%A5%20tjugo%20uppslag%20till%20en%20lektion%20n%C3%A4r%20vi%20sj%C3%A4lva%20har%20tre%2C%20att%20l%C3%A5ta%20AI%20ifr%C3%A5gas%C3%A4tta%20ett%20uppl%C3%A4gg%20vi%20redan%20har%2C%20att%20hitta%20en%20f%C3%B6rklaring%20eller%20en%20analogi%20som%20fungerar%20f%C3%B6r%20en%20elev%20som%20inte%20h%C3%A4nger%20med%2C%20eller%20att%20skissa%20en%20aktivitet%20till%20en%20temadag.%20Fr%C3%A5ga%20oss%20f%C3%B6rst%20vad%20vi%20faktiskt%20l%C3%A4gger%20tid%20p%C3%A5%20en%20vanlig%20vecka.%20Ge%20oss%20sedan%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20konkreta%20saker%20vi%20kan%20prova%20direkt%20h%C3%A4r%20och%20nu.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att komma på och förbättra idéer. Det kan exempelvis handla om att få tjugo uppslag till en lektion när vi själva har tre, att låta AI ifrågasätta ett upplägg vi redan har, att hitta en förklaring eller en analogi som fungerar för en elev som inte hänger med, eller att skissa en aktivitet till en temadag. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut.
+" title="Vi är en eller ett par lärare på en högstadieskola – fråga oss om våra roller och ämnen. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att hitta ett sätt att spara minst fem minuter om dagen med hjälp av AI, i delar av arbetet som handlar om att komma på och förbättra idéer. Det kan exempelvis handla om att få tjugo uppslag till en lektion när vi själva har tre, att låta AI ifrågasätta ett upplägg vi redan har, att hitta en förklaring eller en analogi som fungerar för en elev som inte hänger med, eller att skissa en aktivitet till en temadag. Fråga oss först vad vi faktiskt lägger tid på en vanlig vecka. Ge oss sedan inte ett färdigt upplägg, utan 3–4 konkreta saker vi kan prova direkt här och nu. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Komma igång med AI-agenter (för vana AI-användare)</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20som%20redan%20anv%C3%A4nder%20AI%20regelbundet%20%E2%80%93%20fr%C3%A5ga%20oss%20vad%20vi%20anv%C3%A4nder%20idag%20och%20till%20vad.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20utforska%20n%C3%A4sta%20steg%3A%20att%20l%C3%A5ta%20AI%20utf%C3%B6ra%20flera%20steg%20%C3%A5t%20oss%20i%20st%C3%A4llet%20f%C3%B6r%20att%20svara%20p%C3%A5%20en%20fr%C3%A5ga%20i%20taget.%20Det%20kan%20exempelvis%20handla%20om%20att%20hitta%20och%20testa%20tj%C3%A4nster%20med%20AI-agenter%2C%20hitta%20vilka%20uppgifter%20i%20v%C3%A5rt%20arbete%20som%20%C3%A4r%20%C3%A5terkommande%20nog%20att%20vara%20v%C3%A4rda%20att%20automatisera%2C%20vad%20som%20kr%C3%A4vs%20f%C3%B6r%20att%20vi%20ska%20v%C3%A5ga%20lita%20p%C3%A5%20ett%20resultat%20vi%20inte%20sj%C3%A4lva%20g%C3%A5tt%20igenom%2C%20eller%20var%20gr%C3%A4nsen%20g%C3%A5r%20f%C3%B6r%20vad%20som%20%C3%A4r%20l%C3%A4mpligt%20att%20l%C3%A4mna%20ifr%C3%A5n%20sig%20i%20skolan.%20Ge%20oss%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20ing%C3%A5ngar%20som%20vi%20kan%20v%C3%A4lja%20mellan.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20Var%20%C3%A4rlig%20om%20vad%20som%20faktiskt%20fungerar%20idag%20och%20vad%20som%20fortfarande%20%C3%A4r%20omoget.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20som%20redan%20anv%C3%A4nder%20AI%20regelbundet%20%E2%80%93%20fr%C3%A5ga%20oss%20vad%20vi%20anv%C3%A4nder%20idag%20och%20till%20vad.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20utforska%20n%C3%A4sta%20steg%3A%20att%20l%C3%A5ta%20AI%20utf%C3%B6ra%20flera%20steg%20%C3%A5t%20oss%20i%20st%C3%A4llet%20f%C3%B6r%20att%20svara%20p%C3%A5%20en%20fr%C3%A5ga%20i%20taget.%20Det%20kan%20exempelvis%20handla%20om%20att%20hitta%20och%20testa%20tj%C3%A4nster%20med%20AI-agenter%2C%20hitta%20vilka%20uppgifter%20i%20v%C3%A5rt%20arbete%20som%20%C3%A4r%20%C3%A5terkommande%20nog%20att%20vara%20v%C3%A4rda%20att%20automatisera%2C%20vad%20som%20kr%C3%A4vs%20f%C3%B6r%20att%20vi%20ska%20v%C3%A5ga%20lita%20p%C3%A5%20ett%20resultat%20vi%20inte%20sj%C3%A4lva%20g%C3%A5tt%20igenom%2C%20eller%20var%20gr%C3%A4nsen%20g%C3%A5r%20f%C3%B6r%20vad%20som%20%C3%A4r%20l%C3%A4mpligt%20att%20l%C3%A4mna%20ifr%C3%A5n%20sig%20i%20skolan.%20Ge%20oss%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20ing%C3%A5ngar%20som%20vi%20kan%20v%C3%A4lja%20mellan.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20Var%20%C3%A4rlig%20om%20vad%20som%20faktiskt%20fungerar%20idag%20och%20vad%20som%20fortfarande%20%C3%A4r%20omoget.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20som%20redan%20anv%C3%A4nder%20AI%20regelbundet%20%E2%80%93%20fr%C3%A5ga%20oss%20vad%20vi%20anv%C3%A4nder%20idag%20och%20till%20vad.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20utforska%20n%C3%A4sta%20steg%3A%20att%20l%C3%A5ta%20AI%20utf%C3%B6ra%20flera%20steg%20%C3%A5t%20oss%20i%20st%C3%A4llet%20f%C3%B6r%20att%20svara%20p%C3%A5%20en%20fr%C3%A5ga%20i%20taget.%20Det%20kan%20exempelvis%20handla%20om%20att%20hitta%20och%20testa%20tj%C3%A4nster%20med%20AI-agenter%2C%20hitta%20vilka%20uppgifter%20i%20v%C3%A5rt%20arbete%20som%20%C3%A4r%20%C3%A5terkommande%20nog%20att%20vara%20v%C3%A4rda%20att%20automatisera%2C%20vad%20som%20kr%C3%A4vs%20f%C3%B6r%20att%20vi%20ska%20v%C3%A5ga%20lita%20p%C3%A5%20ett%20resultat%20vi%20inte%20sj%C3%A4lva%20g%C3%A5tt%20igenom%2C%20eller%20var%20gr%C3%A4nsen%20g%C3%A5r%20f%C3%B6r%20vad%20som%20%C3%A4r%20l%C3%A4mpligt%20att%20l%C3%A4mna%20ifr%C3%A5n%20sig%20i%20skolan.%20Ge%20oss%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20ing%C3%A5ngar%20som%20vi%20kan%20v%C3%A4lja%20mellan.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20Var%20%C3%A4rlig%20om%20vad%20som%20faktiskt%20fungerar%20idag%20och%20vad%20som%20fortfarande%20%C3%A4r%20omoget.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Vi%20%C3%A4r%20en%20eller%20ett%20par%20l%C3%A4rare%20p%C3%A5%20en%20h%C3%B6gstadieskola%20som%20redan%20anv%C3%A4nder%20AI%20regelbundet%20%E2%80%93%20fr%C3%A5ga%20oss%20vad%20vi%20anv%C3%A4nder%20idag%20och%20till%20vad.%20Vi%20%C3%A4r%20mitt%20i%20en%20webbf%C3%B6rel%C3%A4sning%20om%20AI%20och%20skola%2C%20och%20har%20nu%20tjugo%20minuter%20f%C3%B6r%20att%20utforska%20n%C3%A4sta%20steg%3A%20att%20l%C3%A5ta%20AI%20utf%C3%B6ra%20flera%20steg%20%C3%A5t%20oss%20i%20st%C3%A4llet%20f%C3%B6r%20att%20svara%20p%C3%A5%20en%20fr%C3%A5ga%20i%20taget.%20Det%20kan%20exempelvis%20handla%20om%20att%20hitta%20och%20testa%20tj%C3%A4nster%20med%20AI-agenter%2C%20hitta%20vilka%20uppgifter%20i%20v%C3%A5rt%20arbete%20som%20%C3%A4r%20%C3%A5terkommande%20nog%20att%20vara%20v%C3%A4rda%20att%20automatisera%2C%20vad%20som%20kr%C3%A4vs%20f%C3%B6r%20att%20vi%20ska%20v%C3%A5ga%20lita%20p%C3%A5%20ett%20resultat%20vi%20inte%20sj%C3%A4lva%20g%C3%A5tt%20igenom%2C%20eller%20var%20gr%C3%A4nsen%20g%C3%A5r%20f%C3%B6r%20vad%20som%20%C3%A4r%20l%C3%A4mpligt%20att%20l%C3%A4mna%20ifr%C3%A5n%20sig%20i%20skolan.%20Ge%20oss%20inte%20ett%20f%C3%A4rdigt%20uppl%C3%A4gg%2C%20utan%203%E2%80%934%20ing%C3%A5ngar%20som%20vi%20kan%20v%C3%A4lja%20mellan.%20Be%20oss%20v%C3%A4lja%20en%20av%20dem%20och%20guida%20oss%20genom%20den%2C%20s%C3%A5%20att%20vi%20hinner%20prova%20p%C3%A5%20riktigt%20innan%20tiden%20%C3%A4r%20slut.%20Var%20%C3%A4rlig%20om%20vad%20som%20faktiskt%20fungerar%20idag%20och%20vad%20som%20fortfarande%20%C3%A4r%20omoget.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Vi är en eller ett par lärare på en högstadieskola som redan använder AI regelbundet – fråga oss vad vi använder idag och till vad. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att utforska nästa steg: att låta AI utföra flera steg åt oss i stället för att svara på en fråga i taget. Det kan exempelvis handla om att hitta och testa tjänster med AI-agenter, hitta vilka uppgifter i vårt arbete som är återkommande nog att vara värda att automatisera, vad som krävs för att vi ska våga lita på ett resultat vi inte själva gått igenom, eller var gränsen går för vad som är lämpligt att lämna ifrån sig i skolan. Ge oss inte ett färdigt upplägg, utan 3–4 ingångar som vi kan välja mellan. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Var ärlig om vad som faktiskt fungerar idag och vad som fortfarande är omoget.
+" title="Vi är en eller ett par lärare på en högstadieskola som redan använder AI regelbundet – fråga oss vad vi använder idag och till vad. Vi är mitt i en webbföreläsning om AI och skola, och har nu tjugo minuter för att utforska nästa steg: att låta AI utföra flera steg åt oss i stället för att svara på en fråga i taget. Det kan exempelvis handla om att hitta och testa tjänster med AI-agenter, hitta vilka uppgifter i vårt arbete som är återkommande nog att vara värda att automatisera, vad som krävs för att vi ska våga lita på ett resultat vi inte själva gått igenom, eller var gränsen går för vad som är lämpligt att lämna ifrån sig i skolan. Ge oss inte ett färdigt upplägg, utan 3–4 ingångar som vi kan välja mellan. Be oss välja en av dem och guida oss genom den, så att vi hinner prova på riktigt innan tiden är slut. Var ärlig om vad som faktiskt fungerar idag och vad som fortfarande är omoget.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR-kod till den här sidan">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Den här sidans adress</p>
+          <p class="url-text">falkai.org/p/eslov</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Kopierad!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
