@@ -201,15 +201,29 @@ function masteredCount(u) {
   return Object.values(u.cards).filter((c) => c.box >= 4).length;
 }
 
+// Svit som fortfarande lever: sista passet idag eller igår, annars 0
+function activeStreak(u) {
+  if (!u.lastDay) return 0;
+  const today = todayStr();
+  const yesterday = new Date(Date.now() - DAY).toISOString().slice(0, 10);
+  return (u.lastDay === today || u.lastDay === yesterday) ? u.streak : 0;
+}
+
 function renderHome() {
   updateUserChip();
   $("homeGreeting").textContent = "Hej, " + currentNick + "!";
   const u = user();
-  const streakTxt = u.streak > 0 ? u.streak + " dag" + (u.streak > 1 ? "ar" : "") + " i rad" : "–";
   $("homeStats").innerHTML =
     statBox(masteredCount(u), "ord sitter") +
-    statBox(streakTxt, "tränings&shy;svit") +
+    statBox(activeStreak(u), "dagar i rad") +
     statBox(u.best > 0 ? u.best + "%" : "–", "person&shy;bästa");
+  const hint = $("homeHint");
+  if (u.lastDay) {
+    hint.hidden = true;
+  } else {
+    hint.hidden = false;
+    hint.textContent = "Avsluta ett helt träningspass så startar sviten och ditt personbästa.";
+  }
 
   const wl = $("weekList");
   wl.innerHTML = "";
