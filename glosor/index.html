@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Träna glosor</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="glosor.css">
+</head>
+<body>
+
+  <header class="g-header">
+    <div class="g-wrap g-header-in">
+      <div>
+        <p class="g-kicker">Träna glosor</p>
+        <h1>Glosorna</h1>
+      </div>
+      <div id="userChip" class="g-user" hidden>
+        <span id="userChipName"></span>
+        <button id="logoutBtn" type="button" class="g-btn g-btn-small g-btn-ghost">Logga ut</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="g-wrap">
+
+    <!-- Välj nick -->
+    <section id="view-login" class="g-card">
+      <h2>Vem tränar?</h2>
+      <p class="g-muted">Välj ditt nick. Allt sparas bara i den här webbläsaren.</p>
+      <div id="nickList" class="g-nicklist"></div>
+      <form id="newNickForm" class="g-row">
+        <label class="g-visually-hidden" for="newNick">Nytt nick</label>
+        <input id="newNick" type="text" maxlength="20" autocomplete="off" placeholder="Skriv ett nytt nick …">
+        <button type="submit" class="g-btn g-btn-primary">Börja</button>
+      </form>
+    </section>
+
+    <!-- Startsida -->
+    <section id="view-home" class="g-card" hidden>
+      <h2 id="homeGreeting">Hej!</h2>
+      <div id="homeStats" class="g-stats"></div>
+
+      <h3>Vilka glosor?</h3>
+      <div id="weekList" class="g-weeks"></div>
+      <label class="g-check">
+        <input id="mixOld" type="checkbox" checked>
+        Blanda in repetition från äldre veckor
+      </label>
+
+      <div class="g-actions">
+        <button id="startTrainBtn" type="button" class="g-btn g-btn-primary g-btn-big">Börja träna</button>
+        <button id="startBrowseBtn" type="button" class="g-btn g-btn-big">Kolla igenom glosorna</button>
+      </div>
+
+      <details class="g-details">
+        <summary>Flytta till en annan dator</summary>
+        <p class="g-muted">Skoldatorer rensar ibland det sparade. Kopiera din kod här och spara den, så kan du ta med dina framsteg till en annan dator.</p>
+        <button id="exportBtn" type="button" class="g-btn g-btn-small">Visa min kod</button>
+        <textarea id="exportCode" class="g-code" rows="3" readonly hidden></textarea>
+        <form id="importForm" class="g-row">
+          <input id="importCode" type="text" autocomplete="off" placeholder="Klistra in kod här …">
+          <button type="submit" class="g-btn g-btn-small">Hämta</button>
+        </form>
+      </details>
+    </section>
+
+    <!-- Kolla igenom -->
+    <section id="view-browse" hidden>
+      <div class="g-toprow">
+        <h2 id="browseTitle">Glosor</h2>
+        <button id="browseBackBtn" type="button" class="g-btn g-btn-small g-btn-ghost">Tillbaka</button>
+      </div>
+      <div class="g-toprow">
+        <p id="browseCount" class="g-muted"></p>
+        <button id="toggleAllBtn" type="button" class="g-btn g-btn-small">Visa alla svar</button>
+      </div>
+      <div id="browseList" class="g-browse"></div>
+      <div class="g-actions">
+        <button id="browseTrainBtn" type="button" class="g-btn g-btn-primary g-btn-big">Träna på de här orden</button>
+      </div>
+    </section>
+
+    <!-- Träna -->
+    <section id="view-train" class="g-card" hidden>
+      <div class="g-progress">
+        <div id="progressBar" class="g-progress-bar"></div>
+      </div>
+      <p id="progressText" class="g-muted"></p>
+      <p class="g-muted">Skriv på engelska:</p>
+      <p id="trainSv" class="g-prompt"></p>
+      <form id="answerForm" class="g-row">
+        <label class="g-visually-hidden" for="answerInput">Ditt svar</label>
+        <input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Skriv ordet …">
+        <button type="submit" class="g-btn g-btn-primary">Kolla</button>
+      </form>
+      <div id="feedback" class="g-feedback" aria-live="polite"></div>
+      <div class="g-toprow">
+        <button id="quitTrainBtn" type="button" class="g-btn g-btn-small g-btn-ghost">Avsluta</button>
+      </div>
+    </section>
+
+    <!-- Resultat -->
+    <section id="view-summary" class="g-card" hidden>
+      <h2 id="summaryTitle">Klart!</h2>
+      <p id="summaryMsg"></p>
+      <div id="summaryStats" class="g-stats"></div>
+      <div id="retryBox" hidden>
+        <h3>Ord att öva mer på</h3>
+        <ul id="retryList" class="g-retry"></ul>
+        <button id="retryBtn" type="button" class="g-btn">Träna bara de orden</button>
+      </div>
+      <div class="g-actions">
+        <button id="summaryHomeBtn" type="button" class="g-btn g-btn-primary">Tillbaka</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="g-footer">
+    <div class="g-wrap">
+      <a href="/">falkai.org</a>
+    </div>
+  </footer>
+
+  <script src="glosor.js" defer></script>
+</body>
+</html>
