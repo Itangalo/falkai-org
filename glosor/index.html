@@ -95,11 +95,12 @@
       <p id="trainSv" class="g-prompt"></p>
       <form id="answerForm" class="g-row">
         <label class="g-visually-hidden" for="answerInput">Ditt svar</label>
-        <input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Skriv ordet …">
-        <button type="submit" class="g-btn g-btn-primary">Kolla</button>
+        <input id="answerInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Skriv ordet …">
+        <button type="submit" class="g-btn g-btn-primary">Svara</button>
       </form>
       <div id="feedback" class="g-feedback" aria-live="polite"></div>
       <div class="g-toprow">
+        <button id="giveUpBtn" type="button" class="g-btn g-btn-small">Visa svaret</button>
         <button id="quitTrainBtn" type="button" class="g-btn g-btn-small g-btn-ghost">Avsluta</button>
       </div>
     </section>

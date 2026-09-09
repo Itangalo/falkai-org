@@ -292,6 +292,7 @@ const trainState = {
   attempts: 0,
   wrongTally: {},
   current: null,
+  almostUsed: false,
   weekId: null,
   retryOnly: null,
 };
@@ -334,7 +335,7 @@ function startTraining(weekId, mixOld, retryOnly) {
   if (!total) return;
   Object.assign(trainState, {
     active: true, queue, total,
-    done: new Set(), firstTry: 0, almost: 0, attempts: 0,
+    done: new Set(), firstTry: 0, almost: 0, attempts: 0, almostUsed: false,
     wrongTally: {}, current: null, weekId, retryOnly: retryOnly || null,
   });
   show("view-train");
@@ -348,6 +349,7 @@ function nextCard() {
   const input = $("answerInput");
   input.value = "";
   input.disabled = false;
+  trainState.almostUsed = false;
   document.querySelector('#answerForm button[type="submit"]').disabled = false;
 
   if (!trainState.queue.length) {
@@ -364,6 +366,35 @@ function updateProgress() {
   const done = trainState.done.size;
   $("progressBar").style.width = trainState.total ? Math.round((done / trainState.total) * 100) + "%" : "0";
   $("progressText").textContent = "Ord " + Math.min(done + 1, trainState.total) + " av " + trainState.total;
+}
+
+// Fel eller uppgivet – visa svaret, nollställ boxen, lägg tillbaka ordet i kön
+function failCard(card) {
+  const u = user();
+  const id = wordId(card.weekId, card.sv);
+  const st = cardState(u, id);
+  st.wrong++;
+  st.box = 1;
+  st.due = Date.now();
+  saveStore();
+  trainState.wrongTally[id] = (trainState.wrongTally[id] || 0) + 1;
+  trainState.attempts++;
+  const pos = Math.min(3, trainState.queue.length);
+  trainState.queue.splice(pos, 0, card);
+  trainState.current = null;
+  const fb = $("feedback");
+  fb.className = "g-feedback bad";
+  fb.innerHTML = "Inte riktigt. <span class=\"correct\"><b>" + escapeHtml(card.sv) +
+    "</b> = <b>" + escapeHtml(card.en) + "</b></span>Ordet kommer igen om en liten stund.";
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "g-btn g-btn-primary";
+  btn.textContent = "Fortsätt";
+  btn.addEventListener("click", () => { if (trainState.active) nextCard(); });
+  fb.appendChild(btn);
+  $("answerInput").disabled = true;
+  document.querySelector('#answerForm button[type="submit"]').disabled = true;
+  btn.focus();
 }
 
 function handleAnswer(e) {
@@ -397,35 +428,16 @@ function handleAnswer(e) {
     trainState.current = null;
     updateProgress();
     setTimeout(() => { if (trainState.active) nextCard(); }, 900);
-  } else if (lev(guess, target) <= maxTypo(target)) {
-    // Nästan rätt – gratis försök igen, räknas inte som fel
+  } else if (lev(guess, target) <= maxTypo(target) && !trainState.almostUsed) {
+    // Nästan rätt – ett gratis försök till, räknas inte som fel
     trainState.almost++;
+    trainState.almostUsed = true;
     fb.className = "g-feedback almost";
-    fb.textContent = "Nästan! Ett litet stavfel bara – försök en gång till. Det räknas inte som fel.";
+    fb.textContent = "Nästan! Ett litet stavfel bara – ett försök till, sen räknas det som fel.";
     $("answerInput").select();
   } else {
-    // Fel – visa svaret, lägg tillbaka ordet i kön
-    st.wrong++;
-    st.box = 1;
-    st.due = Date.now();
-    saveStore();
-    trainState.wrongTally[id] = (trainState.wrongTally[id] || 0) + 1;
-    trainState.attempts++;
-    const pos = Math.min(3, trainState.queue.length);
-    trainState.queue.splice(pos, 0, card);
-    trainState.current = null;
-    fb.className = "g-feedback bad";
-    fb.innerHTML = "Inte riktigt. <span class=\"correct\"><b>" + escapeHtml(card.sv) +
-      "</b> = <b>" + escapeHtml(card.en) + "</b></span>Ordet kommer igen om en liten stund.";
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "g-btn g-btn-primary";
-    btn.textContent = "Fortsätt";
-    btn.addEventListener("click", () => { if (trainState.active) nextCard(); });
-    fb.appendChild(btn);
-    $("answerInput").disabled = true;
-    document.querySelector('#answerForm button[type="submit"]').disabled = true;
-    btn.focus();
+    // Fel, eller andra missen i rad – visa svaret, lägg tillbaka ordet i kön
+    failCard(card);
   }
 }
 
@@ -530,6 +542,9 @@ $("toggleAllBtn").addEventListener("click", () => {
   $("toggleAllBtn").textContent = browseRevealed ? "Dölj alla svar" : "Visa alla svar";
 });
 $("answerForm").addEventListener("submit", handleAnswer);
+$("giveUpBtn").addEventListener("click", () => {
+  if (trainState.active && trainState.current) failCard(trainState.current);
+});
 $("quitTrainBtn").addEventListener("click", () => {
   trainState.active = false;
   renderHome();
