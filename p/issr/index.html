@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for ISSR – International School of the Stockholm Region · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-09-21</p>
+      <h1>AI for ISSR – International School of the Stockholm Region</h1>
+      <p class="session-desc">Exercise from the morning session with Johan Falk. Pick the entry that fits you and click a button to open the prompt in an AI service, or copy it and paste it wherever you like. Neither service needs an account.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">Three minutes with a chatbot</h2>
+      </div>
+      <p class="exercise-desc">Pick the entry that best describes you. Three minutes is enough – the point is to have had the conversation, not to finish anything. Keep the answer; you will use it in the workshop.</p>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">I have not used a chatbot much</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=I%20teach%20at%20an%20international%20school%20in%20Stockholm.%20This%20is%20one%20of%20the%20first%20times%20I%20have%20used%20a%20chatbot%20and%20I%20am%20not%20sure%20what%20it%20is%20good%20for.%20Ask%20me%20what%20ages%20and%20subjects%20I%20teach%2C%20then%20two%20short%20questions%20about%20my%20working%20week.%20After%20that%2C%20suggest%20one%20small%20thing%20I%20could%20try%20that%20would%20take%20under%20five%20minutes.%20Keep%20it%20under%20three%20minutes%20and%20don%27t%20lecture%20me.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=I%20teach%20at%20an%20international%20school%20in%20Stockholm.%20This%20is%20one%20of%20the%20first%20times%20I%20have%20used%20a%20chatbot%20and%20I%20am%20not%20sure%20what%20it%20is%20good%20for.%20Ask%20me%20what%20ages%20and%20subjects%20I%20teach%2C%20then%20two%20short%20questions%20about%20my%20working%20week.%20After%20that%2C%20suggest%20one%20small%20thing%20I%20could%20try%20that%20would%20take%20under%20five%20minutes.%20Keep%20it%20under%20three%20minutes%20and%20don%27t%20lecture%20me.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<button class="service-btn copy-btn" data-prompt="I teach at an international school in Stockholm. This is one of the first times I have used a chatbot and I am not sure what it is good for. Ask me what ages and subjects I teach, then two short questions about my working week. After that, suggest one small thing I could try that would take under five minutes. Keep it under three minutes and don&#x27;t lecture me.
+" title="I teach at an international school in Stockholm. This is one of the first times I have used a chatbot and I am not sure what it is good for. Ask me what ages and subjects I teach, then two short questions about my working week. After that, suggest one small thing I could try that would take under five minutes. Keep it under three minutes and don&#x27;t lecture me.
+" onclick="copyPrompt(this)">Copy prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">I use AI most days</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=I%20teach%20at%20an%20international%20school%20in%20Stockholm%20and%20I%20use%20AI%20most%20days.%20Ask%20me%20what%20I%20currently%20use%20it%20for.%20Then%20push%20me%3A%20name%20two%20things%20I%20am%20probably%20not%20using%20it%20for%20but%20could%2C%20and%20skip%20the%20obvious%20ones.%20Keep%20it%20under%20three%20minutes%20and%20don%27t%20lecture%20me.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=I%20teach%20at%20an%20international%20school%20in%20Stockholm%20and%20I%20use%20AI%20most%20days.%20Ask%20me%20what%20I%20currently%20use%20it%20for.%20Then%20push%20me%3A%20name%20two%20things%20I%20am%20probably%20not%20using%20it%20for%20but%20could%2C%20and%20skip%20the%20obvious%20ones.%20Keep%20it%20under%20three%20minutes%20and%20don%27t%20lecture%20me.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<button class="service-btn copy-btn" data-prompt="I teach at an international school in Stockholm and I use AI most days. Ask me what I currently use it for. Then push me: name two things I am probably not using it for but could, and skip the obvious ones. Keep it under three minutes and don&#x27;t lecture me.
+" title="I teach at an international school in Stockholm and I use AI most days. Ask me what I currently use it for. Then push me: name two things I am probably not using it for but could, and skip the obvious ones. Keep it under three minutes and don&#x27;t lecture me.
+" onclick="copyPrompt(this)">Copy prompt</button></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR code for this page">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Address of this page</p>
+          <p class="url-text">falkai.org/p/issr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
