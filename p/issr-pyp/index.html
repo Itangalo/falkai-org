@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI workshop for PYP – International School of the Stockholm Region · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-09-21</p>
+      <h1>AI workshop for PYP – International School of the Stockholm Region</h1>
+      <p class="session-desc">Tasks and tools for the PYP workshop with Johan Falk. Pick the entry that fits you, click a button to open the prompt in an AI service, or copy it and paste it wherever you like. ChatGPT and Duck.ai work without an account.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">1. Saving five minutes a day</h2>
+      </div>
+      <p class="exercise-desc">Sit together with colleagues who teach similar ages. Pick the entry that fits where you are – you can move to another one later. The goal is to find something you will actually do again next week, not to finish anything today.</p>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">New to AI? Start here</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20a%20few%20teachers%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%2C%20and%20we%20have%20not%20used%20AI%20much.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20try%20it%20properly%20for%20the%20first%20time.%20Start%20by%20presenting%20three%20things%20we%20can%20choose%20between%2C%20one%20sentence%20each%2C%20and%20say%20that%20we%20may%20suggest%20something%20else%20instead%20if%20we%20prefer.%20The%20three%20are%3A%20%281%29%20guide%20us%20through%20turning%20rough%20notes%20into%20a%20draft%20message%20to%20families%2C%20including%20a%20version%20in%20another%20language%3B%20%282%29%20guide%20us%20through%20turning%20messy%20notes%20from%20a%20meeting%20or%20a%20conversation%20into%20something%20structured%20we%20can%20actually%20use%3B%20%283%29%20guide%20us%20through%20getting%20a%20long%20document%20summarised%2C%20so%20we%20can%20find%20what%20applies%20to%20us%20without%20reading%20all%20of%20it.%20Once%20we%20have%20chosen%3A%20take%20one%20step%20at%20a%20time%20and%20wait%20for%20our%20answer%20between%20steps.%20Say%20concretely%20what%20we%20should%20do%20or%20paste%2C%20keep%20to%20a%20few%20sentences%20at%20a%20time%2C%20and%20don%27t%20assume%20we%20know%20any%20terminology.%20Don%27t%20explain%20the%20technology%20behind%20it%20unless%20we%20ask.%20If%20we%20finish%20with%20time%20to%20spare%2C%20suggest%20something%20close%20by%20that%20we%20can%20try%20next.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=We%20are%20a%20few%20teachers%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%2C%20and%20we%20have%20not%20used%20AI%20much.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20try%20it%20properly%20for%20the%20first%20time.%20Start%20by%20presenting%20three%20things%20we%20can%20choose%20between%2C%20one%20sentence%20each%2C%20and%20say%20that%20we%20may%20suggest%20something%20else%20instead%20if%20we%20prefer.%20The%20three%20are%3A%20%281%29%20guide%20us%20through%20turning%20rough%20notes%20into%20a%20draft%20message%20to%20families%2C%20including%20a%20version%20in%20another%20language%3B%20%282%29%20guide%20us%20through%20turning%20messy%20notes%20from%20a%20meeting%20or%20a%20conversation%20into%20something%20structured%20we%20can%20actually%20use%3B%20%283%29%20guide%20us%20through%20getting%20a%20long%20document%20summarised%2C%20so%20we%20can%20find%20what%20applies%20to%20us%20without%20reading%20all%20of%20it.%20Once%20we%20have%20chosen%3A%20take%20one%20step%20at%20a%20time%20and%20wait%20for%20our%20answer%20between%20steps.%20Say%20concretely%20what%20we%20should%20do%20or%20paste%2C%20keep%20to%20a%20few%20sentences%20at%20a%20time%2C%20and%20don%27t%20assume%20we%20know%20any%20terminology.%20Don%27t%20explain%20the%20technology%20behind%20it%20unless%20we%20ask.%20If%20we%20finish%20with%20time%20to%20spare%2C%20suggest%20something%20close%20by%20that%20we%20can%20try%20next.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20a%20few%20teachers%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%2C%20and%20we%20have%20not%20used%20AI%20much.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20try%20it%20properly%20for%20the%20first%20time.%20Start%20by%20presenting%20three%20things%20we%20can%20choose%20between%2C%20one%20sentence%20each%2C%20and%20say%20that%20we%20may%20suggest%20something%20else%20instead%20if%20we%20prefer.%20The%20three%20are%3A%20%281%29%20guide%20us%20through%20turning%20rough%20notes%20into%20a%20draft%20message%20to%20families%2C%20including%20a%20version%20in%20another%20language%3B%20%282%29%20guide%20us%20through%20turning%20messy%20notes%20from%20a%20meeting%20or%20a%20conversation%20into%20something%20structured%20we%20can%20actually%20use%3B%20%283%29%20guide%20us%20through%20getting%20a%20long%20document%20summarised%2C%20so%20we%20can%20find%20what%20applies%20to%20us%20without%20reading%20all%20of%20it.%20Once%20we%20have%20chosen%3A%20take%20one%20step%20at%20a%20time%20and%20wait%20for%20our%20answer%20between%20steps.%20Say%20concretely%20what%20we%20should%20do%20or%20paste%2C%20keep%20to%20a%20few%20sentences%20at%20a%20time%2C%20and%20don%27t%20assume%20we%20know%20any%20terminology.%20Don%27t%20explain%20the%20technology%20behind%20it%20unless%20we%20ask.%20If%20we%20finish%20with%20time%20to%20spare%2C%20suggest%20something%20close%20by%20that%20we%20can%20try%20next.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<a href="https://duckduckgo.com/?q=We%20are%20a%20few%20teachers%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%2C%20and%20we%20have%20not%20used%20AI%20much.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20try%20it%20properly%20for%20the%20first%20time.%20Start%20by%20presenting%20three%20things%20we%20can%20choose%20between%2C%20one%20sentence%20each%2C%20and%20say%20that%20we%20may%20suggest%20something%20else%20instead%20if%20we%20prefer.%20The%20three%20are%3A%20%281%29%20guide%20us%20through%20turning%20rough%20notes%20into%20a%20draft%20message%20to%20families%2C%20including%20a%20version%20in%20another%20language%3B%20%282%29%20guide%20us%20through%20turning%20messy%20notes%20from%20a%20meeting%20or%20a%20conversation%20into%20something%20structured%20we%20can%20actually%20use%3B%20%283%29%20guide%20us%20through%20getting%20a%20long%20document%20summarised%2C%20so%20we%20can%20find%20what%20applies%20to%20us%20without%20reading%20all%20of%20it.%20Once%20we%20have%20chosen%3A%20take%20one%20step%20at%20a%20time%20and%20wait%20for%20our%20answer%20between%20steps.%20Say%20concretely%20what%20we%20should%20do%20or%20paste%2C%20keep%20to%20a%20few%20sentences%20at%20a%20time%2C%20and%20don%27t%20assume%20we%20know%20any%20terminology.%20Don%27t%20explain%20the%20technology%20behind%20it%20unless%20we%20ask.%20If%20we%20finish%20with%20time%20to%20spare%2C%20suggest%20something%20close%20by%20that%20we%20can%20try%20next.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<button class="service-btn copy-btn" data-prompt="We are a few teachers at an international school in Stockholm, working with children aged 5 to 11, and we have not used AI much. As part of our school&#x27;s AI training days, we have 40 minutes to try it properly for the first time. Start by presenting three things we can choose between, one sentence each, and say that we may suggest something else instead if we prefer. The three are: (1) guide us through turning rough notes into a draft message to families, including a version in another language; (2) guide us through turning messy notes from a meeting or a conversation into something structured we can actually use; (3) guide us through getting a long document summarised, so we can find what applies to us without reading all of it. Once we have chosen: take one step at a time and wait for our answer between steps. Say concretely what we should do or paste, keep to a few sentences at a time, and don&#x27;t assume we know any terminology. Don&#x27;t explain the technology behind it unless we ask. If we finish with time to spare, suggest something close by that we can try next. Remind us not to enter names or sensitive information about children.
+" title="We are a few teachers at an international school in Stockholm, working with children aged 5 to 11, and we have not used AI much. As part of our school&#x27;s AI training days, we have 40 minutes to try it properly for the first time. Start by presenting three things we can choose between, one sentence each, and say that we may suggest something else instead if we prefer. The three are: (1) guide us through turning rough notes into a draft message to families, including a version in another language; (2) guide us through turning messy notes from a meeting or a conversation into something structured we can actually use; (3) guide us through getting a long document summarised, so we can find what applies to us without reading all of it. Once we have chosen: take one step at a time and wait for our answer between steps. Say concretely what we should do or paste, keep to a few sentences at a time, and don&#x27;t assume we know any terminology. Don&#x27;t explain the technology behind it unless we ask. If we finish with time to spare, suggest something close by that we can try next. Remind us not to enter names or sensitive information about children.
+" onclick="copyPrompt(this)">Copy prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">Looking for ideas</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20are%20a%20few%20staff%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%20%E2%80%93%20ask%20us%20about%20our%20roles.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20look%20for%20ways%20to%20save%20at%20least%20five%20minutes%20a%20day%20using%20AI%2C%20in%20the%20administrative%20parts%20of%20our%20work.%20It%20could%20for%20example%20involve%20messages%20to%20families%20who%20between%20them%20speak%20many%20different%20languages%2C%20turning%20notes%20into%20something%20structured%20such%20as%20a%20record%20of%20a%20meeting%20or%20a%20draft%20report%2C%20finding%20what%20actually%20applies%20to%20us%20in%20a%20long%20policy%20or%20programme%20document%2C%20or%20the%20small%20computer%20problems%20that%20quietly%20eat%20an%20afternoon.%20Ask%20us%20first%20what%20we%20actually%20spend%20time%20on%20in%20a%20normal%20week.%20Then%20don%27t%20give%20us%20a%20finished%20plan%20%E2%80%93%20give%20us%203%E2%80%934%20concrete%20things%20we%20can%20try%20straight%20away%2C%20here%20in%20this%20session.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=We%20are%20a%20few%20staff%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%20%E2%80%93%20ask%20us%20about%20our%20roles.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20look%20for%20ways%20to%20save%20at%20least%20five%20minutes%20a%20day%20using%20AI%2C%20in%20the%20administrative%20parts%20of%20our%20work.%20It%20could%20for%20example%20involve%20messages%20to%20families%20who%20between%20them%20speak%20many%20different%20languages%2C%20turning%20notes%20into%20something%20structured%20such%20as%20a%20record%20of%20a%20meeting%20or%20a%20draft%20report%2C%20finding%20what%20actually%20applies%20to%20us%20in%20a%20long%20policy%20or%20programme%20document%2C%20or%20the%20small%20computer%20problems%20that%20quietly%20eat%20an%20afternoon.%20Ask%20us%20first%20what%20we%20actually%20spend%20time%20on%20in%20a%20normal%20week.%20Then%20don%27t%20give%20us%20a%20finished%20plan%20%E2%80%93%20give%20us%203%E2%80%934%20concrete%20things%20we%20can%20try%20straight%20away%2C%20here%20in%20this%20session.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20are%20a%20few%20staff%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%20%E2%80%93%20ask%20us%20about%20our%20roles.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20look%20for%20ways%20to%20save%20at%20least%20five%20minutes%20a%20day%20using%20AI%2C%20in%20the%20administrative%20parts%20of%20our%20work.%20It%20could%20for%20example%20involve%20messages%20to%20families%20who%20between%20them%20speak%20many%20different%20languages%2C%20turning%20notes%20into%20something%20structured%20such%20as%20a%20record%20of%20a%20meeting%20or%20a%20draft%20report%2C%20finding%20what%20actually%20applies%20to%20us%20in%20a%20long%20policy%20or%20programme%20document%2C%20or%20the%20small%20computer%20problems%20that%20quietly%20eat%20an%20afternoon.%20Ask%20us%20first%20what%20we%20actually%20spend%20time%20on%20in%20a%20normal%20week.%20Then%20don%27t%20give%20us%20a%20finished%20plan%20%E2%80%93%20give%20us%203%E2%80%934%20concrete%20things%20we%20can%20try%20straight%20away%2C%20here%20in%20this%20session.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<a href="https://duckduckgo.com/?q=We%20are%20a%20few%20staff%20at%20an%20international%20school%20in%20Stockholm%2C%20working%20with%20children%20aged%205%20to%2011%20%E2%80%93%20ask%20us%20about%20our%20roles.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20look%20for%20ways%20to%20save%20at%20least%20five%20minutes%20a%20day%20using%20AI%2C%20in%20the%20administrative%20parts%20of%20our%20work.%20It%20could%20for%20example%20involve%20messages%20to%20families%20who%20between%20them%20speak%20many%20different%20languages%2C%20turning%20notes%20into%20something%20structured%20such%20as%20a%20record%20of%20a%20meeting%20or%20a%20draft%20report%2C%20finding%20what%20actually%20applies%20to%20us%20in%20a%20long%20policy%20or%20programme%20document%2C%20or%20the%20small%20computer%20problems%20that%20quietly%20eat%20an%20afternoon.%20Ask%20us%20first%20what%20we%20actually%20spend%20time%20on%20in%20a%20normal%20week.%20Then%20don%27t%20give%20us%20a%20finished%20plan%20%E2%80%93%20give%20us%203%E2%80%934%20concrete%20things%20we%20can%20try%20straight%20away%2C%20here%20in%20this%20session.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<button class="service-btn copy-btn" data-prompt="We are a few staff at an international school in Stockholm, working with children aged 5 to 11 – ask us about our roles. As part of our school&#x27;s AI training days, we have 40 minutes to look for ways to save at least five minutes a day using AI, in the administrative parts of our work. It could for example involve messages to families who between them speak many different languages, turning notes into something structured such as a record of a meeting or a draft report, finding what actually applies to us in a long policy or programme document, or the small computer problems that quietly eat an afternoon. Ask us first what we actually spend time on in a normal week. Then don&#x27;t give us a finished plan – give us 3–4 concrete things we can try straight away, here in this session. Remind us not to enter names or sensitive information about children.
+" title="We are a few staff at an international school in Stockholm, working with children aged 5 to 11 – ask us about our roles. As part of our school&#x27;s AI training days, we have 40 minutes to look for ways to save at least five minutes a day using AI, in the administrative parts of our work. It could for example involve messages to families who between them speak many different languages, turning notes into something structured such as a record of a meeting or a draft report, finding what actually applies to us in a long policy or programme document, or the small computer problems that quietly eat an afternoon. Ask us first what we actually spend time on in a normal week. Then don&#x27;t give us a finished plan – give us 3–4 concrete things we can try straight away, here in this session. Remind us not to enter names or sensitive information about children.
+" onclick="copyPrompt(this)">Copy prompt</button></div>
+        </div>
+        <div class="variant">
+          <span class="variant-name">I already have an idea</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=We%20work%20at%20an%20international%20school%20in%20Stockholm%20with%20children%20aged%205%20to%2011%2C%20and%20we%20already%20have%20an%20idea%20for%20something%20we%20could%20use%20AI%20for%20to%20save%20time.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20see%20whether%20it%20holds%20up.%20Start%20by%20asking%20us%20what%20the%20idea%20is%2C%20how%20often%20the%20task%20comes%20up%2C%20and%20what%20we%20do%20today.%20Then%20help%20us%20make%20it%20concrete%20enough%20to%20test%20right%20now.%20Be%20honest%20if%20you%20think%20AI%20is%20the%20wrong%20tool%20for%20it%2C%20or%20if%20the%20time%20saved%20will%20be%20smaller%20than%20we%20hope%20%E2%80%93%20don%27t%20try%20to%20make%20the%20idea%20work%20if%20it%20doesn%27t.%20Don%27t%20give%20us%20a%20finished%20plan%3B%20take%20one%20step%20at%20a%20time%20so%20we%20get%20to%20try%20it%20for%20real%20before%20the%20time%20is%20up.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://claude.ai/new?q=We%20work%20at%20an%20international%20school%20in%20Stockholm%20with%20children%20aged%205%20to%2011%2C%20and%20we%20already%20have%20an%20idea%20for%20something%20we%20could%20use%20AI%20for%20to%20save%20time.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20see%20whether%20it%20holds%20up.%20Start%20by%20asking%20us%20what%20the%20idea%20is%2C%20how%20often%20the%20task%20comes%20up%2C%20and%20what%20we%20do%20today.%20Then%20help%20us%20make%20it%20concrete%20enough%20to%20test%20right%20now.%20Be%20honest%20if%20you%20think%20AI%20is%20the%20wrong%20tool%20for%20it%2C%20or%20if%20the%20time%20saved%20will%20be%20smaller%20than%20we%20hope%20%E2%80%93%20don%27t%20try%20to%20make%20the%20idea%20work%20if%20it%20doesn%27t.%20Don%27t%20give%20us%20a%20finished%20plan%3B%20take%20one%20step%20at%20a%20time%20so%20we%20get%20to%20try%20it%20for%20real%20before%20the%20time%20is%20up.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=We%20work%20at%20an%20international%20school%20in%20Stockholm%20with%20children%20aged%205%20to%2011%2C%20and%20we%20already%20have%20an%20idea%20for%20something%20we%20could%20use%20AI%20for%20to%20save%20time.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20see%20whether%20it%20holds%20up.%20Start%20by%20asking%20us%20what%20the%20idea%20is%2C%20how%20often%20the%20task%20comes%20up%2C%20and%20what%20we%20do%20today.%20Then%20help%20us%20make%20it%20concrete%20enough%20to%20test%20right%20now.%20Be%20honest%20if%20you%20think%20AI%20is%20the%20wrong%20tool%20for%20it%2C%20or%20if%20the%20time%20saved%20will%20be%20smaller%20than%20we%20hope%20%E2%80%93%20don%27t%20try%20to%20make%20the%20idea%20work%20if%20it%20doesn%27t.%20Don%27t%20give%20us%20a%20finished%20plan%3B%20take%20one%20step%20at%20a%20time%20so%20we%20get%20to%20try%20it%20for%20real%20before%20the%20time%20is%20up.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<a href="https://duckduckgo.com/?q=We%20work%20at%20an%20international%20school%20in%20Stockholm%20with%20children%20aged%205%20to%2011%2C%20and%20we%20already%20have%20an%20idea%20for%20something%20we%20could%20use%20AI%20for%20to%20save%20time.%20As%20part%20of%20our%20school%27s%20AI%20training%20days%2C%20we%20have%2040%20minutes%20to%20see%20whether%20it%20holds%20up.%20Start%20by%20asking%20us%20what%20the%20idea%20is%2C%20how%20often%20the%20task%20comes%20up%2C%20and%20what%20we%20do%20today.%20Then%20help%20us%20make%20it%20concrete%20enough%20to%20test%20right%20now.%20Be%20honest%20if%20you%20think%20AI%20is%20the%20wrong%20tool%20for%20it%2C%20or%20if%20the%20time%20saved%20will%20be%20smaller%20than%20we%20hope%20%E2%80%93%20don%27t%20try%20to%20make%20the%20idea%20work%20if%20it%20doesn%27t.%20Don%27t%20give%20us%20a%20finished%20plan%3B%20take%20one%20step%20at%20a%20time%20so%20we%20get%20to%20try%20it%20for%20real%20before%20the%20time%20is%20up.%20Remind%20us%20not%20to%20enter%20names%20or%20sensitive%20information%20about%20children.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<button class="service-btn copy-btn" data-prompt="We work at an international school in Stockholm with children aged 5 to 11, and we already have an idea for something we could use AI for to save time. As part of our school&#x27;s AI training days, we have 40 minutes to see whether it holds up. Start by asking us what the idea is, how often the task comes up, and what we do today. Then help us make it concrete enough to test right now. Be honest if you think AI is the wrong tool for it, or if the time saved will be smaller than we hope – don&#x27;t try to make the idea work if it doesn&#x27;t. Don&#x27;t give us a finished plan; take one step at a time so we get to try it for real before the time is up. Remind us not to enter names or sensitive information about children.
+" title="We work at an international school in Stockholm with children aged 5 to 11, and we already have an idea for something we could use AI for to save time. As part of our school&#x27;s AI training days, we have 40 minutes to see whether it holds up. Start by asking us what the idea is, how often the task comes up, and what we do today. Then help us make it concrete enough to test right now. Be honest if you think AI is the wrong tool for it, or if the time saved will be smaller than we hope – don&#x27;t try to make the idea work if it doesn&#x27;t. Don&#x27;t give us a finished plan; take one step at a time so we get to try it for real before the time is up. Remind us not to enter names or sensitive information about children.
+" onclick="copyPrompt(this)">Copy prompt</button></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+  <section class="resources-section">
+    <div class="container">
+      
+    <div class="resource-group">
+      <h3 class="resource-heading">Tools</h3>
+      <ul class="resource-list"><li><a href="https://elicit.com" target="_blank">Elicit</a><span class="resource-note">Finds and compares research articles. Good when you want to know what the research actually says.</span></li><li><a href="https://notebook.google.com" target="_blank">Gemini Notebook</a><span class="resource-note">Upload your own documents, then ask questions about them – or turn them into a podcast or an infographic.</span></li></ul>
+    </div>
+    </div>
+  </section>
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR code for this page">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Address of this page</p>
+          <p class="url-text">falkai.org/p/issr-pyp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
