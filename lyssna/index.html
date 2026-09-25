@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyssna – live transkribering i webbläsaren · Falk AI</title>
+  <meta name="description" content="Transkribera tal till text live, direkt i webbläsaren. Kör KB-Whisper lokalt på din enhet – inget ljud lämnar din dator.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .lyssna-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .lyssna-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .lyssna-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      align-items: end;
+      margin-bottom: 1.25rem;
+    }
+    .lyssna-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .lyssna-field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .lyssna-field select {
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.55rem 0.8rem;
+      max-width: 320px;
+    }
+    .lyssna-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .lyssna-btn {
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.65rem 1.3rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .lyssna-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    .lyssna-btn--primary { background: var(--orange); color: var(--white); }
+    .lyssna-btn--primary:hover:not(:disabled) { background: #e07a0f; transform: translateY(-1px); }
+    .lyssna-btn--stop { background: #c0392b; color: var(--white); }
+    .lyssna-btn--stop:hover:not(:disabled) { background: #a93226; }
+    .lyssna-btn--ghost {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .lyssna-btn--ghost:hover:not(:disabled) { border-color: var(--teal); color: var(--teal); }
+    .lyssna-status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #bbb;
+      flex-shrink: 0;
+    }
+    .status-dot--loading { background: var(--orange); animation: pulse 1s infinite alternate; }
+    .status-dot--live { background: #27ae60; animation: pulse 1s infinite alternate; }
+    .status-dot--error { background: #c0392b; }
+    @keyframes pulse { from { opacity: 1; } to { opacity: 0.4; } }
+    .lyssna-progress {
+      display: none;
+      height: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .lyssna-progress--visible { display: block; }
+    .lyssna-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--teal);
+      transition: width 0.2s;
+    }
+    .lyssna-progress-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .level-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .level-meter {
+      flex: 1;
+      max-width: 240px;
+      height: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .level-meter-fill { height: 100%; width: 0%; background: var(--teal); transition: width 0.1s; }
+    .transcript-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .transcript-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      min-height: 220px;
+      max-height: 480px;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .transcript-box--empty { color: var(--text-muted); font-style: italic; }
+    .transcript-entry { margin-bottom: 0.6rem; }
+    .transcript-entry:last-child { margin-bottom: 0; }
+    .transcript-time {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-right: 0.5rem;
+      white-space: nowrap;
+    }
+    .transcript-pending { color: var(--text-muted); font-style: italic; }
+    .lyssna-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; }
+    .lyssna-note a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+    .lyssna-note a:hover { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Lyssna</h1>
+      <p>Live transkribering direkt i webbläsaren. Prata i mikrofonen och få svensk text i realtid – inget ljud lämnar din dator.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-content">
+    <div class="container">
+      <div class="article-body">
+
+        <div class="info-box">
+          <p><strong>100 % lokalt.</strong> Transkriberingen körs med KB-Whisper – Kungliga bibliotekets tal-till-text-modell tränad specifikt på svenska – direkt på din enhet via Transformers.js. Ljudet från mikrofonen skickas aldrig någonstans. Första gången laddas modellen hem (75–500 MB beroende på storlek) och sparas sedan i webbläsarens cache.</p>
+        </div>
+
+        <section class="lyssna-card" aria-label="Kontroller">
+          <h2>1. Ladda modell och börja lyssna</h2>
+          <div class="lyssna-controls">
+            <div class="lyssna-field">
+              <label for="model-select">Modell</label>
+              <select id="model-select">
+                <option value="onnx-community/kb-whisper-tiny-ONNX">Tiny – snabbast (~75 MB)</option>
+                <option value="onnx-community/kb-whisper-base-ONNX" selected>Base – balans (~150 MB)</option>
+                <option value="onnx-community/kb-whisper-small-ONNX">Small – bäst kvalitet (~500 MB, långsam)</option>
+              </select>
+            </div>
+            <div class="lyssna-field">
+              <label for="chunk-select">Ljudstycke</label>
+              <select id="chunk-select">
+                <option value="3">3 sekunder – rappare</option>
+                <option value="5" selected>5 sekunder – balans</option>
+                <option value="8">8 sekunder – säkrare meningar</option>
+              </select>
+            </div>
+            <div class="lyssna-buttons">
+              <button id="btn-load" class="lyssna-btn lyssna-btn--primary">Ladda modell</button>
+              <button id="btn-start" class="lyssna-btn lyssna-btn--primary" disabled>Börja lyssna</button>
+              <button id="btn-stop" class="lyssna-btn lyssna-btn--stop" disabled>Stoppa</button>
+            </div>
+          </div>
+          <div class="lyssna-status">
+            <span id="status-dot" class="status-dot" aria-hidden="true"></span>
+            <span id="status-text">Välj modell och klicka på “Ladda modell”.</span>
+          </div>
+          <div id="progress-wrap" class="lyssna-progress" aria-hidden="true">
+            <div id="progress-bar" class="lyssna-progress-bar"></div>
+          </div>
+          <div id="progress-label" class="lyssna-progress-label"></div>
+          <div class="level-wrap">
+            <span>Mikrofonnivå:</span>
+            <div class="level-meter" aria-hidden="true"><div id="level-fill" class="level-meter-fill"></div></div>
+          </div>
+          <p class="lyssna-note">Kräver HTTPS (eller localhost) samt att du ger sidan tillgång till mikrofonen. Chrome eller Edge på dator rekommenderas – första transkriberingen tar några sekunder per ljudstycke, sedan flyter det på.</p>
+        </section>
+
+        <section class="lyssna-card" aria-label="Transkription">
+          <h2>2. Din transkription</h2>
+          <div class="transcript-actions">
+            <button id="btn-copy" class="lyssna-btn lyssna-btn--ghost">Kopiera text</button>
+            <button id="btn-download" class="lyssna-btn lyssna-btn--ghost">Ladda ner (.txt)</button>
+            <button id="btn-clear" class="lyssna-btn lyssna-btn--ghost">Rensa</button>
+          </div>
+          <div id="transcript" class="transcript-box transcript-box--empty" aria-live="polite">Transkriptionen visas här när du börjar lyssna …</div>
+          <p class="lyssna-note">Texten finns bara i den här fliken och försvinner när du stänger eller laddar om sidan. Spara via “Kopiera text” eller “Ladda ner”.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>Så fungerar det</h2>
+          <p>Mikrofonljudet delas upp i korta stycken (3–8 sekunder) som transkriberas ett i taget med KB-Whisper, direkt på din enhet. Tystnad hoppas över automatiskt. Texten byggs upp rad för rad med tidsstämplar.</p>
+          <h3>Begränsningar</h3>
+          <p>Live transkribering i webbläsaren är en avvägning mellan hastighet och precision. Ord vid gränsen mellan två stycken kan ibland kapas, och mindre modeller kan hallucinera enstaka ord vid tyst eller otydligt ljud. Behöver du transkribera en inspelad ljudfil med högsta kvalitet, använd i stället <a href="https://kb-whisper.mesu.re" target="_blank">kb-whisper.mesu.re</a> – samma teknik och samma integritet, fast för filer.</p>
+          <h3>Tack</h3>
+          <p>KB-Whisper är utvecklad av <a href="https://www.kb.se/" target="_blank">Kungliga biblioteket (KB)</a>. Den här sidan är inspirerad av <a href="https://kb-whisper.mesu.re" target="_blank">kb-whisper.mesu.re</a> av Pierre Mesure, byggd på <a href="https://github.com/xenova/whisper-web" target="_blank">whisper-web</a> (Xenova) och <a href="https://huggingface.co/docs/transformers.js" target="_blank">Transformers.js</a> från Hugging Face.</p>
+        </section>
+
+        <noscript><p>Den här sidan kräver JavaScript för att kunna transkribera lokalt i din webbläsare.</p></noscript>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+
+  <script type="module">
+    import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1';
+
+    env.allowLocalModels = false;
+
+    const $ = (id) => document.getElementById(id);
+    const statusDot = $('status-dot');
+    const statusText = $('status-text');
+    const progressWrap = $('progress-wrap');
+    const progressBar = $('progress-bar');
+    const progressLabel = $('progress-label');
+    const levelFill = $('level-fill');
+    const transcriptBox = $('transcript');
+    const modelSelect = $('model-select');
+    const chunkSelect = $('chunk-select');
+    const btnLoad = $('btn-load');
+    const btnStart = $('btn-start');
+    const btnStop = $('btn-stop');
+    const btnCopy = $('btn-copy');
+    const btnDownload = $('btn-download');
+    const btnClear = $('btn-clear');
+
+    let transcriber = null;
+    let loadedModelId = null;
+    let loading = false;
+    let recording = false;
+    let processing = false;
+
+    let audioContext = null;
+    let workletNode = null;
+    let mediaStream = null;
+    let pumpTimer = null;
+
+    let sampleChunks = [];
+    let sampleCount = 0;
+    let startedAt = 0;
+    let entries = [];
+
+    const SAMPLE_RATE = 16000;
+    const SILENCE_RMS = 0.008;
+    const MIN_FINAL_SECONDS = 1.2;
+
+    function setStatus(mode, text) {
+      statusDot.className = 'status-dot' + (mode ? ' status-dot--' + mode : '');
+      statusText.textContent = text;
+    }
+
+    function refreshButtons() {
+      btnLoad.disabled = loading || recording;
+      modelSelect.disabled = loading || recording;
+      chunkSelect.disabled = recording;
+      btnStart.disabled = loading || recording || !transcriber;
+      btnStop.disabled = !recording;
+    }
+
+    function formatTime(ms) {
+      const s = Math.max(0, Math.floor(ms / 1000));
+      const mm = String(Math.floor(s / 60)).padStart(2, '0');
+      const ss = String(s % 60).padStart(2, '0');
+      return mm + ':' + ss;
+    }
+
+    function renderTranscript(pendingText) {
+      if (entries.length === 0 && !pendingText) {
+        transcriptBox.classList.add('transcript-box--empty');
+        transcriptBox.textContent = 'Transkriptionen visas här när du börjar lyssna …';
+        return;
+      }
+      transcriptBox.classList.remove('transcript-box--empty');
+      transcriptBox.innerHTML = '';
+      for (const e of entries) {
+        const div = document.createElement('div');
+        div.className = 'transcript-entry';
+        const t = document.createElement('span');
+        t.className = 'transcript-time';
+        t.textContent = '[' + e.time + ']';
+        div.appendChild(t);
+        div.appendChild(document.createTextNode(e.text));
+        transcriptBox.appendChild(div);
+      }
+      if (pendingText) {
+        const div = document.createElement('div');
+        div.className = 'transcript-entry transcript-pending';
+        div.textContent = pendingText;
+        transcriptBox.appendChild(div);
+      }
+      transcriptBox.scrollTop = transcriptBox.scrollHeight;
+    }
+
+    function plainText() {
+      return entries.map((e) => '[' + e.time + '] ' + e.text).join('\n');
+    }
+
+    function rmsOf(samples) {
+      let sum = 0;
+      for (let i = 0; i < samples.length; i++) sum += samples[i] * samples[i];
+      return Math.sqrt(sum / Math.max(1, samples.length));
+    }
+
+    function concatSamples() {
+      const out = new Float32Array(sampleCount);
+      let offset = 0;
+      for (const c of sampleChunks) {
+        out.set(c, offset);
+        offset += c.length;
+      }
+      return out;
+    }
+
+    function takeSamples(n) {
+      const all = concatSamples();
+      const head = all.slice(0, n);
+      const rest = all.slice(n);
+      sampleChunks = rest.length > 0 ? [rest] : [];
+      sampleCount = rest.length;
+      return head;
+    }
+
+    function isHallucination(text) {
+      const t = text.trim();
+      if (!t) return true;
+      if (/^\[.*\]$/.test(t) || /^\(.*\)$/.test(t)) return true;
+      return false;
+    }
+
+    async function loadModel() {
+      const modelId = modelSelect.value;
+      if (loading) return;
+      if (transcriber && loadedModelId === modelId) {
+        setStatus('', 'Modellen är redan laddad. Klicka på “Börja lyssna”.');
+        refreshButtons();
+        return;
+      }
+      loading = true;
+      transcriber = null;
+      loadedModelId = null;
+      refreshButtons();
+      setStatus('loading', 'Laddar modell … (första gången kan ta flera minuter)');
+      progressWrap.classList.add('lyssna-progress--visible');
+      progressBar.style.width = '0%';
+      progressLabel.textContent = 'Startar nedladdning …';
+
+      const progressCallback = (info) => {
+        if (info && info.status === 'progress' && info.total) {
+          const pct = Math.round((info.loaded / info.total) * 100);
+          progressBar.style.width = pct + '%';
+          progressLabel.textContent = 'Laddar ' + (info.file || 'modell') + ' … ' + pct + ' %';
+        } else if (info && info.status === 'done' && info.file) {
+          progressLabel.textContent = 'Klar: ' + info.file;
+        }
+      };
+
+      try {
+        try {
+          transcriber = await pipeline('automatic-speech-recognition', modelId, {
+            device: 'webgpu',
+            dtype: 'q4',
+            progress_callback: progressCallback,
+          });
+        } catch (gpuErr) {
+          console.warn('WebGPU ej tillgängligt, faller tillbaka till WASM:', gpuErr);
+          progressLabel.textContent = 'WebGPU saknas – använder CPU (WASM) i stället …';
+          transcriber = await pipeline('automatic-speech-recognition', modelId, {
+            dtype: 'q4',
+            progress_callback: progressCallback,
+          });
+        }
+        loadedModelId = modelId;
+        progressBar.style.width = '100%';
+        progressLabel.textContent = 'Modell laddad och klar.';
+        setStatus('', 'Modell laddad. Klicka på “Börja lyssna” och tillåt mikrofonen.');
+      } catch (err) {
+        console.error(err);
+        setStatus('error', 'Kunde inte ladda modellen. Kontrollera uppkopplingen och försök igen.');
+        progressLabel.textContent = '';
+        transcriber = null;
+      } finally {
+        loading = false;
+        refreshButtons();
+      }
+    }
+
+    const WORKLET_CODE = `
+      class CaptureProcessor extends AudioWorkletProcessor {
+        process(inputs) {
+          const channel = inputs && inputs[0] && inputs[0][0];
+          if (channel) this.port.postMessage(channel.slice(0));
+          return true;
+        }
+      }
+      registerProcessor('lyssna-capture', CaptureProcessor);
+    `;
+
+    async function startListening() {
+      if (recording || !transcriber) return;
+      if (!window.isSecureContext) {
+        setStatus('error', 'Mikrofon kräver HTTPS eller localhost. Öppna sidan via https://falkai.org/lyssna.');
+        return;
+      }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        setStatus('error', 'Din webbläsare stödjer inte mikrofoninspelning. Prova Chrome eller Edge.');
+        return;
+      }
+      try {
+        setStatus('loading', 'Ber om tillgång till mikrofonen …');
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+        });
+        audioContext = new AudioContext({ sampleRate: SAMPLE_RATE, latencyHint: 'interactive' });
+        await audioContext.audioWorklet.addModule(
+          URL.createObjectURL(new Blob([WORKLET_CODE], { type: 'application/javascript' }))
+        );
+        workletNode = new AudioWorkletNode(audioContext, 'lyssna-capture');
+        const source = audioContext.createMediaStreamSource(mediaStream);
+        source.connect(workletNode);
+
+        sampleChunks = [];
+        sampleCount = 0;
+        processing = false;
+        recording = true;
+        startedAt = Date.now();
+        refreshButtons();
+        setStatus('live', 'Lyssnar … prata i mikrofonen.');
+        renderTranscript('Lyssnar …');
+
+        workletNode.port.onmessage = (event) => {
+          const data = event.data;
+          if (!recording || !data) return;
+          sampleChunks.push(new Float32Array(data));
+          sampleCount += data.length;
+          const rms = rmsOf(data);
+          levelFill.style.width = Math.min(100, Math.round(rms * 500)) + '%';
+        };
+
+        pumpTimer = setInterval(pumpAudio, 300);
+      } catch (err) {
+        console.error(err);
+        setStatus('error', 'Kunde inte starta mikrofonen. Kontrollera att du gett tillåtelse och försök igen.');
+        await teardownAudio();
+        refreshButtons();
+      }
+    }
+
+    async function pumpAudio() {
+      if (!recording || processing || !transcriber) return;
+      const chunkSec = parseInt(chunkSelect.value, 10) || 5;
+      const need = SAMPLE_RATE * chunkSec;
+      if (sampleCount < need) return;
+      processing = true;
+      const chunk = takeSamples(need);
+      const chunkStart = Date.now() - startedAt - Math.round((sampleCount / SAMPLE_RATE) * 1000);
+      try {
+        if (rmsOf(chunk) < SILENCE_RMS) {
+          renderTranscript('Lyssnar …');
+        } else {
+          renderTranscript('Transkriberar …');
+          const result = await transcriber(chunk, { language: 'swedish', task: 'transcribe' });
+          const text = (result && result.text ? String(result.text) : '').trim();
+          if (!isHallucination(text)) {
+            entries.push({ time: formatTime(Math.max(0, chunkStart)), text });
+            renderTranscript('Lyssnar …');
+          } else {
+            renderTranscript('Lyssnar …');
+          }
+        }
+      } catch (err) {
+        console.error(err);
+        renderTranscript('Lyssnar … (ett stycke misslyckades – fortsätter)');
+      } finally {
+        processing = false;
+      }
+    }
+
+    async function stopListening() {
+      if (!recording) return;
+      recording = false;
+      if (pumpTimer) {
+        clearInterval(pumpTimer);
+        pumpTimer = null;
+      }
+      setStatus('loading', 'Avslutar … transkriberar sista ljudstycket.');
+      refreshButtons();
+      try {
+        const minSamples = Math.floor(SAMPLE_RATE * MIN_FINAL_SECONDS);
+        if (sampleCount >= minSamples && transcriber && !processing) {
+          const chunk = takeSamples(sampleCount);
+          if (rmsOf(chunk) >= SILENCE_RMS) {
+            const result = await transcriber(chunk, { language: 'swedish', task: 'transcribe' });
+            const text = (result && result.text ? String(result.text) : '').trim();
+            if (!isHallucination(text)) {
+              entries.push({ time: formatTime(Date.now() - startedAt), text });
+            }
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        await teardownAudio();
+        sampleChunks = [];
+        sampleCount = 0;
+        levelFill.style.width = '0%';
+        renderTranscript(null);
+        setStatus('', entries.length > 0 ? 'Stoppad. Glöm inte att spara din text.' : 'Stoppad. Börja lyssna igen när du vill.');
+        refreshButtons();
+      }
+    }
+
+    async function teardownAudio() {
+      try {
+        if (workletNode) {
+          workletNode.port.onmessage = null;
+          workletNode.disconnect();
+        }
+      } catch (e) { /* ignorera */ }
+      workletNode = null;
+      try {
+        if (mediaStream) mediaStream.getTracks().forEach((t) => t.stop());
+      } catch (e) { /* ignorera */ }
+      mediaStream = null;
+      try {
+        if (audioContext) await audioContext.close();
+      } catch (e) { /* ignorera */ }
+      audioContext = null;
+    }
+
+    btnLoad.addEventListener('click', loadModel);
+    btnStart.addEventListener('click', startListening);
+    btnStop.addEventListener('click', stopListening);
+
+    modelSelect.addEventListener('change', () => {
+      if (transcriber && loadedModelId !== modelSelect.value) {
+        setStatus('', 'Du har bytt modell – klicka på “Ladda modell” för att ladda den.');
+        transcriber = null;
+        loadedModelId = null;
+        progressBar.style.width = '0%';
+        progressLabel.textContent = '';
+        refreshButtons();
+      }
+    });
+
+    btnCopy.addEventListener('click', async () => {
+      const text = plainText();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        btnCopy.textContent = 'Kopierad!';
+        setTimeout(() => { btnCopy.textContent = 'Kopiera text'; }, 1500);
+      } catch (err) {
+        console.error(err);
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btnCopy.textContent = 'Kopierad!';
+        setTimeout(() => { btnCopy.textContent = 'Kopiera text'; }, 1500);
+      }
+    });
+
+    btnDownload.addEventListener('click', () => {
+      const text = plainText();
+      if (!text) return;
+      const blob = new Blob([text + '\n'], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
+      a.href = url;
+      a.download = 'lyssna-transkription-' + stamp + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    btnClear.addEventListener('click', () => {
+      entries = [];
+      renderTranscript(recording ? 'Lyssnar …' : null);
+    });
+
+    window.addEventListener('beforeunload', () => {
+      if (recording) {
+        recording = false;
+        if (pumpTimer) clearInterval(pumpTimer);
+        if (mediaStream) mediaStream.getTracks().forEach((t) => t.stop());
+      }
+    });
+
+    refreshButtons();
+  </script>
+
+</body>
+</html>
