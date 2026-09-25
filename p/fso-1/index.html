@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI, folkhögskolor och du – Sveriges folkhögskolor · Falk AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .session-hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 0 2.5rem;
+    }
+    .session-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .session-hero .session-date {
+      font-size: 0.9rem;
+      color: rgba(245,245,240,0.7);
+    }
+    .session-desc {
+      margin-top: 0.75rem;
+      color: rgba(245,245,240,0.85);
+      max-width: 600px;
+    }
+    .exercises {
+      padding: 2.5rem 0;
+    }
+    .exercise {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exercise-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .exercise-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    .service-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.15s;
+    }
+    .service-btn:hover { opacity: 0.85; }
+    .service-chatgpt { background: #10a37f; }
+    .service-claude { background: #d97706; }
+    .service-gemini { background: #4285f4; }
+    .service-perplexity { background: #20b2aa; }
+    .service-duck { background: #de5833; }
+    .service-notebooklm { background: #1a73e8; }
+    .service-arena { background: #7c3aed; }
+    .variants {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .variant {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .variant-name {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      min-width: 180px;
+      flex: 1;
+    }
+    .session-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+      margin-top: 1rem;
+    }
+    .session-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .session-footer-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .session-footer-url {
+      font-family: var(--font-sans);
+    }
+    .session-footer-url .url-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .session-footer-url .url-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .exercise-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .service-link { background: var(--navy); }
+    .service-link:hover { opacity: 0.85; }
+    .copy-btn {
+      background: var(--cream);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: var(--border); color: var(--text); }
+    .copy-btn.copied { background: var(--teal); color: white; border-color: var(--teal); }
+    .resources-section {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .resource-group { margin-bottom: 1.5rem; }
+    .resource-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .resource-list a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .resource-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .resource-note::before { content: "– "; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container"></nav>
+    <script src="/nav.js"></script>
+  </header>
+
+  <section class="session-hero">
+    <div class="container">
+      <p class="session-date">2026-10-02</p>
+      <h1>AI, folkhögskolor och du – Sveriges folkhögskolor</h1>
+      <p class="session-desc">Övningar från dagen med Johan Falk. Klicka på en knapp för att öppna prompten i en AI-tjänst, eller kopiera den och klistra in där du vill.</p>
+    </div>
+  </section>
+
+  <section class="exercises">
+    <div class="container">
+
+    <div class="exercise">
+      <div class="exercise-header">
+        <span class="exercise-number">1</span>
+        <h2 class="exercise-title">Mini-övning: Kort samtal med en chattbot</h2>
+      </div>
+      <p class="exercise-desc">Ställ uppföljningsfrågor eller fortsätt konversationen på ett sätt som känns meningsfullt. Testa gärna samma sak i två olika chattbottar och jämför.</p>
+      <div class="variants">
+        <div class="variant">
+          <span class="variant-name">Nytta – och när AI är en dålig idé</span>
+          <div class="service-links"><a href="https://chatgpt.com/?prompt=Jag%20jobbar%20p%C3%A5%20folkh%C3%B6gskola%20och%20%C3%A4r%20tveksam%20till%20AI.%20Fr%C3%A5ga%20vad%20jag%20jobbar%20med%2C%20och%20ge%20sedan%20ett%20exempel%20d%C3%A4r%20AI%20faktiskt%20skulle%20vara%20till%20nytta%20f%C3%B6r%20mig%2C%20och%20ett%20d%C3%A4r%20det%20vore%20en%20d%C3%A5lig%20id%C3%A9.%0A" class="service-btn service-chatgpt" target="_blank">ChatGPT</a>
+<a href="https://duckduckgo.com/?q=Jag%20jobbar%20p%C3%A5%20folkh%C3%B6gskola%20och%20%C3%A4r%20tveksam%20till%20AI.%20Fr%C3%A5ga%20vad%20jag%20jobbar%20med%2C%20och%20ge%20sedan%20ett%20exempel%20d%C3%A4r%20AI%20faktiskt%20skulle%20vara%20till%20nytta%20f%C3%B6r%20mig%2C%20och%20ett%20d%C3%A4r%20det%20vore%20en%20d%C3%A5lig%20id%C3%A9.%0A&ia=chat&duckai=1" class="service-btn service-duck" target="_blank">Duck.ai</a>
+<a href="https://claude.ai/new?q=Jag%20jobbar%20p%C3%A5%20folkh%C3%B6gskola%20och%20%C3%A4r%20tveksam%20till%20AI.%20Fr%C3%A5ga%20vad%20jag%20jobbar%20med%2C%20och%20ge%20sedan%20ett%20exempel%20d%C3%A4r%20AI%20faktiskt%20skulle%20vara%20till%20nytta%20f%C3%B6r%20mig%2C%20och%20ett%20d%C3%A4r%20det%20vore%20en%20d%C3%A5lig%20id%C3%A9.%0A" class="service-btn service-claude" target="_blank">Claude</a>
+<a href="https://www.google.com/search?udm=50&aep=11&q=Jag%20jobbar%20p%C3%A5%20folkh%C3%B6gskola%20och%20%C3%A4r%20tveksam%20till%20AI.%20Fr%C3%A5ga%20vad%20jag%20jobbar%20med%2C%20och%20ge%20sedan%20ett%20exempel%20d%C3%A4r%20AI%20faktiskt%20skulle%20vara%20till%20nytta%20f%C3%B6r%20mig%2C%20och%20ett%20d%C3%A4r%20det%20vore%20en%20d%C3%A5lig%20id%C3%A9.%0A" class="service-btn service-gemini" target="_blank">Gemini</a>
+<button class="service-btn copy-btn" data-prompt="Jag jobbar på folkhögskola och är tveksam till AI. Fråga vad jag jobbar med, och ge sedan ett exempel där AI faktiskt skulle vara till nytta för mig, och ett där det vore en dålig idé.
+" title="Jag jobbar på folkhögskola och är tveksam till AI. Fråga vad jag jobbar med, och ge sedan ett exempel där AI faktiskt skulle vara till nytta för mig, och ett där det vore en dålig idé.
+" onclick="copyPrompt(this)">Kopiera prompt</button></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+
+  <section class="session-footer">
+    <div class="container">
+      <div class="session-footer-inner">
+        <div class="session-footer-qr">
+          <img src="qr.png" alt="QR-kod till den här sidan">
+        </div>
+        <div class="session-footer-url">
+          <p class="url-label">Den här sidans adress</p>
+          <p class="url-text">falkai.org/p/fso-1</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
+  <script src="/footer.js"></script>
+  <script>
+    function copyPrompt(btn) {
+      const prompt = btn.dataset.prompt;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Kopierad!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
