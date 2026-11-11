@@ -15,6 +15,24 @@
 
 const WEEKS = [
   {
+    id: "v46", title: "Vecka 46", words: [
+      { sv: "stam", en: "trunk" },
+      { sv: "krona", en: "crown" },
+      { sv: "löv", en: "leaf" },
+      { sv: "blommar", en: "blossom" },
+      { sv: "kvist", en: "twig" },
+      { sv: "gren", en: "branch" },
+      { sv: "rot", en: "root" },
+      { sv: "ek", en: "oak" },
+      { sv: "tall", en: "pine" },
+      { sv: "björk", en: "birch" },
+      { sv: "lönn", en: "maple" },
+      { sv: "bok (träd)", en: "beech" },
+      { sv: "gran", en: "fir" },
+      { sv: "rönn", en: "rowan" },
+    ],
+  },
+  {
     id: "v43", title: "Vecka 43", words: [
       { sv: "gnugga", en: "rub" },
       { sv: "tillaga", en: "cook" },
