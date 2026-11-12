@@ -9,7 +9,7 @@ if len(sys.argv) > 1:  # manuell körning: URL:er som argument
     urls = sys.argv[1:]
 else:
     files = subprocess.run(
-        ["git", "diff", "--name-only", "--diff-filter=AM", "HEAD~1", "HEAD"],
+        ["git", "diff", "--name-only", "--diff-filter=AM", os.environ.get("BEFORE_SHA") or "HEAD~1", "HEAD"],
         capture_output=True, text=True, check=True).stdout.split("\n")
     urls = []
     for f in files:
