@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://falkai.org/</loc><lastmod>2026-09-04</lastmod></url>
-  <url><loc>https://falkai.org/2024/05/27/hello-world/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/06/04/34-miljarder-fran-microsoft-vad-betyder-det/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/06/09/i-huvudet-pa-claude-3/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/06/13/vad-som-driver-mig/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/06/16/teams-of-ai-agents-can-find-and-exploit-new-cyber-vulnerabilities/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/06/20/ilya-sutskever-starts-new-ai-lab-what-does-it-mean/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/07/07/chattbot-utan-sparrar-vad-betyder-det/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/08/11/who-believes-ai-is-conscious/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/08/30/en-modell-for-ai-stod-i-beslutsfattande-steg-1-av-4/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/09/13/a-few-thoughts-on-o1-is-it-a-hybrid/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/09/27/thoughts-on-o1-two-weeks-later/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/12/09/when-ai-schemes-real-cases-of-machine-deception/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2024/12/25/highlighting-ai-performance-with-a-new-scale/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2025/02/07/deep-research-in-action-evaluating-ais-ability-to-analyze-the-future/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2025/04/22/reflections-on-ai-as-normal-technology/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2025/05/06/the-human-guide-to-ai-top-ten-x-2-celebration/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2025/06/01/gen-ai-som-i-generell-inte-generativ/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2025/10/17/ai-for-larare/</loc><lastmod>2026-08-05</lastmod></url>
+  <url><loc>https://falkai.org/2024/05/27/hello-world/</loc><lastmod>2024-05-27</lastmod></url>
+  <url><loc>https://falkai.org/2024/06/04/34-miljarder-fran-microsoft-vad-betyder-det/</loc><lastmod>2024-06-04</lastmod></url>
+  <url><loc>https://falkai.org/2024/06/09/i-huvudet-pa-claude-3/</loc><lastmod>2024-06-09</lastmod></url>
+  <url><loc>https://falkai.org/2024/06/13/vad-som-driver-mig/</loc><lastmod>2024-06-13</lastmod></url>
+  <url><loc>https://falkai.org/2024/06/16/teams-of-ai-agents-can-find-and-exploit-new-cyber-vulnerabilities/</loc><lastmod>2024-06-16</lastmod></url>
+  <url><loc>https://falkai.org/2024/06/20/ilya-sutskever-starts-new-ai-lab-what-does-it-mean/</loc><lastmod>2024-06-20</lastmod></url>
+  <url><loc>https://falkai.org/2024/07/07/chattbot-utan-sparrar-vad-betyder-det/</loc><lastmod>2024-07-07</lastmod></url>
+  <url><loc>https://falkai.org/2024/08/11/who-believes-ai-is-conscious/</loc><lastmod>2024-08-11</lastmod></url>
+  <url><loc>https://falkai.org/2024/08/30/en-modell-for-ai-stod-i-beslutsfattande-steg-1-av-4/</loc><lastmod>2024-08-30</lastmod></url>
+  <url><loc>https://falkai.org/2024/09/13/a-few-thoughts-on-o1-is-it-a-hybrid/</loc><lastmod>2024-09-13</lastmod></url>
+  <url><loc>https://falkai.org/2024/09/27/thoughts-on-o1-two-weeks-later/</loc><lastmod>2024-09-27</lastmod></url>
+  <url><loc>https://falkai.org/2024/12/09/when-ai-schemes-real-cases-of-machine-deception/</loc><lastmod>2024-12-09</lastmod></url>
+  <url><loc>https://falkai.org/2024/12/25/highlighting-ai-performance-with-a-new-scale/</loc><lastmod>2024-12-25</lastmod></url>
+  <url><loc>https://falkai.org/2025/02/07/deep-research-in-action-evaluating-ais-ability-to-analyze-the-future/</loc><lastmod>2025-02-07</lastmod></url>
+  <url><loc>https://falkai.org/2025/04/22/reflections-on-ai-as-normal-technology/</loc><lastmod>2025-04-22</lastmod></url>
+  <url><loc>https://falkai.org/2025/05/06/the-human-guide-to-ai-top-ten-x-2-celebration/</loc><lastmod>2025-05-06</lastmod></url>
+  <url><loc>https://falkai.org/2025/06/01/gen-ai-som-i-generell-inte-generativ/</loc><lastmod>2025-06-01</lastmod></url>
+  <url><loc>https://falkai.org/2025/10/17/ai-for-larare/</loc><lastmod>2025-10-17</lastmod></url>
   <url><loc>https://falkai.org/2026-05-06/</loc><lastmod>2026-05-06</lastmod></url>
-  <url><loc>https://falkai.org/2026/01/08/vad-en-ai-strategi-for-svensk-skola-bor-innehalla/</loc><lastmod>2026-08-05</lastmod></url>
-  <url><loc>https://falkai.org/2026/01/11/kommer-ai-paverka-andra-yrken-lika-mycket-som-programmerare/</loc><lastmod>2026-08-05</lastmod></url>
+  <url><loc>https://falkai.org/2026/01/08/vad-en-ai-strategi-for-svensk-skola-bor-innehalla/</loc><lastmod>2026-01-08</lastmod></url>
+  <url><loc>https://falkai.org/2026/01/11/kommer-ai-paverka-andra-yrken-lika-mycket-som-programmerare/</loc><lastmod>2026-01-11</lastmod></url>
   <url><loc>https://falkai.org/bocker/</loc><lastmod>2026-06-08</lastmod></url>
   <url><loc>https://falkai.org/bocker/huset.html</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://falkai.org/bocker/huset.md</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://falkai.org/bocker/huset.txt</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://falkai.org/cv.html</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://falkai.org/en.html</loc><lastmod>2026-09-04</lastmod></url>
   <url><loc>https://falkai.org/etwinning-2026/</loc><lastmod>2026-05-21</lastmod></url>
