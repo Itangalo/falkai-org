@@ -1,0 +1,21 @@
+name: IndexNow
+
+# Pingar Bing m.fl. (IndexNow) med ändrade sidor när GitHub Pages har deployat.
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - run: python3 .github/indexnow.py
+        env:
+          INDEXNOW_KEY: abc47b1927356fb8aed4dce535bce150
