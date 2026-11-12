@@ -24,7 +24,8 @@ else:
 
 print("URL:er:", urls)
 if not urls:
-    sys.exit("Inget att pinga.")
+    print("Inget att pinga.")
+    sys.exit(0)
 body = json.dumps({"host": HOST, "key": KEY,
                    "keyLocation": f"https://{HOST}/{KEY}.txt",
                    "urlList": urls}).encode()
