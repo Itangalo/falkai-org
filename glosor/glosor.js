@@ -15,6 +15,24 @@
 
 const WEEKS = [
   {
+    id: "v47", title: "Vecka 47", words: [
+      { sv: "stekpanna", en: "frying pan" },
+      { sv: "gryta", en: "pot" },
+      { sv: "pinne", en: "stick" },
+      { sv: "kryddor", en: "spices" },
+      { sv: "sprang iväg", en: "ran off" },
+      { sv: "skål", en: "bowl" },
+      { sv: "bakform", en: "baking tin" },
+      { sv: "säd", en: "grains" },
+      { sv: "genomskinliga", en: "transparent" },
+      { sv: "grönsaker", en: "vegetables" },
+      { sv: "bakplåt", en: "baking sheet" },
+      { sv: "flyta", en: "float" },
+      { sv: "smycke", en: "jewellery" },
+      { sv: "köksredskap", en: "kitchen utensils" },
+    ],
+  },
+  {
     id: "v46", title: "Vecka 46", words: [
       { sv: "stam", en: "trunk" },
       { sv: "krona", en: "crown" },
