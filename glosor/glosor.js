@@ -15,6 +15,24 @@
 
 const WEEKS = [
   {
+    id: "v48", title: "Vecka 48", words: [
+      { sv: "prick", en: "dot" },
+      { sv: "humör", en: "mood" },
+      { sv: "stubbe", en: "tree stump" },
+      { sv: "under", en: "underneath" },
+      { sv: "pytteliten", en: "tiny" },
+      { sv: "knappt", en: "barely" },
+      { sv: "synlig", en: "visible" },
+      { sv: "riddare", en: "knight" },
+      { sv: "ljus", en: "bright" },
+      { sv: "genom", en: "through" },
+      { sv: "tröstande", en: "comforting" },
+      { sv: "avlägset", en: "distant" },
+      { sv: "inse", en: "realize" },
+      { sv: "fnittra", en: "giggle" },
+    ],
+  },
+  {
     id: "v47", title: "Vecka 47", words: [
       { sv: "stekpanna", en: "frying pan" },
       { sv: "gryta", en: "pot" },
