@@ -24,7 +24,7 @@ const WEEKS = [
       { sv: "knappt", en: "barely" },
       { sv: "synlig", en: "visible" },
       { sv: "riddare", en: "knight" },
-      { sv: "ljus (lysande)", en: "bright" },
+      { sv: "ljus (en ljus stjärna)", en: "bright" },
       { sv: "genom (tvärs igenom)", en: "through" },
       { sv: "tröstande", en: "comforting" },
       { sv: "avlägset", en: "distant" },
