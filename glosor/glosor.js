@@ -19,7 +19,7 @@ const WEEKS = [
       { sv: "prick (liten fläck)", en: "dot" },
       { sv: "humör", en: "mood" },
       { sv: "stubbe", en: "tree stump" },
-      { sv: "under (nedanför)", en: "underneath" },
+      { sv: "under (inte ovanpå)", en: "underneath" },
       { sv: "pytteliten", en: "tiny" },
       { sv: "knappt", en: "barely" },
       { sv: "synlig", en: "visible" },
